@@ -121,6 +121,12 @@ map("n", "<A-8>", ":b8<CR>")
 map("n", "<A-9>", ":b9<CR>")
 map("n", "<leader>bd", ":bd<CR>") --  delete the currentl buffer
 
+-- navigation mappings like tmux <C-hjkl> to <C-w>hjkl
+map("n", "<c-h>", "<c-w>h")
+map("n", "<c-j>", "<c-w>j")
+map("n", "<c-k>", "<c-w>k")
+map("n", "<c-l>", "<c-w>l")
+
 -- +-----------------------------------------------------+
 -- |                        UTILITIES                    |
 -- +-----------------------------------------------------+

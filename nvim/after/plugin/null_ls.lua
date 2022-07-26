@@ -25,6 +25,7 @@ local formattingCommand = "lua vim.lsp.buf.formatting_seq_sync()"
 
 local map = require("sobhanbera.mappings").map
 map("n", "<leader>df", ":lua vim.lsp.buf.formatting()<CR>")
+map("n", "df", ":lua vim.lsp.buf.formatting()<CR>")
 
 -- vim.cmd("autocmd " .. event .. " " .. filetypes .. " " .. formattingCommand) -- formmating a file when saved
 -- print("autocmd " .. event .. " " .. filetypes .. " " .. formattingCommand)

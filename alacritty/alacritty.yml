@@ -113,11 +113,11 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: SourceCodePro
+    # family: SourceCodePro
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -132,11 +132,11 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: SauceCodePro Nerd Font
+    # family: SauceCodePro Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -151,11 +151,11 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: SauceCodePro Nerd Font
+    # family: SauceCodePro Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -214,11 +214,10 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Gruvbox Material Dark Medium)
 colors:
   # Default colors
   primary:
-    background: '#0E1F27'
+    background: '#1f2430'
     foreground: '#cbccc6'
     bright_foreground: '#f28779'
 
@@ -290,7 +289,7 @@ colors:
 
 # the above way to set background opacity is deprecated so using the below one
 window:
-  opacity: 0.95
+  opacity: 0.9
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 

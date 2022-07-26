@@ -13,14 +13,9 @@ local new_maker = function(filepath, bufnr, opts)
 
 	filepath = vim.fn.expand(filepath)
 	vim.loop.fs_stat(filepath, function(_, stat)
-		if not stat then
-			return
-		end
-		if stat.size > 51200 then
-			return
-		else
-			previewers.buffer_previewer_maker(filepath, bufnr, opts)
-		end
+		if not stat then return end
+		if stat.size > 102400 then return
+		else previewers.buffer_previewer_maker(filepath, bufnr, opts) end
 	end)
 end
 
@@ -53,26 +48,26 @@ telescope.setup({
 local map = require('sobhanbera.mappings').map
 map(
 	"n",
-	"<leader>fg",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ prompt_title = '< Search Files >' }))<cr>"
+	"<leader>ff",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ prompt_title = '<Search Files>' }))<cr>"
 ) -- find any file
 map(
 	"n",
-	"<leader>ff",
-	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ prompt_title = '< Project Files >' }))<CR>"
+	"<leader>fj",
+	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ prompt_title = '<Project Files>' }))<CR>"
 ) -- git files
 map(
 	"n",
 	"<leader>fa",
-	"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ prompt_title = '< Recently Opened >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ prompt_title = '<Recently Opened>' }))<cr>"
 ) -- find buffer
 map(
 	"n",
 	"<leader>gr",
-	"<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({ prompt_title = '< Search code >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({ prompt_title = '<Search code>' }))<cr>"
 ) -- find any text throughout the codebase
 map(
 	"n",
 	"<leader>bf",
-	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ prompt_title = '< Search Buffers >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ prompt_title = '<Search Buffers>' }))<cr>"
 ) -- find buffer

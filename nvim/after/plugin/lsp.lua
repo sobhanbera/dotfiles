@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true }
 	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	buf_set_keymap("n", "H", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap("n", "<C-m>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
@@ -72,47 +72,19 @@ end
 -- " +-----------------------------------------------------+ "
 local lspkind = require("lspkind") -- lsp kind icons for completion menu
 lspkind.init({
-	with_text = true,
+	with_text = false,
 	mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-	preset = "codicons",
-	symbol_map = {
-		Text = " ",
-		Method = " ",
-		Function = " ",
-		Constructor = " ",
-		Field = "ﰠ ",
-		Variable = " ",
-		Class = "ﴯ ",
-		Interface = " ",
-		Module = " ",
-		Property = "ﰠ ",
-		Unit = "塞 ",
-		Value = " ",
-		Enum = " ",
-		Keyword = " ",
-		Snippet = " ",
-		Color = " ",
-		File = " ",
-		Reference = " ",
-		Folder = " ",
-		EnumMember = " ",
-		Constant = " ",
-		Struct = "פּ ",
-		Event = " ",
-		Operator = " ",
-		TypeParameter = "",
-	},
 })
 
 -- +-----------------------------------------------------+
 -- |                 INITIALIZING LUASNIPS               |
 -- +-----------------------------------------------------+
 -- require("luasnip.loaders.from_vscode").lazy_load({ include = { "javascript", "typescript", "typescriptreact", "javascriptreact" } })
-require("luasnip.loaders.from_vscode").lazy_load()
-local ls = require "luasnip"
+local luasnip = require "luasnip"
 local types = require "luasnip.util.types"
+require("luasnip.loaders.from_vscode").lazy_load()
 
-ls.config.set_config {
+luasnip.config.set_config {
   -- This tells LuaSnip to remember to keep around the last snippet. You can jump back into it even if you move outside of the selection
   history = true,
   -- This one is cool cause if you have dynamic snippets, it updates as you type!
@@ -121,13 +93,13 @@ ls.config.set_config {
 }
 -- mappings for jumping forward and backward
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
-	if ls.expand_or_jumpable() then
-		ls.expand_or_jump()
+	if luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
 	end
 end, {silent = true})
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
-	if ls.jumpable(-1) then
-		ls.jump(-1)
+	if luasnip.jumpable(-1) then
+		luasnip.jump(-1)
 	end
 end, {silent = true})
 
@@ -142,7 +114,6 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-            local luasnip = prequire("luasnip")
             if not luasnip then
                 return
             end
@@ -154,11 +125,12 @@ cmp.setup({
 		{ name = 'luasnip' },
 		{ name = 'path' },
 		{ name = 'buffer' },
-		{ name = "nvim_lua" },
+		{ name = 'nvim_lua' },
 	},
 	formatting = {
 		format = lspkind.cmp_format({
-			with_text = true,
+			with_text = false,
+			maxwidth= 45,
 			menu = {
 				buffer = "[BUF]",
 				nvim_lsp = "[LSP]",
@@ -178,13 +150,6 @@ cmp.setup({
 			}),
 			{ "i", "c" } -- enter-completion will work both on command mode and insert mode
 		),
-		["<Tab>"] = cmp.mapping(
-			cmp.mapping.confirm({
-				behavior = cmp.ConfirmBehavior.Insert,
-				select = true,
-			}),
-			{ "i", "c" } -- tab-completion will work both on command mode and insert mode
-		),
 		["<C-space>"] = cmp.mapping({
 			i = cmp.mapping.complete(),
 			c = function()
@@ -199,8 +164,8 @@ cmp.setup({
 		}),
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-e>'] = cmp.mapping.abort(),
-		
+		['<C-e>'] = cmp.mapping.close(),
+		['ESC'] = cmp.mapping.close(),
 	},
 	sorting = {
 		comparators = {
@@ -228,7 +193,6 @@ cmp.setup({
 		},
 	},
 })
-
 -- Use buffer source for `/` & `:` (if `native_menu` is enabled both the below won't work anymore).
 -- cmp.setup.cmdline('/', { sources = { {name = 'buffer'} } })
 -- cmp.setup.cmdline(':', { sources = cmp.config.sources({ {name = 'path'} }, { {name = 'cmdline'} }) })
@@ -299,3 +263,7 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
+
+-- extra plugins are being initialized here...
+require('Comment').setup()
+

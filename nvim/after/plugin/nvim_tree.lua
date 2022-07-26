@@ -41,12 +41,12 @@ require("nvim-tree").setup({
 	update_cwd = false,
 	diagnostics = {
 		enable = true,
-		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
-		},
+		-- icons = {
+		-- 	hint = "",
+		-- 	info = "",
+		-- 	warning = "",
+		-- 	error = "",
+		-- },
 	},
 	update_focused_file = {
 		enable = true,
@@ -74,6 +74,11 @@ require("nvim-tree").setup({
 		cmd = "trash",
 		require_confirm = true,
 	},
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		}
+	}
 })
 
 local map = require("sobhanbera.mappings").map
