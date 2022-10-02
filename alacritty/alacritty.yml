@@ -1,0 +1,124 @@
+env:
+  TERM: xterm-256color
+window:
+  padding:
+    x: 1
+    y: 0
+
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 50000
+font:
+  normal:
+    family: JetBrains Mono
+    style: Regular
+  bold:
+    family: JetBrains Mono
+    style: Bold
+  italic:
+    family: JetBrains Mono
+    style: Italic
+  bold_italic:
+    family: SauceCodePro Nerd Font
+    style: Bold
+  size: 16
+  offset:
+    x: 0
+    y: 0
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+colors:
+  # Default colors
+  primary:
+    background: '#1F2734'
+    foreground: '#cbccc6'
+    bright_foreground: '#f28779'
+
+  # Normal colors
+  normal:
+    black:   '#212733' #
+    red:     '#f08778' #
+    green:   '#53bf97' #
+    yellow:  '#fdcc60' #
+    blue:    '#60b8d6' #
+    magenta: '#ec7171' #
+    cyan:    '#98e6ca' #
+    white:   '#fafafa' #
+
+  # Brightened
+  bright:
+    black: '#686868'
+    red: '#f58c7d'
+    green: '#58c49c'
+    yellow: '#ffd165'
+    blue: '#65bddb'
+    magenta: '#f17676'
+    cyan: '#9debcf'
+    white: '#ffffff'
+
+window:
+  opacity: 0.9
+#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard: true
+dynamic_title: true
+cursor:
+  style: "Block"
+#   - ▇ Block
+#   - _ Underline
+#   - | Beam
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\x0c" }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+
+  # Rename the current tmux window
+  - { key: Comma, mods: Command, chars: "\x02\x2c" }
+  # Select a new tmux session for the attached client interactively
+  - { key: K, mods: Command, chars: "\x02\x73" }
+  # Select window 1-9
+  - { key: Key1, mods: Command, chars: "\x02\x31" }
+  - { key: Key2, mods: Command, chars: "\x02\x32" }
+  - { key: Key3, mods: Command, chars: "\x02\x33" }
+  - { key: Key4, mods: Command, chars: "\x02\x34" }
+  - { key: Key5, mods: Command, chars: "\x02\x35" }
+  - { key: Key6, mods: Command, chars: "\x02\x36" }
+  - { key: Key7, mods: Command, chars: "\x02\x37" }
+  - { key: Key8, mods: Command, chars: "\x02\x38" }
+  - { key: Key9, mods: Command, chars: "\x02\x39" }
+  # Split the current pane into two, left and right
+  # - { key: N, mods: Command|Shift, chars: "\x02\x25" }
+  # Split the current pane into two, top and bottom.
+  # - { key: N, mods: Command, chars: "\x02\x22" }
+  # Detach the current tmux client
+  - { key: Q, mods: Command, chars: "\x02\x64" }
+  # Type <escape>:w<enter> to save neovim
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
+  # Create a new tmux window
+  - { key: T, mods: Command, chars: "\x02\x63" }
+  # Kill the current tmux pane (and window if last pane)
+  - { key: W, mods: Command, chars: "\x02\x78" }
+  # Move focus to next window in the tmux-session
+  - { key: K, mods: Command|Shift, chars: "\x02\x6e" }
+  # Move focus to previous window in the tmux-session
+  - { key: J, mods: Command|Shift, chars: "\x02\x70" }
+
