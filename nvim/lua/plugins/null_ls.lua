@@ -8,7 +8,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		-- formatting.prettier.with({
-			-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		-- 	extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		-- }),
 		formatting.prettier, -- without any extra args the formatting is very fast like instantly without any pauses
 		formatting.black.with({
@@ -18,11 +18,13 @@ null_ls.setup({
 	},
 })
 
+
+
 -- auto format files
 
 local map = require("sobhanbera.mappings").map
-map("n", "<leader>df", ":lua vim.lsp.buf.formatting()<CR>")
-map("n", "df", ":lua vim.lsp.buf.formatting()<CR>")
+map("n", "<leader>df", ":lua vim.lsp.buf.format()<CR>")
+map("n", "df", ":lua vim.lsp.buf.format{ async = true }<CR>")
 
 -- local event = "BufWritePost"
 -- local filetypes = "*.js,*.ts,*.tsx,*.jsx,*.css,*.scss,*.lua"

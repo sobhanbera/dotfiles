@@ -11,6 +11,7 @@ Plug("neovim/nvim-lspconfig") -- NVIM LSP CONFIG
 Plug("hrsh7th/nvim-cmp") -- the exact completion plugin, since nvim-compe is deprecated
 Plug("hrsh7th/cmp-nvim-lsp") -- lsp completion
 Plug("hrsh7th/cmp-buffer") -- for buffer completion
+Plug("hrsh7th/cmp-path") -- for paths completion
 Plug("L3MON4D3/LuaSnip") -- snippets
 Plug("saadparwaiz1/cmp_luasnip")
 Plug("rafamadriz/friendly-snippets")
@@ -37,7 +38,9 @@ Plug("airblade/vim-gitgutter") -- shows gutters for git
 -- +-----------------------------------------------------+ "
 -- |            SYNTAX, COLORS AND SCHEMES               |
 -- +-----------------------------------------------------+ "
-Plug("ayu-theme/ayu-vim") -- ayu colorscheme
+-- Plug("ayu-theme/ayu-vim") -- ayu colorscheme
+Plug("projekt0n/github-nvim-theme") -- github default colorscheme
+Plug('ayu-theme/ayu-vim')
 Plug("lilydjwg/colorizer") -- highlight where every color hash or code is found in the entire codebase or files
 Plug("sainnhe/sonokai")
 
@@ -54,6 +57,9 @@ Plug("terryma/vim-multiple-cursors") -- CTRL + N for multiple cursors
 Plug("tpope/vim-surround") -- Surrounding ysw)
 Plug("machakann/vim-sandwich")
 Plug("numToStr/Comment.nvim") -- vim comment link helper
+Plug("tpope/vim-commentary") -- vim commentor
+Plug("mxw/vim-jsx") -- vim jsx differentiator
+Plug("suy/vim-context-commentstring") -- comments based on position of cursor, and context
 Plug("easymotion/vim-easymotion") -- n and N was not working add this or remove the easymotion.vim plugin file. actually this plugin contains a map with n/N remove them so that you could navigate easily
 Plug("psliwka/vim-smoothie") -- smooth vim movements
 Plug("wakatime/vim-wakatime") -- wakatime a developer statistics provider

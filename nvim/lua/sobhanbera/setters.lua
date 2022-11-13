@@ -26,6 +26,7 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.showtabline = 0
 vim.o.fsync = true
+vim.o.pumheight = 12
 
 vim.wo.relativenumber = true
 vim.wo.nu = true
@@ -51,7 +52,7 @@ vim.cmd("set completeopt-=preview")
 
 -- define a boundary to have a over length
 vim.cmd("augroup vimrc_autocmds")
-vim.cmd("autocmd BufEnter * match OverLength /\\%120v.*/")
+-- vim.cmd("autocmd BufEnter * match OverLength /\\%120v.*/")
 vim.cmd("augroup END")
 
 -- vim.g.nvim_tree_show_icons = '{ "git": 1, "folders": 1, "files": 1, "folder_arrows": 1 }'

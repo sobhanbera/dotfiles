@@ -108,17 +108,14 @@ map("n", "<leader>q", ":q <CR>") -- quiting vim
 
 -- Will not work or will collapse with bufferline.nvim
 -- Move to previous/next
-map("n", "<A-d>", ":bprevious<CR>")
-map("n", "<A-f>", ":bnext<CR>")
-map("n", "<A-1>", ":b1<CR>") -- these are some commands which will move the current buffer to different files
-map("n", "<A-2>", ":b2<CR>")
-map("n", "<A-3>", ":b3<CR>")
-map("n", "<A-4>", ":b4<CR>")
-map("n", "<A-5>", ":b5<CR>")
-map("n", "<A-6>", ":b6<CR>")
-map("n", "<A-7>", ":b7<CR>")
-map("n", "<A-8>", ":b8<CR>")
-map("n", "<A-9>", ":b9<CR>")
+map("n", "<leader>bp", ":bprevious<CR>")
+map("n", "<leader>bn", ":bnext<CR>")
+map("n", "<leader>b1", ":b1<CR>") -- these are some commands which will move the current buffer to different files
+map("n", "<leader>b2", ":b2<CR>")
+map("n", "<leader>b3", ":b3<CR>")
+map("n", "<leader>b4", ":b4<CR>")
+map("n", "<leader>b5", ":b5<CR>")
+map("n", "<leader>b6", ":b6<CR>")
 map("n", "<leader>bd", ":bd<CR>") --  delete the currentl buffer
 
 -- navigation mappings like tmux <C-hjkl> to <C-w>hjkl
@@ -131,7 +128,7 @@ map("n", "<c-l>", "<c-w>l")
 -- |                        UTILITIES                    |
 -- +-----------------------------------------------------+
 -- For competitive programming...
-map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
+-- map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
 map("n", "<leader>cp", ":cd ~/Documents/codes<CR>")
 
 vim.cmd("autocmd BufWritePre * :let _s=@/|:%s/\\s\\+$//e|:let @/=_s|") -- terminate extra white space after line

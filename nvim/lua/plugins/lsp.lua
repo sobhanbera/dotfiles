@@ -5,8 +5,14 @@ local on_attach = function(client, bufnr)
 	-- since we are using the null ls formatting to the actual default formatting should be disabled
 	-- we are disabling for tsserver only
 	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end
+
+	if client.name == "sumneko_lua" then
+		client.server_capabilities.document_formatting = false
+		-- client.resolved_capabilities.document_formatting = false
+	end
+	print(client.name, bufnr)
 
 	local cfg = {
 		debug = false,
@@ -33,7 +39,7 @@ local on_attach = function(client, bufnr)
 		padding = " ",
 		transparency = 100,
 		shadow_blend = 36,
-		shadow_guibg = "#0a0f14",
+		shadow_guibg = "#015e99",
 		timer_interval = 200,
 		toggle_key = "<C-Space>",
 	}
@@ -56,7 +62,7 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true }
 	buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	buf_set_keymap("n", "Z", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap("n", "<C-m>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
@@ -81,17 +87,17 @@ lspkind.init({
 -- |                 INITIALIZING LUASNIPS               |
 -- +-----------------------------------------------------+
 -- require("luasnip.loaders.from_vscode").lazy_load({ include = { "javascript", "typescript", "typescriptreact", "javascriptreact" } })
-local luasnip = require "luasnip"
-local types = require "luasnip.util.types"
+local luasnip = require("luasnip")
+-- local types = require("luasnip.util.types")
 require("luasnip.loaders.from_vscode").lazy_load()
 
-luasnip.config.set_config {
+luasnip.config.set_config({
 	-- This tells LuaSnip to remember to keep around the last snippet. You can jump back into it even if you move outside of the selection
 	history = true,
 	-- This one is cool cause if you have dynamic snippets, it updates as you type!
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true,
-}
+})
 -- mappings for jumping forward and backward
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
 	if luasnip.expand_or_jumpable() then
@@ -121,23 +127,27 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
+	window = {
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
+	},
 	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'path' },
-		{ name = 'buffer' },
-		{ name = 'nvim_lua' },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "path" },
+		{ name = "buffer" },
+		{ name = "nvim_lua" },
 	},
 	formatting = {
 		format = lspkind.cmp_format({
 			with_text = false,
 			maxwidth = 45,
 			menu = {
-				buffer = "[BUF]",
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[API]",
-				path = "[PATH]",
-				luasnip = "[SNIP]",
+				buffer = "[Buffer]",
+				nvim_lsp = "[Lsp]",
+				nvim_lua = "[Api]",
+				path = "[Path]",
+				luasnip = "[Snippet]",
 			},
 		}),
 	},
@@ -145,11 +155,8 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 		["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 		["<CR>"] = cmp.mapping(
-			cmp.mapping.confirm({
-				behavior = cmp.ConfirmBehavior.Insert,
-				select = true,
-			}),
-			{ "i", "c" }-- enter-completion will work both on command mode and insert mode
+			cmp.mapping.confirm(),
+			{ "i", "c" } -- enter-completion will work both on command mode and insert mode
 		),
 		["<C-space>"] = cmp.mapping({
 			i = cmp.mapping.complete(),
@@ -163,10 +170,10 @@ cmp.setup({
 				end
 			end,
 		}),
-		['<C-b>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-e>'] = cmp.mapping.close(),
-		['ESC'] = cmp.mapping.close(),
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-e>"] = cmp.mapping.close(),
+		["ESC"] = cmp.mapping.close(),
 	},
 	sorting = {
 		comparators = {
@@ -231,23 +238,26 @@ end
 -- " +-----------------------------------------------------+ "
 -- " |            ATTACHING LUA LANG SERVER                |
 -- " +-----------------------------------------------------+ "
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
+-- local runtime_path = vim.split(package.path, ";")
+local username = vim.fn.expand("$USER")
+local lua_root_path = "/Users/" .. username .. "/.config/nvim/langserver/lua-language-server"
+local lua_binary = lua_root_path .. "/bin/lua-language-server"
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
 require("lspconfig").sumneko_lua.setup({
-	on_attach = custom_attach,
-	capabilities = capabilities,
+	on_attach = on_attach,
+	-- capabilities = capabilities,
 	flags = {
 		debounce_text_changes = 150,
 	},
-	cmd = { sumneko_binary, "-E", sumneko_root_path },
+	cmd = { lua_binary, "-E", lua_root_path .. "/main.lua" },
 	settings = {
 		Lua = {
 			runtime = {
 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 				-- Setup your lua path
-				path = runtime_path,
+				path = vim.split(package.path, ";"),
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
@@ -255,16 +265,59 @@ require("lspconfig").sumneko_lua.setup({
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				-- library = vim.api.nvim_get_runtime_file("", true),
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+				},
+				checkThirdParty = false, -- THIS IS THE IMPORTANT LINE TO ADD
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
-				enable = false,
+				enable = true,
 			},
 		},
 	},
 })
 vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
 
+require("github-theme").setup({
+	comment_style = "NONE",
+	keyword_style = "NONE",
+	function_style = "NONE",
+	variable_style = "NONE",
+	msg_area_style = "NONE",
+	theme_style = "dark_default",
+	sidebars = { "qf", "vista_kind", "terminal", "packer" },
+
+	-- Change the "hint" color to the "orange" color, and make the "error" color bright red
+	colors = { hint = "orange", error = "red" },
+
+	-- Overwrite the highlight groups
+	overrides = function(c)
+		return {
+			htmlTag = {
+				fg = c.red,
+				bg = "",
+				sp = c.hint,
+				-- style = ""
+			},
+
+			-- this is the diagnostic part of the syntax highlight
+			DiagnosticHint = {
+				link = "LspDiagnosticsDefaultHint",
+			},
+
+			-- this will remove the highlight groups
+			TSField = {},
+
+			-- styling the comments in the code
+			Comment = {
+				fg = "#bfbfcf",
+			},
+		}
+	end,
+})
+
 -- extra plugins are being initialized here...
-require('Comment').setup()
+require("Comment").setup()

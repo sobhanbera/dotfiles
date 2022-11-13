@@ -9,3 +9,4 @@ USER = vim.fn.expand("$USER")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/config/markdown_preview.vim")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/plugins/lastplace.vim")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/plugins/maximizer.vim")
+
