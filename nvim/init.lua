@@ -1,5 +1,7 @@
 -- all the plugins config...
 require("sobhanbera.plugins")
+
+require("plugins.bufferline")
 require("plugins.easymotion")
 require("plugins.fugitive")
 require("plugins.indent_blankline")

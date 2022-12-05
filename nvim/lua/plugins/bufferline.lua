@@ -6,7 +6,12 @@ require("bufferline").setup({
 		right_mouse_command = "bdelete! %d",
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
-		indicator_icon = "▎",
+		-- indicator = {
+		-- 	style = {
+		-- 		icon = "▎",
+		-- 	},
+		-- },
+		-- indicator_icon = "▎",
 		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
@@ -17,9 +22,9 @@ require("bufferline").setup({
 				return vim.fn.fnamemodify(buf.name, ":t:r")
 			end
 		end,
-		max_name_length = 35,
+		max_name_length = 30,
 		max_prefix_length = 18,
-		tab_size = 22,
+		tab_size = 20,
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -52,20 +57,16 @@ require("bufferline").setup({
 
 local map = require("sobhanbera.mappings").map
 -- Move to previous/next
-map("n", "<A-d>", ":BufferLineCyclePrev<CR>")
-map("n", "<A-f>", ":BufferLineCycleNext<CR>")
+map("n", "<Tab>", "<Esc>:BufferLineCycleNext<CR>")
+map("n", "<S-Tab>", "<Esc>:BufferLineCyclePrev<CR>")
 
 -- Re-order to previous/next
-map("n", "<C-<>", ":BufferLineMovePrev<CR>")
-map("n", "<C->>", ":BufferLineMoveNext<CR>")
+map("n", "<C-S-up>", ":BufferLineMoveNext<CR>")
+map("n", "<C-S-down>", ":BufferLineMovePrev<CR>")
 
 -- -- Goto buffer in position...
-map("n", "<A-1>", ":BufferLineGoToBuffer 1<CR>")
-map("n", "<A-2>", ":BufferLineGoToBuffer 2<CR>")
-map("n", "<A-3>", ":BufferLineGoToBuffer 3<CR>")
-map("n", "<A-4>", ":BufferLineGoToBuffer 4<CR>")
-map("n", "<A-5>", ":BufferLineGoToBuffer 5<CR>")
-map("n", "<A-6>", ":BufferLineGoToBuffer 6<CR>")
-map("n", "<A-7>", ":BufferLineGoToBuffer 7<CR>")
-map("n", "<A-8>", ":BufferLineGoToBuffer 8<CR>")
-map("n", "<A-9>", ":BufferLineGoToBuffer 9<CR>")
+-- map("n", "<F1>", ":BufferLineGoToBuffer 1<CR>")
+-- map("n", "<F2>", ":BufferLineGoToBuffer 2<CR>")
+-- map("n", "<F3>", ":BufferLineGoToBuffer 3<CR>")
+-- map("n", "<F4>", ":BufferLineGoToBuffer 4<CR>")
+-- map("n", "<F5>", ":BufferLineGoToBuffer 5<CR>")
