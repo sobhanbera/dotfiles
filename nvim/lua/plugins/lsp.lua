@@ -214,6 +214,7 @@ local nvim_lsp = require("lspconfig") -- official lsp config :)
 local servers = {
 	"tsserver",
 	"pyright",
+	"clangd",
 	"html",
 	"cssls",
 	"emmet_ls",
@@ -223,17 +224,52 @@ local servers = {
 	"jsonls",
 	"emmet_ls",
 } --, 'cssmodules_ls'}
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, lsp in ipairs(servers) do
+	-- if lsp == "clangd" then
+	-- 	local cpp_capabilities = capabilities
+	-- 	cpp_capabilities.offsetEncoding = { "utf-8" }
+	-- 	nvim_lsp[lsp].setup({
+	-- 		on_attach = on_attach,
+	-- 		capabilities = cpp_capabilities,
+	-- 		flags = {
+	-- 			debounce_text_changes = 150,
+	-- 		},
+	-- 	})
+	-- else
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
-		flags = {
-			debounce_text_changes = 150,
-		},
 		capabilities = capabilities,
+		-- flags = {
+		-- 	debounce_text_changes = 150,
+		-- },
 	})
+	-- end
 end
+
+-- " +-----------------------------------------------------+ "
+-- " |            ATTACHING RUST LANG SERVER               |
+-- " +-----------------------------------------------------+ "
+nvim_lsp.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
+	settings = {
+		["rust-analyzer"] = {
+			assist = {
+				importGranularity = "module",
+				importPrefix = "by_self",
+			},
+			checkOnSave = { command = "clippy" },
+			cargo = { loadOutDirsFromCheck = true },
+			procMacro = { enable = true },
+		},
+	},
+})
+require("rust-tools").setup({})
 
 -- " +-----------------------------------------------------+ "
 -- " |            ATTACHING LUA LANG SERVER                |
@@ -271,6 +307,7 @@ require("lspconfig").sumneko_lua.setup({
 					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
 				},
 				checkThirdParty = false, -- THIS IS THE IMPORTANT LINE TO ADD
+				preloadFileSize = 10000, -- this will make sure files are loaded well for *.lua
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {

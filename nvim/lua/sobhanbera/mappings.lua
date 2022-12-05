@@ -138,6 +138,7 @@ vim.cmd(
 	"autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG<CR>"
 ) -- compile cpp code in vim
 vim.cmd("autocmd filetype cpp nnoremap <F10> :terminal ./%:r<cr>") -- execute cpp code in terminal of vim
+vim.cmd("autocmd filetype cpp nnoremap <F12> :!g++-12 %:r.cpp -o %:r; gtimeout 4s ./%:r<cr>") -- compile and execute cpp code in terminal of vim
 vim.cmd("autocmd filetype py,python nnoremap <F10> :terminal python %") -- run python code in terminal of vim
 vim.cmd("autocmd filetype js,javascript nnoremap <F10> !node %") -- execute js/node file
 

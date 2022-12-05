@@ -15,16 +15,17 @@ null_ls.setup({
 			extra_args = { "--fast" },
 		}),
 		formatting.stylua,
+		formatting.clang_format,
 	},
 })
 
-
-
--- auto format files
-
+-- formatting key-bindings here
 local map = require("sobhanbera.mappings").map
 map("n", "<leader>df", ":lua vim.lsp.buf.format()<CR>")
 map("n", "df", ":lua vim.lsp.buf.format{ async = true }<CR>")
+
+-- auto format files
+vim.cmd("autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.lua,*.rs lua vim.lsp.buf.format()")
 
 -- local event = "BufWritePost"
 -- local filetypes = "*.js,*.ts,*.tsx,*.jsx,*.css,*.scss,*.lua"
