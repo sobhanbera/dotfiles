@@ -46,7 +46,7 @@ telescope.setup({
 		},
 
 		-- ignore files
-		file_ignore_patterns = { "node_modules", "package-lock.json", "plugged" },
+		file_ignore_patterns = { "node_modules", "package-lock.json", "plugged", "langserver" },
 	},
 })
 
