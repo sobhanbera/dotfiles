@@ -36,7 +36,7 @@ telescope.setup({
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 
-		theme = "get_dropdown",
+		theme = "get_ivy",
 		mappings = {
 			i = {
 				["<C-x>"] = false,
@@ -50,29 +50,29 @@ telescope.setup({
 	},
 })
 
-local map = require('sobhanbera.mappings').map
-map(
+local map = require("sobhanbera.mappings").map
+vim.keymap.set(
 	"n",
 	"<leader>ff",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ prompt_title = '< Search Files >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ prompt_title = '< Search Files >' }))<cr>"
 ) -- find any file
-map(
+vim.keymap.set(
 	"n",
-	"<leader>fj",
-	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({ prompt_title = '< Project Files >' }))<CR>"
+	"<C-p>",
+	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ prompt_title = '< Project Files >' }))<CR>"
 ) -- git files
-map(
+vim.keymap.set(
 	"n",
 	"<leader>fa",
-	"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({ prompt_title = '< Recently Opened >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy({ prompt_title = '< Recently Opened >' }))<cr>"
 ) -- find buffer
-map(
+vim.keymap.set(
 	"n",
 	"<leader>gr",
-	"<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({ prompt_title = '< Search code >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy({ prompt_title = '< Search code >' }))<cr>"
 ) -- find any text throughout the codebase
 map(
 	"n",
 	"<leader>bf",
-	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({ prompt_title = '< Search Buffers >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy({ prompt_title = '< Search Buffers >' }))<cr>"
 ) -- find buffer
