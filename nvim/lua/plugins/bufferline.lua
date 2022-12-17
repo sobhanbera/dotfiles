@@ -57,8 +57,8 @@ require("bufferline").setup({
 
 local map = require("sobhanbera.mappings").map
 -- Move to previous/next
-map("n", "<Tab>", "<Esc>:BufferLineCycleNext<CR>")
-map("n", "<S-Tab>", "<Esc>:BufferLineCyclePrev<CR>")
+map("n", "<C-t>", "<Esc>:BufferLineCycleNext<CR>")
+map("n", "<C-S-t>", "<Esc>:BufferLineCyclePrev<CR>")
 
 -- Re-order to previous/next
 map("n", "<C-S-up>", ":BufferLineMoveNext<CR>")
