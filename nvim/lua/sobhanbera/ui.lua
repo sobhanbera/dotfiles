@@ -5,20 +5,29 @@
 vim.cmd("set encoding=utf-8")
 vim.cmd("set termguicolors")
 -- vim.cmd('let ayucolor="mirage"')
-vim.cmd("colorscheme github_dark")
+-- vim.cmd("colorscheme github_dark")
+vim.cmd("colorscheme nord")
 
 vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi NormalNC guibg=NONE")
+vim.cmd("hi NormalFloat guibg=NONE")
 
+<<<<<<< HEAD
+-- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi CursorLineNr guibg=NONE")
+-- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0")
+-- vim.cmd("hi CursorLineNr guibg=NONE")
+=======
 vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE")
 vim.cmd("hi CursorLineNr guibg=NONE")
--- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=#2b2b2b ctermbg=0")
--- vim.cmd("hi CursorLineNr guibg=#2b2b2b")
+vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0")
+vim.cmd("hi CursorLineNr guibg=NONE")
+>>>>>>> tweeks
 
 -- vim.cmd("hi ColorColumn ctermbg=0 guibg=NONE")
--- vim.cmd("hi OverLength ctermbg=NONE ctermfg=NONE guibg=#795E19 guifg=#ffffff")
+-- vim.cmd("hi OverLength guibg=#795E19 guifg=#ffffff")
 
-vim.cmd("hi VertSplit guibg=NONE")
+-- vim.cmd("hi VertSplit guibg=NONE")
 
 -- vim.cmd("hi StatusLine guibg=NONE")
 -- vim.cmd("hi StatusLineNC guibg=NONE")
@@ -26,9 +35,9 @@ vim.cmd("hi VertSplit guibg=NONE")
 -- vim.cmd("hi NumberLine ctermbg=0 guibg=NONE")
 
 -- extra highlights
--- vim.cmd("hi SignColumn guibg=NONE")
--- vim.cmd("hi NvimTreeNormal guibg=NONE guifg=#dfdfdf")
--- vim.cmd("hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf")
+vim.cmd("hi SignColumn guibg=NONE")
+vim.cmd("hi NvimTreeNormal guibg=NONE guifg=#dfdfdf")
+vim.cmd("hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf")
 
 -- highlight related to "cmp" plugins
 -- vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080")
@@ -56,5 +65,5 @@ vim.cmd("hi VertSplit guibg=NONE")
 -- vim.cmd("hi PmenuThumb guibg=#eee8d5") -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
--- vim.cmd("hi Search guibg=#2B313F guifg=#57A9DE") -- highlight for the search terms
+-- vim.cmd("hi Search guibg=#015e99") -- highlight for the search terms
 -- vim.cmd("hi Visual guibg=#2B313F") -- highlight for the code selection in visual mode

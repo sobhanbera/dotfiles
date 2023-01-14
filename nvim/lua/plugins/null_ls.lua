@@ -25,7 +25,7 @@ map("n", "<leader>df", ":lua vim.lsp.buf.format()<CR>")
 map("n", "df", ":lua vim.lsp.buf.format{ async = true }<CR>")
 
 -- auto format files
-vim.cmd("autocmd BufWritePost *.js,*.jsx,*.ts,*.tsx,*.css,*.scss,*.lua,*.rs lua vim.lsp.buf.format()")
+vim.cmd("autocmd BufWritePost *.js,*.jsx,*.json,*.ts,*.tsx,*.css,*.scss,*.lua,*.rs lua vim.lsp.buf.format()")
 
 -- local event = "BufWritePost"
 -- local filetypes = "*.js,*.ts,*.tsx,*.jsx,*.css,*.scss,*.lua"
