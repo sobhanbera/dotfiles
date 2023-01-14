@@ -12,10 +12,17 @@ vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi NormalNC guibg=NONE")
 vim.cmd("hi NormalFloat guibg=NONE")
 
+<<<<<<< HEAD
 -- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE")
 -- vim.cmd("hi CursorLineNr guibg=NONE")
 -- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0")
 -- vim.cmd("hi CursorLineNr guibg=NONE")
+=======
+vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE")
+vim.cmd("hi CursorLineNr guibg=NONE")
+vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0")
+vim.cmd("hi CursorLineNr guibg=NONE")
+>>>>>>> tweeks
 
 -- vim.cmd("hi ColorColumn ctermbg=0 guibg=NONE")
 -- vim.cmd("hi OverLength guibg=#795E19 guifg=#ffffff")
@@ -28,9 +35,9 @@ vim.cmd("hi NormalFloat guibg=NONE")
 -- vim.cmd("hi NumberLine ctermbg=0 guibg=NONE")
 
 -- extra highlights
--- vim.cmd("hi SignColumn guibg=NONE")
--- vim.cmd("hi NvimTreeNormal guibg=NONE guifg=#dfdfdf")
--- vim.cmd("hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf")
+vim.cmd("hi SignColumn guibg=NONE")
+vim.cmd("hi NvimTreeNormal guibg=NONE guifg=#dfdfdf")
+vim.cmd("hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf")
 
 -- highlight related to "cmp" plugins
 -- vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080")

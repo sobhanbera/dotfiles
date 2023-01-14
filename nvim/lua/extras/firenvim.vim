@@ -11,3 +11,4 @@ else
     " only show when the session is not in browser...
     set laststatus=2
 endif
+

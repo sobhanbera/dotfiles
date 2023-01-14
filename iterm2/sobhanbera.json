@@ -1,5 +1,8 @@
 {
+"Profiles": [
+{
   "Badge Text" : "",
+  "Thin Strokes" : 4,
   "Working Directory" : "\/Users\/sobhanbera",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -27,7 +30,7 @@
   },
   "Use Custom Window Title" : false,
   "Right Option Key Sends" : 0,
-  "Show Status Bar" : true,
+  "Show Status Bar" : false,
   "Character Encoding" : 4,
   "Selection Color" : {
     "Red Component" : 0.862640380859375,
@@ -57,7 +60,9 @@
     "slogin",
     "telnet"
   ],
+  "Non-ASCII Ligatures" : false,
   "Scrollback Lines" : 0,
+  "Draw Powerline Glyphs" : false,
   "Status Bar Layout" : {
     "components" : [
       {
@@ -135,7 +140,7 @@
     }
   },
   "Hide After Opening" : false,
-  "Prevent Opening in a Tab" : true,
+  "Prevent Opening in a Tab" : false,
   "Brighten Bold Text" : false,
   "Flashing Bell" : false,
   "Cursor Guide Color" : {
@@ -149,16 +154,6 @@
   "BM Growl" : true,
   "Open Password Manager Automatically" : false,
   "Icon" : 1,
-  "Ansi 3 Color" : {
-    "Red Component" : 0.99215686321258545,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.37647059559822083,
-    "Alpha Component" : 1,
-    "Green Component" : 0.80000001192092896
-  },
-  "Shortcut" : "",
-  "Use Non-ASCII Font" : false,
-  "Use Custom Tab Title" : false,
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -166,6 +161,16 @@
     "Alpha Component" : 1,
     "Green Component" : 0.61184210526315841
   },
+  "Shortcut" : "",
+  "Ansi 3 Color" : {
+    "Red Component" : 0.99215686321258545,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.37647059559822083,
+    "Alpha Component" : 1,
+    "Green Component" : 0.80000001192092896
+  },
+  "Use Non-ASCII Font" : false,
+  "Use Custom Tab Title" : false,
   "Bold Color" : {
     "Red Component" : 1,
     "Color Space" : "sRGB",
@@ -266,6 +271,12 @@
       "Action" : 10,
       "Text" : "[1;5Q"
     },
+    "0x4d-0x120000-0x2e" : {
+      "Version" : 1,
+      "Action" : 12,
+      "Text" : "\\x02\\x73\\x10\\x0a",
+      "Label" : ""
+    },
     "0xf711-0x40000-0x0" : {
       "Action" : 10,
       "Text" : "[26;5~"
@@ -305,6 +316,12 @@
     "0xf729-0x20000-0x0" : {
       "Action" : 10,
       "Text" : "[1;2H"
+    },
+    "0x7f-0x0-0x33" : {
+      "Version" : 1,
+      "Action" : 16,
+      "Text" : "",
+      "Label" : ""
     },
     "0xf700-0x220000-0x0" : {
       "Action" : 10,
@@ -381,6 +398,12 @@
     "0xf70b-0x40000-0x0" : {
       "Action" : 10,
       "Text" : "[19;5~"
+    },
+    "0x4e-0x120000-0x2d" : {
+      "Version" : 1,
+      "Action" : 12,
+      "Text" : "\\x02\\x73\\x0e\\x0a",
+      "Label" : ""
     },
     "0xf707-0x20000-0x0" : {
       "Action" : 10,
@@ -465,14 +488,6 @@
   "Name" : "sobhanbera",
   "Blinking Cursor" : false,
   "Guid" : "D844DAB1-55C3-4D49-BABB-51875C9A14A9",
-  "Idle Code" : 0,
-  "Ansi 10 Color" : {
-    "Red Component" : 0.34509804844856262,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.61176472902297974,
-    "Alpha Component" : 1,
-    "Green Component" : 0.76862746477127075
-  },
   "Ansi 8 Color" : {
     "Red Component" : 0.63104248046875,
     "Color Space" : "sRGB",
@@ -480,6 +495,14 @@
     "Alpha Component" : 1,
     "Green Component" : 0.63104248046875
   },
+  "Ansi 10 Color" : {
+    "Red Component" : 0.34509804844856262,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.61176472902297974,
+    "Alpha Component" : 1,
+    "Green Component" : 0.76862746477127075
+  },
+  "Idle Code" : 0,
   "Badge Color" : {
     "Red Component" : 1,
     "Color Space" : "sRGB",
@@ -490,23 +513,23 @@
   "Smart Cursor Color" : true,
   "Semantic History" : {
     "editor" : "com.github.atom",
-    "action" : "best editor",
-    "text" : ""
+    "text" : "",
+    "action" : "best editor"
   },
   "Ambiguous Double Width" : false,
-  "Blur Radius" : 64,
+  "Blur Radius" : 26,
   "Background Image Mode" : 0,
   "Cursor Type" : 2,
   "Ansi 0 Color" : {
-    "Red Component" : 0.085225491784512997,
+    "Red Component" : 0.082352941176470587,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.136260986328125,
+    "Blue Component" : 0.13333333333333333,
     "Alpha Component" : 1,
-    "Green Component" : 0.10223732329905036
+    "Green Component" : 0.10196078431372549
   },
   "Session Close Undo Timeout" : 60,
-  "Blur" : false,
-  "Normal Font" : "FuraMonoNerdFontComplete-Regular 15",
+  "Blur" : true,
+  "Normal Font" : "FuraMonoNerdFontComplete-Regular 17",
   "Application Keypad Allowed" : false,
   "Vertical Spacing" : 1,
   "Use Underline Color" : false,
@@ -554,7 +577,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.90196079015731812
   },
-  "Transparency" : 0,
+  "Transparency" : 0.3505651595744681,
   "Initial Text" : "",
   "Background Color" : {
     "Red Component" : 0.14117647058823529,
@@ -566,7 +589,7 @@
   "Screen" : -1,
   "Custom Tab Title" : "",
   "Initial Use Transparency" : true,
-  "Non Ascii Font" : "Monaco 12",
+  "Non Ascii Font" : "FuraMonoNerdFontComplete-Regular 16",
   "Ansi 13 Color" : {
     "Red Component" : 0.94509804248809814,
     "Color Space" : "sRGB",
@@ -578,7 +601,7 @@
   "Columns" : 80,
   "Show Timestamps" : 0,
   "Visual Bell" : true,
-  "Custom Directory" : "No",
+  "Custom Directory" : "Recycle",
   "ASCII Ligatures" : false,
   "Ansi 5 Color" : {
     "Red Component" : 0.92549020051956177,
@@ -587,4 +610,6 @@
     "Alpha Component" : 1,
     "Green Component" : 0.44313725829124451
   }
+}
+]
 }
