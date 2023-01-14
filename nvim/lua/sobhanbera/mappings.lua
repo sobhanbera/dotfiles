@@ -16,17 +16,19 @@ M.map = function(mode, left, right, options)
 	if options then
 		local_options = vim.tbl_extend("force", local_options, options)
 	end
+
 	-- both variables are equal just maps differ
 	vim.g.total_mappings = vim.g.total_mappings + 1
 	vim.g.maps = vim.g.maps + 1
+
 	return vim.api.nvim_set_keymap(mode, left, right, local_options)
 end
-map = M.map
+local map = M.map
 
 map("n", "<leader>s", ":so ~/.config/nvim/init.lua<CR>") -- reload all vim configs...
 map("n", "<leader>e", ":e ~/.config/nvim/init.lua<CR>") -- edit vim config...
 
-map("n", "<leader>o", ":PlugInstall<CR>") -- edit vim config...
+map("n", "<leader>o", ":PackerCompile<CR>:PackerInstall<CR>") -- edit vim config...
 
 map("n", "<leader>vs", ":vs<CR>") -- split window vertical
 map("n", "<leader>hs", ":split<CR>") -- split window horizontally
@@ -128,24 +130,30 @@ map("n", "<c-l>", "<c-w>l")
 -- |                        UTILITIES                    |
 -- +-----------------------------------------------------+
 -- For competitive programming...
--- map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
+map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
 map("n", "<leader>cp", ":cd ~/Documents/codes<CR>")
 
-vim.cmd("autocmd BufWritePre * :let _s=@/|:%s/\\s\\+$//e|:let @/=_s|") -- terminate extra white space after line
-vim.cmd("autocmd filetype java nnoremap <F9> :!javac %:r.java") -- compile java code
-vim.cmd("autocmd filetype java nnoremap <F10> :terminal java %:r") -- execute java code
 vim.cmd(
 	"autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG<CR>"
 ) -- compile cpp code in vim
-vim.cmd("autocmd filetype cpp nnoremap <F10> :terminal ./%:r<cr>") -- execute cpp code in terminal of vim
+vim.cmd("autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp<CR>") -- compile cpp code in vim
+vim.cmd("autocmd filetype cpp nnoremap <F10> :vs<cr>:terminal ./%:r<cr>") -- execute cpp code in terminal of vim
 vim.cmd("autocmd filetype cpp nnoremap <F12> :!g++-12 %:r.cpp -o %:r; gtimeout 4s ./%:r<cr>") -- compile and execute cpp code in terminal of vim
-vim.cmd("autocmd filetype py,python nnoremap <F10> :terminal python %") -- run python code in terminal of vim
+
+vim.cmd("autocmd filetype java nnoremap <F9> :!javac %:r.java") -- compile java code
+vim.cmd("autocmd filetype java nnoremap <F10> :vs<cr>:terminal java %:r") -- execute java code
+
+vim.cmd("autocmd filetype py,python nnoremap <F10> :vs<cr>:terminal python %") -- run python code in terminal of vim
+
 vim.cmd("autocmd filetype js,javascript nnoremap <F10> !node %") -- execute js/node file
 
--- to update the filetype from typescript to typescriptreact when opened a tsx file
--- same goes for the javascript file like jsx and so on...
--- currently after adding this two lines the code lags when changing the tabs
--- vim.cmd("autocmd BufEnter *.tsx :set filetype=typescriptreact")
--- vim.cmd("autocmd BufEnter *.jsx :set filetype=javascriptreact")
+vim.cmd("autocmd filetype rs,rust nnoremap <F7> :!rustc %:r.rs<cr>") -- compile rust code
+vim.cmd("autocmd filetype rs,rust nnoremap <F8> :vs<cr>:terminal ./%:r<cr>") -- execute rust code
+vim.cmd("autocmd filetype rs,rust nnoremap <F9> :!cargo build<cr>") -- build rust code
+vim.cmd("autocmd filetype rs,rust nnoremap <F10> :!cargo run<cr>") -- run built rust code
+
+vim.cmd("autocmd filetype go nnoremap <F7> :!go run %:r.go<cr>") -- run go code
+vim.cmd("autocmd filetype go nnoremap <F9> :!go build %:r.go<cr>") -- build go code
+vim.cmd("autocmd filetype go nnoremap <F10> :vs<cr>:terminal ./%:r<cr>") -- execute go code
 
 return M
