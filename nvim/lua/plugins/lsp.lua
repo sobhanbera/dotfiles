@@ -12,7 +12,6 @@ local on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = false
 		-- client.resolved_capabilities.document_formatting = false
 	end
-	print(client.name, bufnr)
 
 	local cfg = {
 		debug = false,
@@ -28,7 +27,7 @@ local on_attach = function(client, bufnr)
 		hint_scheme = "String",
 		hi_parameter = "LspSignatureActiveParameter",
 		max_height = 12,
-		max_width = 120,
+		max_width = 150,
 		handler_opts = {
 			border = "rounded",
 		},
@@ -83,10 +82,10 @@ lspkind.init({
 	mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
 })
 
-
 -- +-----------------------------------------------------+
 -- |                  NVIM CMP CONFIGS                   |
 -- +-----------------------------------------------------+
+local luasnip = require("luasnip")
 local cmp = require("cmp") -- completion plugin
 cmp.setup({
 	experimental = {
@@ -102,8 +101,8 @@ cmp.setup({
 		end,
 	},
 	window = {
+		documentation = cmp.config.window.bordered(),
 		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
@@ -117,11 +116,11 @@ cmp.setup({
 			with_text = false,
 			maxwidth = 45,
 			menu = {
-				buffer = "[Buffer]",
-				nvim_lsp = "[Lsp]",
-				nvim_lua = "[Api]",
-				path = "[Path]",
-				luasnip = "[Snippet]",
+				buffer = "BUF",
+				nvim_lsp = "LSP",
+				nvim_lua = "API",
+				path = "PATH",
+				luasnip = "SNIP",
 			},
 		}),
 	},
@@ -132,21 +131,6 @@ cmp.setup({
 			cmp.mapping.confirm(),
 			{ "i", "c" } -- enter-completion will work both on command mode and insert mode
 		),
-		["<C-space>"] = cmp.mapping({
-			i = cmp.mapping.complete(),
-			c = function()
-				if cmp.visible() then
-					if not cmp.confirm({ select = true }) then
-						return
-					end
-				else
-					cmp.complete()
-				end
-			end,
-		}),
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-e>"] = cmp.mapping.close(),
 		["ESC"] = cmp.mapping.close(),
 	},
 	sorting = {
@@ -216,9 +200,9 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		-- flags = {
-		-- 	debounce_text_changes = 150,
-		-- },
+		flags = {
+			debounce_text_changes = 150,
+		},
 	})
 	-- end
 end
@@ -234,6 +218,12 @@ nvim_lsp.rust_analyzer.setup({
 	},
 	settings = {
 		["rust-analyzer"] = {
+			imports = {
+				granularity = {
+					group = "module",
+				},
+				prefix = "self",
+			},
 			assist = {
 				importGranularity = "module",
 				importPrefix = "by_self",

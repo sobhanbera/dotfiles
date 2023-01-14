@@ -130,14 +130,13 @@ map("n", "<c-l>", "<c-w>l")
 -- |                        UTILITIES                    |
 -- +-----------------------------------------------------+
 -- For competitive programming...
--- map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
+map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
 map("n", "<leader>cp", ":cd ~/Documents/codes<CR>")
-
--- vim.cmd("autocmd BufWritePre * :let _s=@/|:%s/\\s\\+$//e|:let @/=_s|") -- terminate extra white space after line
 
 vim.cmd(
 	"autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG<CR>"
 ) -- compile cpp code in vim
+vim.cmd("autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp<CR>") -- compile cpp code in vim
 vim.cmd("autocmd filetype cpp nnoremap <F10> :vs<cr>:terminal ./%:r<cr>") -- execute cpp code in terminal of vim
 vim.cmd("autocmd filetype cpp nnoremap <F12> :!g++-12 %:r.cpp -o %:r; gtimeout 4s ./%:r<cr>") -- compile and execute cpp code in terminal of vim
 
@@ -156,11 +155,5 @@ vim.cmd("autocmd filetype rs,rust nnoremap <F10> :!cargo run<cr>") -- run built 
 vim.cmd("autocmd filetype go nnoremap <F7> :!go run %:r.go<cr>") -- run go code
 vim.cmd("autocmd filetype go nnoremap <F9> :!go build %:r.go<cr>") -- build go code
 vim.cmd("autocmd filetype go nnoremap <F10> :vs<cr>:terminal ./%:r<cr>") -- execute go code
-
--- to update the filetype from typescript to typescriptreact when opened a tsx file
--- same goes for the javascript file like jsx and so on...
--- currently after adding this two lines the code lags when changing the tabs
--- vim.cmd("autocmd BufEnter *.tsx :set filetype=typescriptreact")
--- vim.cmd("autocmd BufEnter *.jsx :set filetype=javascriptreact")
 
 return M

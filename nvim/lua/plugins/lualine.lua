@@ -2,17 +2,16 @@ local colors = {
 	darkgray = "#272727",
 	gray = "#efefef",
 	innerbg = nil,
-	outerbg = "#172b41",
-	normal = "#6cb6ff",
-	insert = "#8ddb8c",
-	visual = "#f69d50",
-	replace = "#ff938a",
-	command = "#39c5cf",
+	outerbg = nil,
+	normal = "#88c1d0",
+	insert = "#A3BE8C",
+	visual = "#D08770",
+	replace = "#B48EAD",
+	command = "#EBCB8B",
 }
 
 local utils = require("lualine.utils.utils")
 local highlight = require("lualine.highlight")
-
 local diagnostic_message = require("lualine.component"):extend()
 
 diagnostic_message.default = {
@@ -20,22 +19,22 @@ diagnostic_message.default = {
 		error = utils.extract_color_from_hllist(
 			{ "fg", "sp" },
 			{ "DiagnosticError", "LspDiagnosticsDefaultError", "DiffDelete" },
-			"#F24B42"
+			"#EF717A"
 		),
 		warning = utils.extract_color_from_hllist(
 			{ "fg", "sp" },
 			{ "DiagnosticWarn", "LspDiagnosticsDefaultWarning", "DiffText" },
-			"#FCA534"
+			"#FBDB9B"
 		),
 		info = utils.extract_color_from_hllist(
 			{ "fg", "sp" },
 			{ "DiagnosticInfo", "LspDiagnosticsDefaultInformation", "DiffChange" },
-			"#AEFA47"
+			"#D49EBD"
 		),
 		hint = utils.extract_color_from_hllist(
 			{ "fg", "sp" },
 			{ "DiagnosticHint", "LspDiagnosticsDefaultHint", "DiffAdd" },
-			"#14BC85"
+			"#C3CE9C"
 		),
 	},
 }
@@ -159,10 +158,10 @@ require("lualine").setup({
 			{
 				diagnostic_message,
 				colors = {
-					error = "#BF616A",
+					error = "#EF717A",
 					warn = "#EBCB8B",
 					info = "#A3BE8C",
-					hint = "#88C0D0",
+					hint = "#B48EAD",
 				},
 			},
 		},

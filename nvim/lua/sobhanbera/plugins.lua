@@ -72,6 +72,8 @@ return require("packer").startup({
 		-- +-----------------------------------------------------+ "
 		-- github default colorscheme
 		use("projekt0n/github-nvim-theme")
+		-- collection of many different themes for vim/nvim
+		use("flazz/vim-colorschemes")
 		-- ayu :)
 		use("ayu-theme/ayu-vim")
 		-- highlight where every color hash or code is found in the entire codebase or files

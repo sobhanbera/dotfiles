@@ -19,9 +19,9 @@ map("n", "<Leader>w", "<Plug>(easymotion-overwin-w)", opts2)
 map("n", "f", "<Plug>(easymotion-bd-f)", opts)
 map("n", "f", "<Plug>(easymotion-overwin-f)", opts2)
 
-map("n", "/", "<Plug>(easymotion-sn)", opts)
+-- map("n", "/", "<Plug>(easymotion-sn)", opts)
 
-map("n", "n", "<Plug>(easymotion-next)", opts)
-map("n", "N", "<Plug>(easymotion-prev)", opts)
+-- map("n", "n", "<Plug>(easymotion-next)", opts)
+-- map("n", "N", "<Plug>(easymotion-prev)", opts)
 
 vim.g.EasyMotion_startofline = 0

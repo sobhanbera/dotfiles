@@ -2,10 +2,10 @@
 require("sobhanbera.plugins")
 
 require("plugins.bufferline")
-require("plugins.colorscheme")
+-- require("plugins.colorscheme")
 require("plugins.comment")
 -- require("plugins.copilot")
-require("plugins.cursorword")
+-- require("plugins.cursorword")
 require("plugins.easymotion")
 require("plugins.fugitive")
 require("plugins.indent_blankline")
