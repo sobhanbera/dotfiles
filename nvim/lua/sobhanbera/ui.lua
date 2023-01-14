@@ -12,17 +12,10 @@ vim.cmd("hi Normal guibg=NONE")
 vim.cmd("hi NormalNC guibg=NONE")
 vim.cmd("hi NormalFloat guibg=NONE")
 
-<<<<<<< HEAD
 -- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE")
 -- vim.cmd("hi CursorLineNr guibg=NONE")
 -- vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0")
 -- vim.cmd("hi CursorLineNr guibg=NONE")
-=======
-vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE")
-vim.cmd("hi CursorLineNr guibg=NONE")
-vim.cmd("hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0")
-vim.cmd("hi CursorLineNr guibg=NONE")
->>>>>>> tweeks
 
 -- vim.cmd("hi ColorColumn ctermbg=0 guibg=NONE")
 -- vim.cmd("hi OverLength guibg=#795E19 guifg=#ffffff")
