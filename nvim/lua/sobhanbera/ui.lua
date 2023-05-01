@@ -28,6 +28,7 @@ vim.cmd("hi NormalFloat guibg=NONE")
 -- vim.cmd("hi NumberLine ctermbg=0 guibg=NONE")
 
 -- extra highlights
+vim.cmd("hi LineNr guibg=NONE")
 vim.cmd("hi SignColumn guibg=NONE")
 vim.cmd("hi NvimTreeNormal guibg=NONE guifg=#dfdfdf")
 vim.cmd("hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf")

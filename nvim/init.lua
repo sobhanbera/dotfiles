@@ -1,6 +1,6 @@
 -- all the plugins config...
 require("sobhanbera.plugins")
-
+--
 require("plugins.bufferline")
 -- require("plugins.colorscheme")
 require("plugins.comment")
@@ -8,6 +8,7 @@ require("plugins.comment")
 -- require("plugins.cursorword")
 require("plugins.easymotion")
 require("plugins.fugitive")
+require("plugins.gitgutter")
 require("plugins.indent_blankline")
 require("plugins.lsp")
 require("plugins.lualine")

@@ -34,6 +34,7 @@ vim.wo.scrolloff = 0
 vim.wo.colorcolumn = "120"
 vim.wo.signcolumn = "yes"
 vim.wo.cursorline = true
+vim.wo.numberwidth = 3
 -- vim.wo.foldmethod = "expr"
 
 vim.bo.tabstop = 4
