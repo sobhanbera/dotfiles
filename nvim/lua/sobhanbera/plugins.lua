@@ -147,6 +147,8 @@ return require("packer").startup({
 		use("tpope/vim-commentary")
 		-- comments based on position of cursor, and context
 		use("suy/vim-context-commentstring")
+		-- vim for kotlin
+		use("udalov/kotlin-vim")
 
 		-- +-----------------------------------------------------+ "
 		-- |                        DEVOPs                       |

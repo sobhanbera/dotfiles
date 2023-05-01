@@ -131,6 +131,8 @@ cmp.setup({
 			cmp.mapping.confirm(),
 			{ "i", "c" } -- enter-completion will work both on command mode and insert mode
 		),
+		-- ctrl + space + c to show completion menu
+		["<C-S-l>"] = cmp.mapping.complete(),
 		["ESC"] = cmp.mapping.close(),
 	},
 	sorting = {
@@ -182,29 +184,33 @@ local servers = {
 	"jsonls",
 	"emmet_ls",
 	"gopls",
+	"kotlin_language_server",
 } --, 'cssmodules_ls'}
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, lsp in ipairs(servers) do
-	-- if lsp == "clangd" then
-	-- 	local cpp_capabilities = capabilities
-	-- 	cpp_capabilities.offsetEncoding = { "utf-8" }
-	-- 	nvim_lsp[lsp].setup({
-	-- 		on_attach = on_attach,
-	-- 		capabilities = cpp_capabilities,
-	-- 		flags = {
-	-- 			debounce_text_changes = 150,
-	-- 		},
-	-- 	})
-	-- else
-	nvim_lsp[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		flags = {
-			debounce_text_changes = 150,
-		},
-	})
-	-- end
+	if lsp == "clangd" then
+		-- this is required or clangd will be a bit annoying
+		-- clangd will show (warning: multiple different client offset_encoding detected for buffer, this is not supported yet)...
+		local cpp_capabilities = vim.lsp.protocol.make_client_capabilities()
+		cpp_capabilities.offsetEncoding = { "utf-16" }
+
+		nvim_lsp["clangd"].setup({
+			on_attach = on_attach,
+			capabilities = cpp_capabilities,
+			flags = {
+				debounce_text_changes = 150,
+			},
+		})
+	else
+		nvim_lsp[lsp].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			flags = {
+				debounce_text_changes = 150,
+			},
+		})
+	end
 end
 
 -- " +-----------------------------------------------------+ "
@@ -245,7 +251,7 @@ local lua_root_path = "/Users/" .. username .. "/.config/nvim/langserver/lua-lan
 local lua_binary = lua_root_path .. "/bin/lua-language-server"
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	on_attach = on_attach,
 	-- capabilities = capabilities,
 	flags = {
