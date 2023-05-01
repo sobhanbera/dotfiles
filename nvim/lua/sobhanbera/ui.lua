@@ -5,16 +5,16 @@ vim.cmd([[ set encoding=utf-8 ]])
 vim.cmd([[ set termguicolors ]])
 
 vim.cmd([[ set background=dark ]])
-vim.cmd([[ colorscheme github_dimmed ]])
+vim.cmd([[ colorscheme onedark ]])
 
 -- vim.cmd [[ let ayucolor="mirage" ]]
 -- vim.cmd [[ colorscheme github_dark ]]
 -- vim.cmd [[ colorscheme nord ]]
 -- vim.cmd [[ let g:gruvbox_contrast_dark = "hard" ]]
 
--- vim.cmd([[ hi Normal guibg=NONE ]])
--- vim.cmd([[ hi NormalNC guibg=NONE ]])
--- vim.cmd([[ hi NormalFloat guibg=NONE ]])
+vim.cmd([[ hi Normal guibg=NONE ]])
+vim.cmd([[ hi NormalNC guibg=NONE ]])
+vim.cmd([[ hi NormalFloat guibg=NONE ]])
 
 -- vim.cmd [[ hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE ]]
 -- vim.cmd [[ hi CursorLineNr guibg=NONE ]]
