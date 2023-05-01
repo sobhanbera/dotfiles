@@ -78,8 +78,8 @@ return require("packer").startup({
 		use("ayu-theme/ayu-vim")
 		-- highlight where every color hash or code is found in the entire codebase or files
 		use("lilydjwg/colorizer")
-		-- theme, you need?
-		use("sainnhe/sonokai")
+		-- must have
+		use({ "catppuccin/nvim", as = "catppuccin" })
 
 		-- +-----------------------------------------------------+ "
 		-- |                   USER INTERFACE					 |

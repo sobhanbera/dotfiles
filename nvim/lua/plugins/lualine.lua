@@ -3,11 +3,11 @@ local colors = {
 	gray = "#efefef",
 	innerbg = nil,
 	outerbg = nil,
-	normal = "#88c1d0",
-	insert = "#A3BE8C",
-	visual = "#D08770",
-	replace = "#B48EAD",
-	command = "#EBCB8B",
+	normal = "#89b4f9",
+	insert = "#a6e2a1",
+	visual = "#f9e2af",
+	replace = "#b4befe",
+	command = "#f38ba8",
 }
 
 local utils = require("lualine.utils.utils")
@@ -152,7 +152,7 @@ require("lualine").setup({
 				symbols = {
 					modified = " • ", -- Text to show when the file is modified.
 					readonly = " - ", -- Text to show when the file is non-modifiable or readonly.
-					unnamed = "Sobhan Bera", -- Text to show for unnamed buffers.
+					unnamed = "Sobhan Bera's Macbook Air", -- Text to show for unnamed buffers.
 				},
 			},
 			{
