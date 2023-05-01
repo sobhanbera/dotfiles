@@ -39,8 +39,50 @@ local mappings_list = {
 require("nvim-tree").setup({
 	hijack_cursor = true,
 	update_cwd = false,
+	actions = {
+		expand_all = {
+			max_folder_discovery = 1000,
+			exclude = {
+				".git",
+				".cache",
+				".vscode",
+				".idea",
+				".next",
+				".husky",
+				".github_src",
+				".bundle",
+				"build",
+				"__test__",
+				"test",
+				"node_modules",
+				"android",
+				"ios",
+				"target",
+				"runtime",
+				"backups",
+				"logs",
+				"others",
+			},
+		},
+		open_file = {
+			quit_on_open = true,
+			resize_window = true,
+			window_picker = {
+				enable = true,
+				picker = "default",
+				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+				exclude = {
+					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+					buftype = { "nofile", "terminal", "help" },
+				},
+			},
+		},
+	},
 	diagnostics = {
 		enable = true,
+		show_on_dirs = true,
+		show_on_open_dirs = true,
+		debounce_delay = 50,
 		icons = {
 			hint = "",
 			info = "",
@@ -59,6 +101,10 @@ require("nvim-tree").setup({
 		timeout = 500,
 	},
 	view = {
+		adaptive_size = false,
+		centralize_selection = false,
+		cursorline = true,
+		debounce_delay = 15,
 		width = 35,
 		hide_root_folder = true,
 		side = "right",

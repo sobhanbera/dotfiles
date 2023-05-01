@@ -130,14 +130,14 @@ map("n", "<c-l>", "<c-w>l")
 -- |                        UTILITIES                    |
 -- +-----------------------------------------------------+
 -- For competitive programming...
-map("n", "<leader>vscp", ":e in.txt <CR>:split out.txt<CR>")
+map("n", "<leader>crr", ":e in.txt <CR>:split out.txt<CR>")
 map("n", "<leader>cp", ":cd ~/Documents/codes<CR>")
 
 vim.cmd(
 	"autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG<CR>"
 ) -- compile cpp code in vim
 vim.cmd("autocmd filetype cpp nnoremap <F9> :!g++ -std=c++14 -Wshadow -Wall -o %:r %:r.cpp<CR>") -- compile cpp code in vim
-vim.cmd("autocmd filetype cpp nnoremap <F10> :vs<cr>:terminal ./%:r<cr>") -- execute cpp code in terminal of vim
+vim.cmd("autocmd filetype cpp nnoremap <F10> :terminal %:r<CR>") -- execute cpp code in terminal of vim
 vim.cmd("autocmd filetype cpp nnoremap <F12> :!g++-12 %:r.cpp -o %:r; gtimeout 4s ./%:r<cr>") -- compile and execute cpp code in terminal of vim
 
 vim.cmd("autocmd filetype java nnoremap <F9> :!javac %:r.java") -- compile java code
