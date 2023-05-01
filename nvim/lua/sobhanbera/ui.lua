@@ -5,7 +5,7 @@ vim.cmd([[ set encoding=utf-8 ]])
 vim.cmd([[ set termguicolors ]])
 
 vim.cmd([[ set background=dark ]])
-vim.cmd([[ colorscheme catppuccin ]])
+vim.cmd([[ colorscheme github_dimmed ]])
 
 -- vim.cmd [[ let ayucolor="mirage" ]]
 -- vim.cmd [[ colorscheme github_dark ]]

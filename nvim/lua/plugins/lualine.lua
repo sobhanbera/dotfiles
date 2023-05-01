@@ -152,7 +152,7 @@ require("lualine").setup({
 				symbols = {
 					modified = " • ", -- Text to show when the file is modified.
 					readonly = " - ", -- Text to show when the file is non-modifiable or readonly.
-					unnamed = "Sobhan Bera", -- Text to show for unnamed buffers.
+					unnamed = "Sobhan Bera's Macbook Air", -- Text to show for unnamed buffers.
 				},
 			},
 			{
