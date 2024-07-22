@@ -12,7 +12,13 @@ return require("packer").startup({
 		-- |             LSP PLUGINS & AUTOCOMPLETE              |
 		-- +-----------------------------------------------------+ "
 		-- NVIM LSP CONFIG
-		use("neovim/nvim-lspconfig")
+		use {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+
+		}
+
 		-- the exact completion plugin, since nvim-compe is deprecated
 		use("hrsh7th/nvim-cmp")
 		-- lsp completion
@@ -44,6 +50,7 @@ return require("packer").startup({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
 		})
+		use("nvim-treesitter/playground")
 		-- mainly for function signatures
 		use("ray-x/lsp_signature.nvim")
 		-- statusbar structure update ui
@@ -81,7 +88,7 @@ return require("packer").startup({
 		-- must have
 		use({ "catppuccin/nvim", as = "catppuccin" })
 		-- just have it too
-		use 'navarasu/onedark.nvim'
+		use("navarasu/onedark.nvim")
 
 		-- +-----------------------------------------------------+ "
 		-- |                   USER INTERFACE					 |
@@ -149,6 +156,8 @@ return require("packer").startup({
 		use("tpope/vim-commentary")
 		-- comments based on position of cursor, and context
 		use("suy/vim-context-commentstring")
+		-- comments for different context
+		use("JoosepAlviste/nvim-ts-context-commentstring")
 		-- vim for kotlin
 		use("udalov/kotlin-vim")
 

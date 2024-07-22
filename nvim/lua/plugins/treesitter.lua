@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup({
 		"regex",
 		"comment",
 		"python",
+		"prisma",
 	},
 	highlight = {
 		enable = true,
@@ -34,5 +35,12 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
+
+	context_commentstring = {
+		enable = true,
+	},
 })
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+
+local map = require("sobhanbera.mappings").map
+map("n", "<leader>p", ":TSPlaygroundToggle<CR>")

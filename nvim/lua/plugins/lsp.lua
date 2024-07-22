@@ -170,6 +170,11 @@ cmp.setup({
 -- " |                  LANGUAGE SERVERS                   |
 -- " | TS,JS,CPP,Java,CSS,HTML,VIM,JSON,DOCKER,PYTHON,ETC. |
 -- " +-----------------------------------------------------+ "
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = { "tailwindcss" },
+})
+
 local nvim_lsp = require("lspconfig") -- official lsp config :)
 local servers = {
 	"tsserver",
@@ -185,6 +190,7 @@ local servers = {
 	"emmet_ls",
 	"gopls",
 	"kotlin_language_server",
+	"tailwindcss",
 } --, 'cssmodules_ls'}
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
