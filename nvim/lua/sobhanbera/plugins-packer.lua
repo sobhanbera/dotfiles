@@ -50,6 +50,7 @@ return require("packer").startup({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
 		})
+		use("nvim-treesitter/nvim-treesitter-context")
 		use("nvim-treesitter/playground")
 		-- mainly for function signatures
 		use("ray-x/lsp_signature.nvim")
@@ -94,7 +95,13 @@ return require("packer").startup({
 		-- |                   USER INTERFACE					 |
 		-- +-----------------------------------------------------+ "
 		-- file explorer
-		use("kyazdani42/nvim-tree.lua")
+		-- use("kyazdani42/nvim-tree.lua")
+		use {
+			'nvim-tree/nvim-tree.lua',
+			-- requires = {
+			-- 	'nvim-tree/nvim-web-devicons', -- optional
+			-- },
+		}
 		-- required for tab plugin
 		use("kyazdani42/nvim-web-devicons")
 		-- Developer Icons seperate
@@ -103,7 +110,7 @@ return require("packer").startup({
 		use({
 			"akinsho/bufferline.nvim",
 			tag = "v3.*",
-			requires = "nvim-tree/nvim-web-devicons",
+			-- requires = "nvim-tree/nvim-web-devicons",
 		})
 		-- indentation for blank lines
 		use("lukas-reineke/indent-blankline.nvim")
@@ -114,11 +121,13 @@ return require("packer").startup({
 		-- the dashboard
 		use({
 			"goolord/alpha-nvim",
-			requires = { "nvim-tree/nvim-web-devicons" },
+			-- requires = { "nvim-tree/nvim-web-devicons" },
 			config = function()
 				require("alpha").setup(require("alpha.themes.startify").config)
 			end,
 		})
+		-- code folding
+		use { 'anuvyklack/pretty-fold.nvim' }
 
 		-- +-----------------------------------------------------+ "
 		-- |                 UTILS COMPONENTS                    |

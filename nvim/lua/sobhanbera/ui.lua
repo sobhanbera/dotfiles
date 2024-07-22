@@ -5,16 +5,18 @@ vim.cmd([[ set encoding=utf-8 ]])
 vim.cmd([[ set termguicolors ]])
 
 vim.cmd([[ set background=dark ]])
-vim.cmd([[ colorscheme onedark ]])
+vim.cmd([[ let g:gruvbox_italic=1 ]])
+vim.cmd([[ colorscheme gruvbox ]])
+
 
 -- vim.cmd [[ let ayucolor="mirage" ]]
 -- vim.cmd [[ colorscheme github_dark ]]
 -- vim.cmd [[ colorscheme nord ]]
 -- vim.cmd [[ let g:gruvbox_contrast_dark = "hard" ]]
 
-vim.cmd([[ hi Normal guibg=NONE ]])
-vim.cmd([[ hi NormalNC guibg=NONE ]])
-vim.cmd([[ hi NormalFloat guibg=NONE ]])
+-- vim.cmd([[ hi Normal guibg=NONE ]])
+-- vim.cmd([[ hi NormalNC guibg=NONE ]])
+-- vim.cmd([[ hi NormalFloat guibg=NONE ]])
 
 -- vim.cmd [[ hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE ]]
 -- vim.cmd [[ hi CursorLineNr guibg=NONE ]]
@@ -65,3 +67,4 @@ vim.cmd([[ hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf ]])
 -- search and visual highlight
 -- vim.cmd [[ hi Search guibg=#015e99") ]] -- highlight for the search term
 -- vim.cmd [[ hi Visual guibg=#2B313F") ]] -- highlight for the code selection in visual mode
+

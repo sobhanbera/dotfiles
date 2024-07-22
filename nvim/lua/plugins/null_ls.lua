@@ -12,9 +12,9 @@ null_ls.setup({
 		-- }),
 		formatting.ktlint,
 		formatting.prettier, -- without any extra args the formatting is very fast like instantly without any pauses
-		formatting.black.with({
-			extra_args = { "--fast" },
-		}),
+		-- formatting.black.with({
+		-- 	extra_args = { "--fast" },
+		-- }),
 		formatting.stylua,
 		formatting.clang_format,
 	},

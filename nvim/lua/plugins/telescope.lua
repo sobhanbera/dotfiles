@@ -54,17 +54,17 @@ local map = require("sobhanbera.mappings").map
 vim.keymap.set(
 	"n",
 	"<leader>ff",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ prompt_title = '< Search Files >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({ prompt_title = '< Search Files >', previewer = false }))<cr>"
 ) -- find any file
 vim.keymap.set(
 	"n",
 	"<C-p>",
-	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ prompt_title = '< Project Files >' }))<CR>"
+	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ prompt_title = '< Project Files >', previewer = false }))<CR>"
 ) -- git files
 vim.keymap.set(
 	"n",
 	"<leader>fa",
-	"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy({ prompt_title = '< Recently Opened >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_ivy({ prompt_title = '< Recently Opened >', previewer = false }))<cr>"
 ) -- find buffer
 vim.keymap.set(
 	"n",
@@ -74,5 +74,5 @@ vim.keymap.set(
 map(
 	"n",
 	"<leader>bf",
-	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy({ prompt_title = '< Search Buffers >' }))<cr>"
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy({ prompt_title = '< Search Buffers >', previewer = false }))<cr>"
 ) -- find buffer

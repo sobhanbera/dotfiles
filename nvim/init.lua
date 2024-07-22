@@ -1,6 +1,11 @@
+USER = vim.fn.expand("$USER")
+
 -- all the plugins config...
-require("sobhanbera.plugins")
+-- require("sobhanbera.plugins")
+vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/sobhanbera/plugins.vim")
+
 --
+require("plugins.alpha")
 require("plugins.bufferline")
 require("plugins.colorscheme")
 require("plugins.comment")
@@ -20,7 +25,6 @@ require("plugins.treesitter")
 require("plugins.trouble")
 require("plugins.undotree")
 
-USER = vim.fn.expand("$USER")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/config/markdown_preview.vim")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/plugins/lastplace.vim")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/plugins/maximizer.vim")
