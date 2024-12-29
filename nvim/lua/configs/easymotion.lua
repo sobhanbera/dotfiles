@@ -1,4 +1,4 @@
-local map = require("sobhanbera.mappings").map
+local map = require("sobo.keymaps").map
 
 local opts = { noremap = false, silent = true }
 local opts2 = { noremap = true, silent = true }

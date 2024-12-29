@@ -1,6 +1,6 @@
--- +-----------------------------------------------------+
--- |                        SETTERS                      |
--- +-----------------------------------------------------+
+-- ----------------------------- --
+--           Settings            --
+-- ----------------------------- --
 USER = vim.fn.expand("$USER")
 
 vim.o.exrc = true
@@ -20,11 +20,12 @@ vim.o.updatetime = 200
 vim.o.shortmess = "a"
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.guicursor = "i:ver25-iCursor-blinkwait700-blinkon400-blinkoff250"
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.showtabline = 0
+vim.o.guicursor = "i:block-iCursor-blinkwait700-blinkon400-blinkoff250"
+-- vim.o.guicursor = "i:ver75-iCursor-blinkwait700-blinkon400-blinkoff250"
+-- vim.o.guicursor = "n-v-c:block,i:ver25-CursorInsert"
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
 vim.o.fsync = true
 vim.o.pumheight = 12
 
@@ -37,9 +38,9 @@ vim.wo.cursorline = true
 vim.wo.numberwidth = 3
 -- vim.wo.foldmethod = "expr"
 
-vim.bo.tabstop = 4
-vim.bo.softtabstop = 4
-vim.bo.shiftwidth = 4
+vim.bo.tabstop = 2
+vim.bo.softtabstop = 2
+vim.bo.shiftwidth = 2
 vim.bo.expandtab = true
 vim.bo.autoindent = true
 vim.bo.smartindent = true
@@ -55,5 +56,3 @@ vim.cmd [[ set completeopt-=preview ]]
 vim.cmd [[ augroup vimrc_autocmds ]]
 vim.cmd [[ autocmd BufEnter * match OverLength /\\%120v.*/ ]]
 vim.cmd [[ augroup END ]]
-
--- vim.g.nvim_tree_show_icons = '{ "git": 1, "folders": 1, "files": 1, "folder_arrows": 1 }'

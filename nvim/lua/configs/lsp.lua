@@ -78,8 +78,7 @@ end
 -- " +-----------------------------------------------------+ "
 local lspkind = require("lspkind") -- lsp kind icons for completion menu
 lspkind.init({
-	with_text = false,
-	mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+	mode = "symbol_text",            -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
 })
 
 -- +-----------------------------------------------------+
@@ -177,22 +176,25 @@ require("mason-lspconfig").setup({
 
 local nvim_lsp = require("lspconfig") -- official lsp config :)
 local servers = {
-	"tsserver",
-	"pyright",
-	"clangd",
-	"html",
-	"cssls",
-	"emmet_ls",
-	"vimls",
-	"eslint",
 	"dockerls",
-	"jsonls",
 	"emmet_ls",
+	"eslint",
+	"clangd",
+	"cssls",
 	"gopls",
+	"html",
+	"jsonls",
 	"kotlin_language_server",
+	"pyright",
 	"tailwindcss",
+	"ts_ls",
+	"vimls",
 } --, 'cssmodules_ls'}
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 
 for _, lsp in ipairs(servers) do
 	if lsp == "clangd" then
@@ -293,4 +295,5 @@ require("lspconfig").lua_ls.setup({
 		},
 	},
 })
+
 vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"

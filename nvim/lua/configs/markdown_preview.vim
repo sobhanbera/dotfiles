@@ -25,6 +25,13 @@ let g:mkdp_highlight_css = ''
 let g:mkdp_port = '8888'
 let g:mkdp_page_title = '${name} - Preview'
 let g:mkdp_filetypes = ['markdown']
-nnoremap <leader>dm :MarkdownPreview<CR>
-nnoremap <leader>dms :MarkdownPreviewStop<CR>
-nnoremap <leader>dmt :MarkdownPreviewToggle<CR>
+
+"  mappings
+lua << EOF
+local map = require("sobo.keymaps").map
+map('n', '<leader>dm', ':MarkdownPreviewToggle<CR>')
+EOF
+
+" nnoremap <leader>dm :MarkdownPreview<CR>
+" nnoremap <leader>dms :MarkdownPreviewStop<CR>
+" nnoremap <leader>dmt :MarkdownPreviewToggle<CR>

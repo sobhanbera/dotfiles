@@ -21,7 +21,7 @@ null_ls.setup({
 })
 
 -- formatting key-bindings here
-local map = require("sobhanbera.mappings").map
+local map = require("sobo.keymaps").map
 map("n", "<leader>df", ":lua vim.lsp.buf.format()<CR>")
 map("n", "df", ":lua vim.lsp.buf.format{ async = true }<CR>")
 

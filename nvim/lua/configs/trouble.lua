@@ -35,7 +35,6 @@ require("trouble").setup({
 	auto_jump = { "lsp_definitions", "lsp_references" }, -- automatically jump to the first diagnostic of the list
 
 	signs = {
-		-- icons / text used for a diagnostic
 		error = "",
 		warning = "",
 		hint = "",
@@ -46,5 +45,5 @@ require("trouble").setup({
 	lsp_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
 })
 
-local map = require("sobhanbera.mappings").map
+local map = require("sobo.keymaps").map
 map("n", "T", ":TroubleToggle<CR>")

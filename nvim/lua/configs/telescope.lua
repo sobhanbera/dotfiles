@@ -50,7 +50,7 @@ telescope.setup({
 	},
 })
 
-local map = require("sobhanbera.mappings").map
+local map = require("sobo.keymaps").map
 vim.keymap.set(
 	"n",
 	"<leader>ff",
@@ -59,7 +59,7 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<C-p>",
-	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ prompt_title = '< Project Files >', previewer = false }))<CR>"
+	"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ prompt_title = '< Project Files >', previewer = true }))<CR>"
 ) -- git files
 vim.keymap.set(
 	"n",
