@@ -1,0 +1,298 @@
+# Creates a React component class with ES7 module system and TypeScript interfaces
+snippet tsrcc "Creates a React component class with ES7 module system and TypeScript interfaces" b
+import React, { Component } from 'react'
+
+interface Props {
+
+}
+interface State {
+
+}
+
+export default class ${1:${TM_FILENAME_BASE}} extends Component<Props, State> {
+	state = {}
+
+	render() {
+		return (
+			<div>
+				$0
+			</div>
+		)
+	}
+}
+
+endsnippet
+
+# Creates a React component class with ES7 module system and TypeScript interfaces
+snippet tsrce "Creates a React component class with ES7 module system and TypeScript interfaces" b
+import React, { Component } from 'react'
+
+interface Props {
+
+}
+interface State {
+
+}
+
+class ${1:${TM_FILENAME_BASE}} extends Component<Props, State> {
+	state = {}
+
+	render() {
+		return (
+			<div>
+				$0
+			</div>
+		)
+	}
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+endsnippet
+
+# Creates a React Functional Component with ES7 module system and TypeScript interface
+snippet tsrfce "Creates a React Functional Component with ES7 module system and TypeScript interface" b
+import React, { ReactElement } from 'react'
+
+interface Props {
+
+}
+
+function ${1:${TM_FILENAME_BASE}}({}: Props): ReactElement {
+	return (
+		<div>
+			$0
+		</div>
+	)
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+endsnippet
+
+# Creates a React Functional Component with ES7 module system and TypeScript interface
+snippet tsrfc "Creates a React Functional Component with ES7 module system and TypeScript interface" b
+import React, { ReactElement } from 'react'
+
+interface Props {
+
+}
+
+export default function ${1:${TM_FILENAME_BASE}}({}: Props): ReactElement {
+	return (
+		<div>
+			$0
+		</div>
+	)
+}
+
+endsnippet
+
+# Creates a React Arrow Function Component with ES7 module system and TypeScript interface
+snippet tsrafce "Creates a React Arrow Function Component with ES7 module system and TypeScript interface" b
+import React from 'react'
+
+interface Props {
+
+}
+
+const ${1:${TM_FILENAME_BASE}} = (props: Props) => {
+	return (
+		<div>
+			$0
+		</div>
+	)
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+endsnippet
+
+# Creates a React Arrow Function Component with ES7 module system and TypeScript interface
+snippet tsrafc "Creates a React Arrow Function Component with ES7 module system and TypeScript interface" b
+import React from 'react'
+
+interface Props {
+
+}
+
+export const ${1:${TM_FILENAME_BASE}} = (props: Props) => {
+	return (
+		<div>
+			$0
+		</div>
+	)
+}
+
+endsnippet
+
+# Creates a React pure component class with ES7 module system and TypeScript interface
+snippet tsrpc "Creates a React pure component class with ES7 module system and TypeScript interface" b
+import React, { PureComponent } from 'react'
+
+interface Props {
+
+}
+
+export default class ${1:${TM_FILENAME_BASE}} extends PureComponent<Props> {
+	render() {
+		return (
+			<div>
+				$0
+			</div>
+		)
+	}
+}
+
+endsnippet
+
+# Creates a React pure component class with ES7 module system and TypeScript interface
+snippet tsrpce "Creates a React pure component class with ES7 module system and TypeScript interface" b
+import React, { PureComponent } from 'react'
+
+interface Props {
+
+}
+
+class ${1:${TM_FILENAME_BASE}} extends PureComponent<Props> {
+	render() {
+		return (
+			<div>
+				$0
+			</div>
+		)
+	}
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+endsnippet
+
+# Creates a React Memo Function Component with ES7 module system and TypeScript interface
+snippet tsrmc "Creates a React Memo Function Component with ES7 module system and TypeScript interface" b
+import React, { memo } from 'react'
+
+interface Props {
+
+}
+
+export default memo(function ${1:${TM_FILENAME_BASE}}({}: Props) {
+	return (
+		<div>
+			$0
+		</div>
+	)
+})
+
+endsnippet
+
+# Creates a React component class with PropTypes with connected redux and ES7 module system and TypeScript interfaces
+snippet tsrcredux "Creates a React component class with PropTypes with connected redux and ES7 module system and TypeScript interfaces" b
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+interface Props {
+
+}
+interface State {
+
+}
+
+export class ${1:${TM_FILENAME_BASE}} extends Component<Props, State> {
+	state = {}
+
+	render() {
+		return (
+			<div>
+				$0
+			</div>
+		)
+	}
+}
+
+const mapStateToProps = (state) => ({
+
+})
+
+const mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(${1:${TM_FILENAME_BASE}})
+
+endsnippet
+
+# Creates a React Native Arrow Function Component with ES7 module system and TypeScript interface
+snippet tsrnf "Creates a React Native Arrow Function Component with ES7 module system and TypeScript interface" b
+import React from 'react'
+import { View, Text } from 'react-native'
+
+interface Props {
+
+}
+
+const ${1:${TM_FILENAME_BASE}} = (props: Props) => {
+	return (
+		<View>
+			<Text>$0</Text>
+		</View>
+	)
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+endsnippet
+
+# Creates a React Native Arrow Function Component with ES7 module system and named TypeScript interface
+snippet tsrnfi "Creates a React Native Arrow Function Component with ES7 module system and named TypeScript interface" b
+import React from 'react'
+import { View } from 'react-native'
+
+interface ${1:${TM_FILENAME_BASE}}Props {
+
+}
+
+const ${1:${TM_FILENAME_BASE}}: React.FunctionComponent<${1:${TM_FILENAME_BASE}}Props> = (props) => {
+	return (
+		<View>
+			$0
+		</View>
+	)
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+endsnippet
+
+# Creates a React Native Arrow Function Component with ES7 module system, TypeScript interface and StyleSheet
+snippet tsrnfs "Creates a React Native Arrow Function Component with ES7 module system, TypeScript interface and StyleSheet" b
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+
+interface Props {
+
+}
+
+const ${1:${TM_FILENAME_BASE}} = (props: Props) => {
+	return (
+		<View>
+			<Text>$0</Text>
+		</View>
+	)
+}
+
+export default ${1:${TM_FILENAME_BASE}}
+
+const styles = StyleSheet.create({})
+
+endsnippet
+
+# Export interface
+snippet expint "Export interface" b
+export interface ${1:${TM_FILENAME_BASE}} {$0}
+endsnippet
+
+# Export type
+snippet exptp "Export type" b
+export type ${1:${TM_FILENAME_BASE}} = {$0}
+endsnippet
