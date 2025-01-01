@@ -64,10 +64,10 @@ vim.cmd([[ hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf ]])
 -- vim.cmd [[ hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#14BC85") ]] -- highlight for hint in diagnostic
 
 -- menu related highlights
-vim.cmd [[ hi Pmenu guibg=NONE") ]]                     -- auto-complete or any menu highlight
+vim.cmd [[ hi Pmenu guibg=NONE") ]] -- auto-complete or any menu highlight
 vim.cmd [[ hi PmenuSel guibg=#2f3437 guifg=#ffffff") ]] -- highlight for the currently selected menu
 -- vim.cmd [[ hi PmenuSbar guibg=#2f3437") ]] -- the scrollbar highlight
-vim.cmd [[ hi PmenuThumb guibg=#3f4447") ]]             -- the thumb highlight in menu scrollbar
+vim.cmd [[ hi PmenuThumb guibg=#3f4447") ]] -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
 -- vim.cmd [[ hi Search guibg=#015e99") ]] -- highlight for the search term

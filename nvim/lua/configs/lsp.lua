@@ -78,7 +78,7 @@ end
 -- " +-----------------------------------------------------+ "
 local lspkind = require("lspkind") -- lsp kind icons for completion menu
 lspkind.init({
-	mode = "symbol_text",            -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+	mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
 })
 
 -- +-----------------------------------------------------+
@@ -195,6 +195,9 @@ capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = false,
+})
 
 for _, lsp in ipairs(servers) do
 	if lsp == "clangd" then
