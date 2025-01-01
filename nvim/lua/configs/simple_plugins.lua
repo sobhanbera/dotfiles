@@ -9,7 +9,7 @@ require("Comment").setup()
 -- cursorline (Cursorword plugin)
 require("nvim-cursorline").setup({
   cursorline = {
-    enable = true,
+    enable = false, -- NOTE: don't enable this, else a lag could be experienced when moving cursor, very annoying
     timeout = 1000,
     number = false,
   },
@@ -28,8 +28,8 @@ require("nvim-cursorline").setup({
 
 -- nvim highlight colors in file
 require("nvim-highlight-colors").setup({
-	render = 'background',
-	virtual_symbol = '■',
+  render = 'background',
+  virtual_symbol = '■',
 })
 
 -- undotree
