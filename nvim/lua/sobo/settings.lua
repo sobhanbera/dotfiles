@@ -6,7 +6,6 @@ USER = vim.fn.expand("$USER")
 vim.o.exrc = true
 vim.o.encoding = "UTF-8"
 vim.o.mouse = "a"
-vim.o.guicursor = ""
 vim.o.smarttab = true
 vim.o.undodir = "/Users/" .. USER .. "/Workspace/cache/nvim/undodir"
 vim.o.hidden = true
@@ -20,8 +19,8 @@ vim.o.updatetime = 200
 vim.o.shortmess = "a"
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.guicursor = "i:block-iCursor-blinkwait700-blinkon400-blinkoff250"
--- vim.o.guicursor = "i:ver75-iCursor-blinkwait700-blinkon400-blinkoff250"
+-- vim.o.guicursor = "i:block-iCursor-blinkwait700-blinkon400-blinkoff250"
+vim.o.guicursor = "i:ver25-iCursor-blinkwait700-blinkon400-blinkoff250"
 -- vim.o.guicursor = "n-v-c:block,i:ver25-CursorInsert"
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -49,8 +48,9 @@ vim.bo.smartindent = true
 vim.cmd [[ set nowrap ]]
 vim.cmd [[ set noswapfile nobackup undofile ]]
 vim.cmd [[ set history=10000 ]]
-vim.cmd [[ set backspace=indent,eol,start whichwrap+=<,>,[,] ]]
+-- vim.cmd [[ set backspace=indent,eol,start whichwrap+=<,>,[,] ]]
 vim.cmd [[ set completeopt-=preview ]]
+vim.cmd [[ set nolist ]]
 
 -- define a boundary to have a over length
 vim.cmd [[ augroup vimrc_autocmds ]]

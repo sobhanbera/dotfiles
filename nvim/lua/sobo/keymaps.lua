@@ -97,4 +97,12 @@ map("n", "<c-j>", "<c-w>j")
 map("n", "<c-k>", "<c-w>k")
 map("n", "<c-l>", "<c-w>l")
 
+map('n', '<leader>k0', ':set foldlevel=0<CR>')
+map('n', '<leader>k1', ':set foldlevel=1<CR>')
+map('n', '<leader>k2', ':set foldlevel=2<CR>')
+map('n', '<leader>k3', ':set foldlevel=3<CR>')
+map('n', '<leader>k4', ':set foldlevel=4<CR>')
+map('n', '<leader>k5', ':set foldlevel=5<CR>')
+map('n', '<leader>k6', ':set foldlevel=6<CR>')
+
 return M
