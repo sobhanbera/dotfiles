@@ -22,6 +22,17 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'   " pre-configured snippets
 
+" debugger
+Plug 'mfussenegger/nvim-dap' 
+Plug 'mfussenegger/nvim-dap'
+Plug 'nvim-neotest/nvim-nio'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
+" language specific debuggers
+Plug 'microsoft/vscode-js-debug', { 'do': 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out' }
+Plug 'mxsdev/nvim-dap-vscode-js'
+Plug 'Joakker/lua-json5', { 'do': './install.sh' } " this is require to read the local config json file
+
 " amazing fuzzy finder, and file formatter
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim'

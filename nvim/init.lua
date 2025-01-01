@@ -5,6 +5,7 @@ USER = vim.fn.expand("$USER")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/sobo/plugins.vim")
 
 require("configs.barbartabs")
+require("configs.debug")
 require("configs.easymotion")
 require("configs.gitgithub")
 require("configs.lsp")
