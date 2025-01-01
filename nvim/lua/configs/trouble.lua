@@ -46,4 +46,5 @@ require("trouble").setup({
 })
 
 local map = require("sobo.keymaps").map
-map("n", "T", ":TroubleToggle<CR>")
+map("n", "T", ":Trouble diagnostics toggle focus=false filter.buf=0<CR>")
+-- map("n", "T", ":TroubleToggle<CR>")

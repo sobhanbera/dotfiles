@@ -14,10 +14,10 @@ require("barbar").setup({
 		button = "",
 		-- Enables / disables diagnostic symbols
 		diagnostics = {
-			[vim.diagnostic.severity.ERROR] = { enabled = true },
-			[vim.diagnostic.severity.WARN] = { enabled = true },
-			[vim.diagnostic.severity.INFO] = { enabled = true },
-			[vim.diagnostic.severity.HINT] = { enabled = true, icon = " " },
+			[vim.diagnostic.severity.ERROR] = { enabled = false },
+			[vim.diagnostic.severity.WARN] = { enabled = false },
+			[vim.diagnostic.severity.INFO] = { enabled = false },
+			[vim.diagnostic.severity.HINT] = { enabled = false, icon = " " },
 		},
 		gitsigns = {
 			added = { enabled = true, icon = "+" },
