@@ -36,8 +36,12 @@ vim.cmd([[ hi VertSplit guibg=NONE guifg=#795E19 ]])
 -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#bfbfbf" })
 
 vim.cmd([[ hi SignColumn guibg=NONE ]])
-vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#dfdfdf ]])
-vim.cmd([[ hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf ]])
+vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
+vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
+
+vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
+vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
+vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#afafaf ]])
 
 -- highlight related to "cmp" plugins
 -- vim.cmd [[ highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080 ]]
@@ -59,14 +63,14 @@ vim.cmd([[ hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf ]])
 -- vim.cmd [[ hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#14BC85") ]] -- highlight for hint in diagnostic
 
 -- menu related highlights
-vim.cmd [[ hi Pmenu guibg=NONE") ]]                     -- auto-complete or any menu highlight
-vim.cmd [[ hi PmenuSel guibg=#2f3437 guifg=#ffffff") ]] -- highlight for the currently selected menu
--- vim.cmd [[ hi PmenuSbar guibg=#2f3437") ]] -- the scrollbar highlight
-vim.cmd [[ hi PmenuThumb guibg=#3f4447") ]]             -- the thumb highlight in menu scrollbar
+vim.cmd([[ hi Pmenu guibg=NONE") ]]) -- auto-complete or any menu highlight
+vim.cmd([[ hi PmenuSel guibg=#003440 guifg=#2aa097") ]]) -- highlight for the currently selected menu
+-- vim.cmd [[ hi PmenuSbar guibg=#003440") ]] -- the scrollbar highlight
+vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
 -- vim.cmd [[ hi Search guibg=#015e99") ]] -- highlight for the search term
--- vim.cmd [[ hi Visual guibg=#2B313F") ]] -- highlight for the code selection in visual mode
+-- vim.cmd [[ hi Visual guibg=#003440") ]] -- highlight for the code selection in visual mode
 
-vim.cmd([[ hi EndOfBuffer guifg=NONE guibg=NONE ]])
+vim.cmd([[ hi EndOfBuffer guifg=#003440 guibg=NONE ]])
 -- vim.cmd([[ set fillchars+=eob:· list listchars+=trail:· ]])

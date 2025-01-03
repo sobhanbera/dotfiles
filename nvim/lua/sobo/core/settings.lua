@@ -39,7 +39,9 @@ wo.colorcolumn = "120"
 wo.signcolumn = "yes"
 wo.cursorline = true
 wo.numberwidth = 3
--- wo.foldmethod = "expr"
+wo.foldcolumn = "1"
+wo.foldmethod = "expr"
+wo.foldlevel = 99 -- open all folds by default
 
 bo.tabstop = 2
 bo.softtabstop = 2
@@ -49,14 +51,14 @@ bo.autoindent = true
 bo.smartindent = true
 -- bo.textwidth = 120
 
-vim.cmd [[ set nowrap ]]
-vim.cmd [[ set noswapfile nobackup undofile ]]
-vim.cmd [[ set history=10000 ]]
+vim.cmd([[ set nowrap ]])
+vim.cmd([[ set noswapfile nobackup undofile ]])
+vim.cmd([[ set history=10000 ]])
 -- vim.cmd [[ set backspace=indent,eol,start whichwrap+=<,>,[,] ]]
-vim.cmd [[ set completeopt-=preview ]]
-vim.cmd [[ set nolist ]]
+vim.cmd([[ set completeopt-=preview ]])
+vim.cmd([[ set nolist ]])
 
 -- define a boundary to have a over length
-vim.cmd [[ augroup vimrc_autocmds ]]
-vim.cmd [[ autocmd BufEnter * match OverLength /\\%120v.*/ ]]
-vim.cmd [[ augroup END ]]
+vim.cmd([[ augroup vimrc_autocmds ]])
+vim.cmd([[ autocmd BufEnter * match OverLength /\\%120v.*/ ]])
+vim.cmd([[ augroup END ]])
