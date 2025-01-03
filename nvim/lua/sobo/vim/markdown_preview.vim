@@ -28,7 +28,7 @@ let g:mkdp_filetypes = ['markdown']
 
 "  mappings
 lua << EOF
-local map = require("sobo.keymaps").map
+local map = require("sobo.core.keymaps").map
 map('n', '<leader>dm', ':MarkdownPreviewToggle<CR>')
 EOF
 

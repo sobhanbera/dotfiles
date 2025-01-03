@@ -1,18 +1,13 @@
--- ----------------------------- --
---         Colorscheme           --
--- ----------------------------- --
 vim.cmd([[ set encoding=utf-8 ]])
 vim.cmd([[ set termguicolors ]])
 
 vim.cmd([[ set background=dark ]])
-vim.cmd([[ let ayucolor="dark" ]])
-vim.cmd([[ colorscheme onedark ]])
--- vim.cmd([[ colorscheme github_dark ]])
+-- vim.cmd([[ let ayucolor="dark" ]])
+-- vim.cmd([[ colorscheme onedark ]])
 -- vim.cmd([[ let g:gruvbox_italic=1 ]])
 -- vim.cmd([[ colorscheme gruvbox ]])
 
 -- vim.cmd [[ let ayucolor="mirage" ]]
--- vim.cmd [[ colorscheme github_dark ]]
 -- vim.cmd [[ colorscheme nord ]]
 -- vim.cmd [[ let g:gruvbox_contrast_dark = "hard" ]]
 
@@ -64,10 +59,10 @@ vim.cmd([[ hi NvimTreeNormalNC guibg=NONE guifg=#dfdddf ]])
 -- vim.cmd [[ hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#14BC85") ]] -- highlight for hint in diagnostic
 
 -- menu related highlights
-vim.cmd [[ hi Pmenu guibg=NONE") ]] -- auto-complete or any menu highlight
+vim.cmd [[ hi Pmenu guibg=NONE") ]]                     -- auto-complete or any menu highlight
 vim.cmd [[ hi PmenuSel guibg=#2f3437 guifg=#ffffff") ]] -- highlight for the currently selected menu
 -- vim.cmd [[ hi PmenuSbar guibg=#2f3437") ]] -- the scrollbar highlight
-vim.cmd [[ hi PmenuThumb guibg=#3f4447") ]] -- the thumb highlight in menu scrollbar
+vim.cmd [[ hi PmenuThumb guibg=#3f4447") ]]             -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
 -- vim.cmd [[ hi Search guibg=#015e99") ]] -- highlight for the search term

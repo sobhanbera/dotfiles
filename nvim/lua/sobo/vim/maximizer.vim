@@ -71,6 +71,6 @@ endif
 
 "  mappings
 lua << EOF
-local map = require("sobo.keymaps").map
+local map = require("sobo.core.keymaps").map
 map('n', '<leader>m', ':MaximizerToggle!<CR>')
 EOF
