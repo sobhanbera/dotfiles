@@ -40,7 +40,7 @@ wo.signcolumn = "yes"
 wo.cursorline = true
 wo.numberwidth = 3
 wo.foldcolumn = "1"
-wo.foldmethod = "expr"
+wo.foldmethod = "indent"
 wo.foldlevel = 99 -- open all folds by default
 
 bo.tabstop = 2
