@@ -29,9 +29,9 @@ return {
 			local gitsigs = require("gitsigns")
 			gitsigs.setup({
 				signcolumn = true,
-				numhl = true,
-				linehl = true,
-				word_diff = true,
+				numhl = false,
+				linehl = false,
+				word_diff = false,
 				signs = {
 					add = { text = "┃" },
 					change = { text = "┃" },
@@ -71,7 +71,7 @@ return {
 		-- setting the keybinding for LazyGit with 'keys' is recommended in
 		-- order to load the plugin when the command is run for the first time
 		keys = {
-			{ "<leader>git", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
+			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
 		},
 	},
 }

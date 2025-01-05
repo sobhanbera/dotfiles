@@ -9,13 +9,11 @@ return {
 
 	{
 		"maxmx03/solarized.nvim",
-		lazy = false,
 		priority = 1000,
-		---@type solarized.config
 		opts = {},
 		config = function(_, opts)
-			require("solarized").setup(opts)
-			vim.cmd.colorscheme("solarized")
+			-- require("solarized").setup(opts)
+			-- vim.cmd.colorscheme("solarized")
 		end,
 	},
 
@@ -67,28 +65,28 @@ return {
 		end,
 	},
 
-	-- {
-	--   "projekt0n/github-nvim-theme",
-	--   priority = 1000,
-	--   config = function()
-	--     -- vim.cmd [[ colorscheme github_dark ]]
-	--   end
-	-- },
+	{
+		"projekt0n/github-nvim-theme",
+		priority = 1000,
+		config = function()
+			-- vim.cmd([[ colorscheme github_dark ]])
+		end,
+	},
 
-	-- {
-	--   'morhetz/gruvbox',
-	--   priority = 1000,
-	--   config = function()
-	--     -- vim.cmd([[ colorscheme gruvbox ]])
-	--   end
-	-- },
+	{
+		"morhetz/gruvbox",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("gruvbox")
+		end,
+	},
 
-	-- {
-	--   'ayu-theme/ayu-vim',
-	--   priority = 1000,
-	--   config = function()
-	--     -- vim.cmd([[ let ayucolor="dark" ]])
-	--     -- vim.cmd [[ colorscheme ayu ]]
-	--   end
-	-- },
+	{
+		"ayu-theme/ayu-vim",
+		priority = 1000,
+		config = function()
+			-- vim.cmd([[ let ayucolor="dark" ]])
+			-- vim.cmd([[ colorscheme ayu ]])
+		end,
+	},
 }

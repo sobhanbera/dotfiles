@@ -165,18 +165,18 @@ return {
 				-- lualine_b = { "branch", "diff" }, -- "diagnostics" },
 				lualine_b = {
 					{
+						"branch",
+						color = { fg = "#003440", bg = "#afafaf" }, -- White text on a blue background
+					},
+					{
 						"diff",
 						symbols = { added = " ", modified = "  ", removed = "  " }, -- Custom symbols
 						diff_color = {
-							added = { fg = "#ffffff", bg = "#859801" }, -- Green background for added
-							modified = { fg = "#ffffff", bg = "#b48800" }, -- Yellow background for modified
-							removed = { fg = "#ffffff", bg = "#db4b4b" }, -- Red background for removed
+							added = { fg = "#859801" }, -- Green background for added
+							modified = { fg = "#b48800" }, -- Yellow background for modified
+							removed = { fg = "#db4b4b" }, -- Red background for removed
 						},
 						color = { fg = "#ffffff" }, -- Default foreground
-					},
-					{
-						"branch",
-						color = { fg = "#003440", bg = "#afafaf" }, -- White text on a blue background
 					},
 					-- "diagnostics", -- Keep diagnostics as is
 				},

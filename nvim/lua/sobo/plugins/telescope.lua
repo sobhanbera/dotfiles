@@ -105,7 +105,7 @@ return {
 			desc = "Find any file",
 		},
 		{
-			"<C-p>",
+			"<leader>fg",
 			"<cmd>lua require('telescope.builtin').git_files(require('telescope.themes').get_ivy({ prompt_title = '< Project Files >', previewer = true }))<CR>",
 			desc = "Find git files",
 		},
