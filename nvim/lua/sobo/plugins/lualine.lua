@@ -119,11 +119,10 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
+				color_icons = true,
 				-- theme = "github_dark_default",
-				-- component_separators = {'', ''},
-				component_separators = { left = "", right = "" },
-				-- section_separators = { "", "" },
-				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = {},
 				always_divide_middle = true,
 
@@ -172,9 +171,9 @@ return {
 						"diff",
 						symbols = { added = " ", modified = "  ", removed = "  " }, -- Custom symbols
 						diff_color = {
-							added = { fg = "#859801" }, -- Green background for added
-							modified = { fg = "#b48800" }, -- Yellow background for modified
-							removed = { fg = "#db4b4b" }, -- Red background for removed
+							added = { fg = "#ffffff", bg = "#859801" }, -- Green background for added
+							modified = { fg = "#ffffff", bg = "#b48800" }, -- Yellow background for modified
+							removed = { fg = "#ffffff", bg = "#db4b4b" }, -- Red background for removed
 						},
 						color = { fg = "#ffffff" }, -- Default foreground
 					},
@@ -183,53 +182,59 @@ return {
 				lualine_c = {
 					{
 						"diagnostics",
-						sources = { "nvim_diagnostic" }, -- Use the Neovim built-in LSP diagnostic source
-						sections = { "error", "warn", "info", "hint" }, -- Types of diagnostics to display
+						sources = { "nvim_diagnostic" },
+						sections = { "error", "warn", "info", "hint" },
 						symbols = {
-							error = " ", -- Error icon
-							warn = " ", -- Warning icon
-							info = " ", -- Info icon
-							hint = " ", -- Hint icon
+							error = " ",
+							warn = " ",
+							info = " ",
+							hint = " ",
 						},
 						diagnostics_color = {
-							error = { fg = "#db4b4b" }, -- Red for errors
-							warn = { fg = "#e0af68" }, -- Yellow for warnings
-							info = { fg = "#0db9d7" }, -- Blue for info
-							hint = { fg = "#859801" }, -- Green for hints
+							error = { fg = "#db4b4b" },
+							warn = { fg = "#e0af68" },
+							info = { fg = "#0db9d7" },
+							hint = { fg = "#859801" },
 						},
-						colored = true, -- Enable colored output
-						update_in_insert = false, -- Update diagnostics in insert mode
-						always_visible = false, -- Hide if no diagnostics are present
+						colored = true,
+						update_in_insert = false,
+						always_visible = false,
 						cond = function()
-							local diagnostics = vim.diagnostic.get(0) -- Get diagnostics for the current buffer
-							return #diagnostics > 0 -- Show only if there are diagnostics
+							local diagnostics = vim.diagnostic.get(0)
+							return #diagnostics > 0
 						end,
 					},
 					{
+						"filetype",
+						colored = true,
+						icon_only = true,
+						icon = { align = "left" },
+					},
+					{
 						"filename",
-						file_status = true, -- Displays file status (readonly status, modified status)
 						path = 0, -- 0: Just the filename
 						-- 1: Relative path
 						-- 2: Absolute path
 
-						shorting_target = 52, -- Shortens path to leave 40 spaces in the window
-						-- for other components. (terrible name, any suggestions?)
+						shorting_target = 52,
+						file_status = true,
 						symbols = {
-							modified = "●", -- Text to show when the file is modified.
-							readonly = "--", -- Text to show when the file is non-modifiable or readonly.
-							unnamed = ":D", -- Text to show for unnamed buffers.
+							modified = "●",
+							readonly = "--",
+							unnamed = ":D",
 						},
 					},
-					{
-						diagnostic_message,
-						colors = {
-							error = "#db4b4b",
-							warn = "#b48800",
-							info = "#859801",
-							hint = "#268ad1",
-						},
-					},
+					-- {
+					-- 	diagnostic_message,
+					-- 	colors = {
+					-- 		error = "#db4b4b",
+					-- 		warn = "#b48800",
+					-- 		info = "#859801",
+					-- 		hint = "#268ad1",
+					-- 	},
+					-- },
 				},
+
 				lualine_x = {
 					{
 						lazy_status.updates,
@@ -238,7 +243,7 @@ return {
 					},
 					{ "encoding" },
 					-- { "fileformat" },
-					{ "filetype" },
+					-- { "filetype" },
 				},
 
 				lualine_y = { "progress" },
