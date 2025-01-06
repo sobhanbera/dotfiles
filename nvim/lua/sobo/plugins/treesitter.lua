@@ -76,7 +76,8 @@ return {
 				typescript = "// %s",
 			},
 		})
-		vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+		-- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+		-- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 		local map = require("sobo.core.keymaps").map
 		map("n", "<leader>p", ":TSPlaygroundToggle<CR>")

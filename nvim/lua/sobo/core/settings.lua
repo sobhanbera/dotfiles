@@ -62,3 +62,10 @@ vim.cmd([[ set nolist ]])
 vim.cmd([[ augroup vimrc_autocmds ]])
 vim.cmd([[ autocmd BufEnter * match OverLength /\\%120v.*/ ]])
 vim.cmd([[ augroup END ]])
+
+vim.cmd([[
+	augroup SetFoldLevelOnBufferChange
+		autocmd!
+		autocmd BufEnter * if &filetype =~# 'TelescopePrompt\|neo-tree' | setlocal nofoldenable | endif
+	augroup END
+]])
