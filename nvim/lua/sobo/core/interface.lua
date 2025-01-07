@@ -74,3 +74,5 @@ vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scro
 
 vim.cmd([[ hi EndOfBuffer guifg=#003440 guibg=NONE ]])
 -- vim.cmd([[ set fillchars+=eob:· list listchars+=trail:· ]])
+
+vim.cmd([[ hi SnacksIndentScope guifg=#afafaf ]])
