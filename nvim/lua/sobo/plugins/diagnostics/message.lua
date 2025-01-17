@@ -3,12 +3,29 @@
 local M = {}
 
 local MAX_LENGTH = 200
-local colors = {
-	white = "#fdf6e3",
-	black = "#002b36",
 
-	darkgray = "#003440",
-	gray = "#afafaf",
+-- tokyonight colors
+local colors = {
+	white = "#c0caf5",
+	black = "#414868",
+
+	darkgray = "#282C34",
+	gray = "#ABB2BF",
+
+	red = "#f7768e",
+	yellow = "#e0af68",
+	blue = "#7ba2f3",
+	green = "#41b59b",
+	purple = "#bb9af7",
+	aqua = "#2ccde9",
+}
+-- onedark colors
+local onedark_colors = {
+	white = "#ABB2BF",
+	black = "#282C34",
+
+	darkgray = "#282C34",
+	gray = "#ABB2BF",
 
 	red = "#E06C75",
 	yellow = "#E5C07B",
@@ -17,6 +34,7 @@ local colors = {
 	purple = "#C678DD",
 	aqua = "#56B6C2",
 }
+-- gruvbox colors
 local gruvbox_colors = {
 	white = "#fdf6e3",
 	black = "#002b36",

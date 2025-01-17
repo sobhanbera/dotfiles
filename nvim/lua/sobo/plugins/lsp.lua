@@ -345,7 +345,7 @@ return {
 					},
 				},
 			})
-			require("rust-tools").setup({})
+			-- require("rust-tools").setup({})
 
 			vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
 		end,

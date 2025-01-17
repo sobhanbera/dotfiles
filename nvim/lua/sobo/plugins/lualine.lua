@@ -13,12 +13,12 @@ return {
 			options = {
 				icons_enabled = true,
 				color_icons = true,
-				theme = "onedark",
+				theme = "tokyonight-moon",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				-- component_separators = { left = "", right = "" },
 				-- component_separators = { left = '', right = '' },
-				disabled_filetypes = {},
+				disabled_filetypes = { "neo-tree" },
 				always_divide_middle = false,
 			},
 			sections = {
@@ -118,7 +118,7 @@ return {
 					{
 						"datetime",
 						style = "%I:%M:%S %p",
-						color = { fg = colors.white, bg = colors.green },
+						color = { fg = colors.black, bg = colors.green },
 					},
 				},
 			},

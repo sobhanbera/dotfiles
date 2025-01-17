@@ -1,7 +1,7 @@
 vim.cmd([[ set encoding=utf-8 ]])
 vim.cmd([[ set termguicolors ]])
 
-vim.cmd([[ set background=dark ]])
+vim.cmd("set background=dark")
 -- vim.cmd([[ let ayucolor="dark" ]])
 -- vim.cmd([[ colorscheme onedark ]])
 -- vim.cmd([[ let g:gruvbox_italic=1 ]])
@@ -11,17 +11,17 @@ vim.cmd([[ set background=dark ]])
 -- vim.cmd [[ colorscheme nord ]]
 -- vim.cmd [[ let g:gruvbox_contrast_dark = "hard" ]]
 
-vim.cmd([[ hi Normal guibg=NONE ]])
-vim.cmd([[ hi NormalNC guibg=NONE ]])
-vim.cmd([[ hi NormalFloat guibg=NONE ]])
+-- vim.cmd([[ hi Normal guibg=NONE ]])
+-- vim.cmd([[ hi NormalNC guibg=NONE ]])
+-- vim.cmd([[ hi NormalFloat guibg=NONE ]])
 
 -- vim.cmd [[ hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE ]]
 -- vim.cmd [[ hi CursorLineNr guibg=NONE ]]
 -- vim.cmd [[ hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=0 ]]
 -- vim.cmd [[ hi CursorLineNr guibg=NONE ]]
 
--- vim.cmd [[ hi ColorColumn ctermbg=0 guibg=NONE ]]
--- vim.cmd [[ hi OverLength guibg=#795E19 guifg=#ffffff ]]
+vim.cmd([[ hi ColorColumn ctermbg=0 guibg=NONE ]])
+vim.cmd([[ hi OverLength guibg=#795E19 guifg=#ffffff ]])
 
 vim.cmd([[ hi WinSeparator guifg=#909090 ]])
 
@@ -36,12 +36,12 @@ vim.cmd([[ hi WinSeparator guifg=#909090 ]])
 -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#bfbfbf" })
 
 vim.cmd([[ hi SignColumn guibg=NONE ]])
-vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
-vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
+-- vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
+-- vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
 
-vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
-vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
-vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#afafaf ]])
+-- vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
+-- vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
+-- vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#afafaf ]])
 
 -- highlight related to "cmp" plugins
 -- vim.cmd [[ highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080 ]]
@@ -71,9 +71,12 @@ vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scro
 -- search and visual highlight
 -- vim.cmd([[ hi Search guibg=#b16286 guifg=#bfbfbf ]]) -- highlight for the search term
 -- vim.cmd([[ hi Visual guibg=#bfbfbf guifg=#686878 ]]) -- highlight for the code selection in visual mode
--- vim.cmd([[ hi Cursor guibg=#efefef guifg=#282C34 ]]) -- highlight for the cursor
+vim.cmd([[ hi Cursor guibg=#efefef guifg=#282C34 ]]) -- highlight for the cursor
 
 vim.cmd([[ hi EndOfBuffer guifg=#003440 guibg=NONE ]])
 -- vim.cmd([[ set fillchars+=eob:· list listchars+=trail:· ]])
 
 vim.cmd([[ hi SnacksIndentScope guifg=#909090 ]])
+
+local colors = require("sobo.plugins.diagnostics.message").colors
+vim.cmd("highlight BufferCurrent guibg=" .. colors.white .. " guifg=" .. colors.black)

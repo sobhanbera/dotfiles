@@ -6,7 +6,7 @@ return {
 		-- enable the statusline
 		statuscolumn = {
 			enabled = true,
-			left = { "fold", "mark" }, -- "sign"
+			left = { "mark", "sign", "fold" }, -- "sign"
 			right = { "git" },
 			folds = {
 				open = true, -- show open fold icons
