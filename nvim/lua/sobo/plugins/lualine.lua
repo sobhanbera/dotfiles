@@ -13,7 +13,7 @@ return {
 			options = {
 				icons_enabled = true,
 				color_icons = true,
-				-- theme = "gruvbox",
+				theme = "onedark",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				-- component_separators = { left = "", right = "" },

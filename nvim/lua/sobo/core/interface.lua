@@ -23,7 +23,7 @@ vim.cmd([[ hi NormalFloat guibg=NONE ]])
 -- vim.cmd [[ hi ColorColumn ctermbg=0 guibg=NONE ]]
 -- vim.cmd [[ hi OverLength guibg=#795E19 guifg=#ffffff ]]
 
-vim.cmd([[ hi VertSplit guibg=NONE guifg=#795E19 ]])
+vim.cmd([[ hi WinSeparator guifg=#909090 ]])
 
 -- vim.cmd [[ hi StatusLine guibg=NONE ]]
 -- vim.cmd [[ hi StatusLineNC guibg=NONE ]]
@@ -69,10 +69,11 @@ vim.cmd([[ hi PmenuSel guibg=#003440 guifg=#2aa097") ]]) -- highlight for the cu
 vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
--- vim.cmd [[ hi Search guibg=#015e99") ]] -- highlight for the search term
--- vim.cmd [[ hi Visual guibg=#003440") ]] -- highlight for the code selection in visual mode
+-- vim.cmd([[ hi Search guibg=#b16286 guifg=#bfbfbf ]]) -- highlight for the search term
+-- vim.cmd([[ hi Visual guibg=#bfbfbf guifg=#686878 ]]) -- highlight for the code selection in visual mode
+-- vim.cmd([[ hi Cursor guibg=#efefef guifg=#282C34 ]]) -- highlight for the cursor
 
 vim.cmd([[ hi EndOfBuffer guifg=#003440 guibg=NONE ]])
 -- vim.cmd([[ set fillchars+=eob:· list listchars+=trail:· ]])
 
-vim.cmd([[ hi SnacksIndentScope guifg=#afafaf ]])
+vim.cmd([[ hi SnacksIndentScope guifg=#909090 ]])

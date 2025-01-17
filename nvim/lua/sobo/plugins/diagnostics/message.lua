@@ -10,6 +10,20 @@ local colors = {
 	darkgray = "#003440",
 	gray = "#afafaf",
 
+	red = "#E06C75",
+	yellow = "#E5C07B",
+	blue = "#61AFEF",
+	green = "#98C379",
+	purple = "#C678DD",
+	aqua = "#56B6C2",
+}
+local gruvbox_colors = {
+	white = "#fdf6e3",
+	black = "#002b36",
+
+	darkgray = "#003440",
+	gray = "#afafaf",
+
 	red = "#db4b4b",
 	yellow = "#d79921",
 	blue = "#458588",
