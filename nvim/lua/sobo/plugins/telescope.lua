@@ -102,44 +102,48 @@ return {
 		{
 			"<leader>ff",
 			function()
-				require("telescope.builtin").find_files(
-					require("telescope.themes").get_ivy({ prompt_title = "< Search Files >", previewer = false })
-				)
+				require("telescope.builtin").find_files(require("telescope.themes").get_ivy({
+					prompt_title = "• Search files by name (append : to go to line) •",
+					previewer = false,
+				}))
 			end,
 		},
 		{
 			"<leader>fg",
 			function()
-				require("telescope.builtin").git_files(
-					require("telescope.themes").get_ivy({ prompt_title = "< Project Files >", previewer = false })
-				)
+				require("telescope.builtin").git_files(require("telescope.themes").get_ivy({
+					prompt_title = "• Find files in this project (append : to go to line) •",
+					previewer = false,
+				}))
 			end,
 			desc = "Find git files",
 		},
 		{
 			"<leader>fa",
 			function()
-				require("telescope.builtin").oldfiles(
-					require("telescope.themes").get_ivy({ prompt_title = "< Recently Opened >", previewer = false })
-				)
+				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
+					prompt_title = "• Find recently opened files (append : to go to line) •",
+					previewer = false,
+				}))
 			end,
 			desc = "Find recently opened files",
 		},
 		{
 			"<leader>gr",
 			function()
-				require("telescope.builtin").live_grep(
-					require("telescope.themes").get_ivy({ prompt_title = "< Search code >" })
-				)
+				require("telescope.builtin").live_grep(require("telescope.themes").get_ivy({
+					prompt_title = "• Search code globally in the codebase •",
+				}))
 			end,
 			desc = "Find any text throughout the codebase",
 		},
 		{
 			"<leader>bf",
 			function()
-				require("telescope.builtin").buffers(
-					require("telescope.themes").get_ivy({ prompt_title = "< Search Buffers >", previewer = false })
-				)
+				require("telescope.builtin").buffers(require("telescope.themes").get_ivy({
+					prompt_title = "• Search files in current buffer (append : to go to file) •",
+					previewer = false,
+				}))
 			end,
 			desc = "Find buffer",
 		},
@@ -147,7 +151,7 @@ return {
 			"<leader>ft",
 			function()
 				require("telescope.builtin").grep_string(
-					require("telescope.themes").get_ivy({ prompt_title = "< Search Todos >", previewer = false })
+					require("telescope.themes").get_ivy({ prompt_title = "• Search for TODOs •", previewer = false })
 				)
 			end,
 			desc = "Find todos",

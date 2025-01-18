@@ -23,7 +23,7 @@ vim.cmd("set background=dark")
 vim.cmd([[ hi ColorColumn ctermbg=0 guibg=NONE ]])
 vim.cmd([[ hi OverLength guibg=#795E19 guifg=#ffffff ]])
 
-vim.cmd([[ hi WinSeparator guifg=#909090 ]])
+-- vim.cmd([[ hi WinSeparator guifg=#909090 ]])
 
 -- vim.cmd [[ hi StatusLine guibg=NONE ]]
 -- vim.cmd [[ hi StatusLineNC guibg=NONE ]]
