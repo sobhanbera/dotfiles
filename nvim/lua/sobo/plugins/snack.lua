@@ -41,5 +41,6 @@ return {
 		scroll = { enabled = true },
 		words = { enabled = true },
 		git = { enabled = true },
+		win = { enabled = false },
 	},
 }

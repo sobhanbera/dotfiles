@@ -59,7 +59,7 @@ return {
 					"prettier", -- js/ts
 					"stylua", -- lua
 					"isort", -- python
-					"black", -- python
+					-- "black", -- python
 					"pylint",
 					"eslint_d",
 				},
@@ -154,7 +154,7 @@ return {
 				local opts = { noremap = true, silent = true }
 				buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 				buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-				buf_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+				buf_set_keymap("n", "<leader>i", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 				buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 				buf_set_keymap("n", "<C-m>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 				buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
@@ -282,6 +282,8 @@ return {
 				"tailwindcss",
 				"ts_ls",
 				"vimls",
+				-- "pyls",
+				"pyright",
 			} --, 'cssmodules_ls'}
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())

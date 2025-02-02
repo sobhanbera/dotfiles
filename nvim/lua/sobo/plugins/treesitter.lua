@@ -32,6 +32,11 @@ return {
 				"prisma",
 				"regex",
 
+				-- required by kulala.nvim
+				"http",
+				"graphql",
+
+				-- optionals
 				"lua",
 				"vim",
 				"luadoc",

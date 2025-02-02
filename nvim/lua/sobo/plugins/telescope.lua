@@ -1,3 +1,20 @@
+local function remove_file_from_oldfiles(prompt_bufnr)
+	local selected_entry = require("telescope.actions.state").get_selected_entry()
+	local filepath = selected_entry.value
+
+	-- Remove the file from oldfiles using its index
+	local new_oldfiles = {}
+	for _, file in ipairs(vim.v.oldfiles) do
+		if file ~= filepath then
+			table.insert(new_oldfiles, file)
+		end
+	end
+	vim.v.oldfiles = new_oldfiles
+
+	require("telescope.actions").close(prompt_bufnr)
+	print(filepath .. " removed from oldfiles")
+end
+
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
@@ -119,14 +136,44 @@ return {
 			desc = "Find git files",
 		},
 		{
+			"<leader>dfa",
+			function()
+				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
+					prompt_title = "• Delete recently opened files from cache •",
+					previewer = false,
+					cwd = vim.fn.expand("%:p:h"),
+					attach_mappings = function(_, map)
+						map("i", "<CR>", function(prompt_bufnr)
+							remove_file_from_oldfiles(prompt_bufnr)
+						end)
+
+						return true
+					end,
+				}))
+			end,
+			desc = "Delete recently opened files from cache",
+		},
+		{
 			"<leader>fa",
+			function()
+				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
+					prompt_title = "• Find recently opened files in project (append : to go to line) •",
+					previewer = false,
+					-- cwd = vim.fn.expand("%:p:h"),
+				}))
+			end,
+			desc = "Find recently opened files",
+		},
+		-- mapping for oldfiles in same directory
+		-- in the project opened
+		{
+			"<leader>fd",
 			function()
 				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
 					prompt_title = "• Find recently opened files (append : to go to line) •",
 					previewer = false,
 				}))
 			end,
-			desc = "Find recently opened files",
 		},
 		{
 			"<leader>gr",
@@ -134,6 +181,7 @@ return {
 				require("telescope.builtin").live_grep(require("telescope.themes").get_ivy({
 					prompt_title = "• Search code globally in the codebase •",
 				}))
+				-- require("sobo.plugins.utils.telescope").setup()
 			end,
 			desc = "Find any text throughout the codebase",
 		},
