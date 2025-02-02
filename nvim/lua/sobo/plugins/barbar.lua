@@ -67,5 +67,8 @@ return {
 
 		-- Close
 		map("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
+
+		vim.cmd([[ hi BufferTabpageFill guibg=NONE guifg=NONE gui=NONE ]])
+		-- vim.cmd("highlight BufferCurrent guibg=" .. colors.white .. " guifg=" .. colors.black)
 	end,
 }

@@ -4,8 +4,24 @@ local M = {}
 
 local MAX_LENGTH = 200
 
--- tokyonight colors
+-- catppuccin colors
 local colors = {
+	white = "#bac2de",
+	black = "#45475a",
+
+	darkgray = "#45475a",
+	gray = "#bac2de",
+
+	red = "#f38ba8",
+	yellow = "#f9e2af",
+	blue = "#89b4fa",
+	green = "#a6e3a1",
+	purple = "#f5c2e7",
+	aqua = "#94e2d5",
+}
+
+-- tokyonight colors
+local tokyo_night_colors = {
 	white = "#c0caf5",
 	black = "#414868",
 
