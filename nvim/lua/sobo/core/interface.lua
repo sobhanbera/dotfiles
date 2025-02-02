@@ -11,9 +11,9 @@ vim.cmd("set background=dark")
 -- vim.cmd [[ colorscheme nord ]]
 -- vim.cmd [[ let g:gruvbox_contrast_dark = "hard" ]]
 
--- vim.cmd([[ hi Normal guibg=NONE ]])
--- vim.cmd([[ hi NormalNC guibg=NONE ]])
--- vim.cmd([[ hi NormalFloat guibg=NONE ]])
+vim.cmd([[ hi Normal guibg=NONE ]])
+vim.cmd([[ hi NormalNC guibg=NONE ]])
+vim.cmd([[ hi NormalFloat guibg=NONE ]])
 
 -- vim.cmd [[ hi CursorLine gui=NONE cterm=NONE guibg=NONE ctermbg=NONE ]]
 -- vim.cmd [[ hi CursorLineNr guibg=NONE ]]
@@ -39,9 +39,9 @@ vim.cmd([[ hi SignColumn guibg=NONE ]])
 -- vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
 -- vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
 
--- vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
--- vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#afafaf ]])
--- vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#afafaf ]])
+vim.cmd([[ hi NeoTreeNormal guibg=NONE guifg=#41b59b ]])
+vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#41b59b ]])
+vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#454545 ]])
 
 -- highlight related to "cmp" plugins
 -- vim.cmd [[ highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080 ]]
@@ -63,10 +63,10 @@ vim.cmd([[ hi SignColumn guibg=NONE ]])
 -- vim.cmd [[ hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#14BC85") ]] -- highlight for hint in diagnostic
 
 -- menu related highlights
-vim.cmd([[ hi Pmenu guibg=NONE") ]]) -- auto-complete or any menu highlight
-vim.cmd([[ hi PmenuSel guibg=#003440 guifg=#2aa097") ]]) -- highlight for the currently selected menu
--- vim.cmd [[ hi PmenuSbar guibg=#003440") ]] -- the scrollbar highlight
-vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scrollbar
+-- vim.cmd([[ hi Pmenu guibg=NONE") ]]) -- auto-complete or any menu highlight
+-- vim.cmd([[ hi PmenuSel guibg=#003440 guifg=#2aa097") ]]) -- highlight for the currently selected menu
+-- -- vim.cmd [[ hi PmenuSbar guibg=#003440") ]] -- the scrollbar highlight
+-- vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
 -- vim.cmd([[ hi Search guibg=#b16286 guifg=#bfbfbf ]]) -- highlight for the search term
@@ -76,7 +76,4 @@ vim.cmd([[ hi Cursor guibg=#efefef guifg=#282C34 ]]) -- highlight for the cursor
 vim.cmd([[ hi EndOfBuffer guifg=#003440 guibg=NONE ]])
 -- vim.cmd([[ set fillchars+=eob:· list listchars+=trail:· ]])
 
-vim.cmd([[ hi SnacksIndentScope guifg=#909090 ]])
-
 local colors = require("sobo.plugins.diagnostics.message").colors
-vim.cmd("highlight BufferCurrent guibg=" .. colors.white .. " guifg=" .. colors.black)
