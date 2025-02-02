@@ -1,0 +1,103 @@
+-- return {
+-- 	"mistweaverco/kulala.nvim",
+-- 	keys = {
+-- 		{
+-- 			"<leader>rr",
+-- 			function()
+-- 				require("kulala").scratchpad()
+-- 			end,
+-- 			desc = "Rest - Open API scratchpad",
+-- 		},
+--
+-- 		{
+-- 			"<leader>rc",
+-- 			function()
+-- 				require("kulala").copy()
+-- 			end,
+-- 			desc = "Rest - Copy as cURL",
+-- 		},
+-- 		{
+-- 			"<leader>rfc",
+-- 			function()
+-- 				require("kulala").from_curl()
+-- 			end,
+-- 			desc = "Rest - Paste from cURL",
+-- 		},
+--
+-- 		{
+-- 			"<leader>rN",
+-- 			function()
+-- 				require("kulala").jump_prev()
+-- 			end,
+-- 			desc = "Rest - Jump to previous request",
+-- 		},
+-- 		{
+-- 			"<leader>rn",
+-- 			function()
+-- 				require("kulala").jump_next()
+-- 			end,
+-- 			desc = "Rest - Jump to next request",
+-- 		},
+--
+-- 		-- {
+-- 		-- 	"<leader>ri",
+-- 		-- 	function()
+-- 		-- 		require("kulala").inspect()
+-- 		-- 	end,
+-- 		-- 	desc = "Rest - Inspect current request",
+-- 		-- },
+-- 		{
+-- 			"<leader>rq",
+-- 			function()
+-- 				require("kulala").close()
+-- 			end,
+-- 			desc = "Rest - Close window",
+-- 		},
+-- 		{
+-- 			"<leader>rp",
+-- 			function()
+-- 				require("kulala").replay()
+-- 			end,
+-- 			desc = "Rest - Replay the last request",
+-- 		},
+-- 		{
+-- 			"<leader>rs",
+-- 			function()
+-- 				require("kulala").run()
+-- 			end,
+-- 			desc = "Rest - Send the request",
+-- 		},
+-- 		-- {
+-- 		-- 	"<leader>RS",
+-- 		-- 	function()
+-- 		-- 		require("kulala").show_stats()
+-- 		-- 	end,
+-- 		-- 	desc = "Rest - Show stats",
+-- 		-- },
+-- 		{
+-- 			"<leader>rt",
+-- 			function()
+-- 				require("kulala").toggle_view()
+-- 			end,
+-- 			desc = "Rest - Toggle headers/body",
+-- 		},
+-- 	},
+-- 	opts = {
+-- 		-- display_mode = "split",
+-- 		-- split_direction = "horizontal",
+-- 		--
+-- 		-- q_to_close_float = false,
+-- 		-- debug = false,
+-- 		--
+-- 		-- show_icons = "on_request",
+-- 		-- icons = {
+-- 		-- 	inlay = {
+-- 		-- 		loading = "⏳",
+-- 		-- 		done = "✅",
+-- 		-- 		error = "❌",
+-- 		-- 	},
+-- 		-- 	lualine = "🐼",
+-- 		-- },
+-- 	},
+-- }
+return {}
