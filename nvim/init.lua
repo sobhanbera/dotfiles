@@ -7,3 +7,5 @@ USER = vim.fn.expand("$USER")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/sobo/vim/markdown_preview.vim")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/sobo/vim/maximizer.vim")
 vim.cmd("source " .. "/Users/" .. USER .. "/.config/nvim/lua/sobo/vim/lastplace.vim")
+
+vim.cmd("autocmd! FileType TelescopeResults setlocal nofoldenable")

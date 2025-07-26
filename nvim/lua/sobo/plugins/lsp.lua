@@ -6,6 +6,28 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
+		opts = {
+			ensure_installed = {
+				"bashls",
+				"clangd",
+				"dockerls",
+				"gopls",
+				"html",
+				"jsonls",
+				"lua_ls",
+				"marksman",
+				"pyright",
+				"rust_analyzer",
+				"svelte",
+				"tailwindcss",
+				"tsserver",
+				"vimls",
+				"typescript-language-server",
+				"prettier",
+				"eslint-lsp",
+				"js-debug-adapter",
+			},
+		},
 		config = function()
 			local mason = require("mason")
 			local mason_lspconfig = require("mason-lspconfig")
@@ -116,7 +138,7 @@ return {
 					floating_window_above_cur_line = true,
 					fix_pos = false,
 					hint_enable = true,
-					hint_prefix = "🐼 ",
+					hint_prefix = "✨ ",
 					hint_scheme = "String",
 					hi_parameter = "LspSignatureActiveParameter",
 					max_height = 12,
@@ -131,7 +153,7 @@ return {
 					padding = " ",
 					transparency = 100,
 					shadow_blend = 36,
-					shadow_guibg = "#015e99",
+					shadow_guibg = "#313244",
 					timer_interval = 200,
 					toggle_key = "<C-Space>",
 				}
@@ -224,7 +246,7 @@ return {
 						{ "i", "c" } -- enter-completion will work both on command mode and insert mode
 					),
 					-- ctrl + space + c to show completion menu
-					["<C-S-l>"] = cmp.mapping.complete(),
+					["<C-l>"] = cmp.mapping.complete(),
 					["ESC"] = cmp.mapping.close(),
 				},
 				sorting = {
@@ -287,15 +309,44 @@ return {
 			} --, 'cssmodules_ls'}
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			-- capabilities.textDocument.foldingRange = {
-			-- 	dynamicRegistration = false,
-			-- 	lineFoldingOnly = true,
+
+			-- capabilities.textdocument.foldingrange = {
+			-- 	dynamicregistration = false,
+			-- 	linefoldingonly = true,
 			-- }
-			vim.lsp.handlers["textDocument/publishDiagnostics"] =
-				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-					virtual_text = false,
-				})
-			vim.diagnostic.config({ virtual_text = false })
+			-- vim.lsp.handlers["textdocument/publishdiagnostics"] =
+			-- 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+			-- 		virtual_text = false,
+			-- 	})
+			-- vim.diagnostic.config({ virtual_text = false })
+
+			vim.diagnostic.config({
+				underline = false,
+				virtual_text = false,
+				-- virtual_text = {
+				-- 	spacing = 3,
+				-- 	prefix = " ●",
+				-- 	severity = nil,
+				-- 	source = "if_many",
+				-- 	format = nil,
+				-- },
+				update_in_insert = false,
+				severity_sort = true,
+				signs = {
+					text = {
+						-- Alas nerdfont icons don't render properly on Medium!
+						[vim.diagnostic.severity.ERROR] = " ",
+						[vim.diagnostic.severity.WARN] = " ",
+						[vim.diagnostic.severity.HINT] = " ",
+						[vim.diagnostic.severity.INFO] = " ",
+					},
+				},
+			})
+
+			vim.keymap.set("n", "gK", function()
+				local new_config = not vim.diagnostic.config().virtual_lines
+				vim.diagnostic.config({ virtual_lines = new_config })
+			end, { desc = "Toggle diagnostic virtual_lines" })
 
 			for _, lsp in ipairs(servers) do
 				if lsp == "clangd" then

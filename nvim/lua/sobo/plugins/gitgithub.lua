@@ -1,22 +1,20 @@
 return {
 	{
-		"github/copilot.vim",
+		"zbirenbaum/copilot.lua",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("copilot").setup({})
+		end
 	},
 
 	{
-		"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = true,
-		keys = {
-			{ "<leader>ccc", ":CodeCompanionChat<CR>", desc = "Open Code Companion Chat" },
-		},
+		"github/copilot.vim",
+		event = { "BufReadPre", "BufNewFile" },
 	},
 
 	{
 		"tpope/vim-fugitive",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"airblade/vim-gitgutter",
 		},
@@ -24,6 +22,7 @@ return {
 
 	{
 		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		enabled = true,
 		config = function()
 			local gitsigs = require("gitsigns")

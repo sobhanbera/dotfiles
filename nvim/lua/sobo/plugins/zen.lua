@@ -21,7 +21,7 @@ return {
 
 		vim.api.nvim_set_keymap(
 			"n",
-			"<leader>fm",
+			"<leader>z",
 			"<cmd>lua require('zen-mode').toggle()<CR>",
 			{ noremap = true, silent = true }
 		)

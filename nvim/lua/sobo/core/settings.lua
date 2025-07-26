@@ -51,13 +51,16 @@ bo.autoindent = true
 bo.smartindent = true
 -- bo.textwidth = 120
 
+vim.opt.laststatus = 3
+
 -- fold related configs
 function _G.MyFoldText()
-	return vim.fn.substitute(vim.fn.getline(vim.v.foldstart), "^\\s*\\(.*\\)", "- \\0", "")
-		.. " ["
-		.. (vim.v.foldend - vim.v.foldstart + 1)
-		.. " lines] ..."
+	return vim.fn.substitute(vim.fn.getline(vim.v.foldstart), "^\\s*\\(.*\\)", "\\0", "")
+			.. " ("
+			.. (vim.v.foldend - vim.v.foldstart + 1)
+			.. " lines) ..."
 end
+
 vim.opt.foldtext = "v:lua.MyFoldText()"
 vim.cmd([[ set fillchars+=fold:\ ]])
 
