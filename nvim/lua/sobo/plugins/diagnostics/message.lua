@@ -4,37 +4,58 @@ local M = {}
 
 local MAX_LENGTH = 200
 
+-- black in the background color of the theme
+
 -- catppuccin colors
-local colors = {
-	white = "#bac2de",
-	black = "#45475a",
+local catppucin_colors = {
+	white = "#c6d0f5",
+	black = "#11111b",
 
-	darkgray = "#45475a",
-	gray = "#bac2de",
+	darkgray = "#313244",
+	gray = "#c6d0f5",
 
-	red = "#f38ba8",
-	yellow = "#f9e2af",
-	blue = "#89b4fa",
-	green = "#a6e3a1",
-	purple = "#f5c2e7",
-	aqua = "#94e2d5",
+	red = "#e78284",
+	yellow = "#e5c890",
+	blue = "#8caaee",
+	green = "#a6d189",
+	purple = "#f4b8e4",
+	aqua = "#85c1dc",
 }
 
 -- tokyonight colors
 local tokyo_night_colors = {
-	white = "#c0caf5",
-	black = "#414868",
+	bg = "#011628",
+	fg = "#CBE0F0",
+	inactive_bg = "#011628",
+	semilightgray = "#CBE0F0",
+
+	white = "#CBE0F0",
+	black = "#011628",
 
 	darkgray = "#282C34",
 	gray = "#ABB2BF",
 
-	red = "#f7768e",
-	yellow = "#e0af68",
-	blue = "#7ba2f3",
-	green = "#41b59b",
-	purple = "#bb9af7",
-	aqua = "#2ccde9",
+	red = "#9B4A55",
+	yellow = "#8C6C15",
+	blue = "#0A64AC",
+	green = "#3B755A",
+	purple = "#725E8C",
+	aqua = "#2A6B74",
 }
+-- local tokyo_night_colors = {
+-- 	white = "#c0caf5",
+-- 	black = "#414868",
+--
+-- 	darkgray = "#282C34",
+-- 	gray = "#ABB2BF",
+--
+-- 	red = "#f7768e",
+-- 	yellow = "#e0af68",
+-- 	blue = "#7ba2f3",
+-- 	green = "#41b59b",
+-- 	purple = "#bb9af7",
+-- 	aqua = "#2ccde9",
+-- }
 -- onedark colors
 local onedark_colors = {
 	white = "#ABB2BF",
@@ -139,7 +160,7 @@ function diagnostic_message:update_status(is_focused)
 		-- icons = { "", "", "", "" }
 		local icons = { "", " ", " ", " " }
 		local final_highlight_color =
-			{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
+		{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
 
 		-- for _, val in ipairs({ "Error", "Warn", "Info", "Hint" }) do
 		-- 	vim.fn.sign_define("DiagnosticSign" .. val, {
@@ -158,10 +179,10 @@ function diagnostic_message:update_status(is_focused)
 		-- })
 
 		local final_message = highlight.component_format_highlight(final_highlight_color[diag.severity])
-			.. " "
-			.. icons[diag.severity]
-			.. " "
-			.. diag.message
+				.. " "
+				.. icons[diag.severity]
+				.. " "
+				.. diag.message
 
 		-- if the length of final message is more than 150 characters, then truncate it
 		if string.len(final_message) > MAX_LENGTH then
@@ -174,7 +195,13 @@ function diagnostic_message:update_status(is_focused)
 	end
 end
 
-M.colors = colors
+M.colors = catppucin_colors
+M.colorschemes = {
+	catppuccin = catppucin_colors,
+	tokyo_night = tokyo_night_colors,
+	onedark = onedark_colors,
+	gruvbox = gruvbox_colors,
+}
 M.diagnostic_message = diagnostic_message
 
 return M

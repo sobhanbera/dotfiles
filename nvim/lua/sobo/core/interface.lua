@@ -21,9 +21,9 @@ vim.cmd([[ hi NormalFloat guibg=NONE ]])
 -- vim.cmd [[ hi CursorLineNr guibg=NONE ]]
 
 vim.cmd([[ hi ColorColumn ctermbg=0 guibg=NONE ]])
-vim.cmd([[ hi OverLength guibg=#795E19 guifg=#ffffff ]])
+vim.cmd([[ hi OverLength guibg=#e5c890 guifg=#c6d0f5 ]])
 
--- vim.cmd([[ hi WinSeparator guifg=#909090 ]])
+vim.cmd([[ hi WinSeparator guibg=NONE guifg=NONE ]])
 
 -- vim.cmd [[ hi StatusLine guibg=NONE ]]
 -- vim.cmd [[ hi StatusLineNC guibg=NONE ]]
@@ -36,12 +36,11 @@ vim.cmd([[ hi OverLength guibg=#795E19 guifg=#ffffff ]])
 -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#bfbfbf" })
 
 vim.cmd([[ hi SignColumn guibg=NONE ]])
--- vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
--- vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
+vim.cmd([[ hi NvimTreeNormal guibg=NONE guifg=#afafaf ]])
 
-vim.cmd([[ hi NeoTreeNormal guibg=NONE guifg=#41b59b ]])
-vim.cmd([[ hi NeoTreeNormalNC guibg=NONE guifg=#41b59b ]])
-vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#454545 ]])
+vim.cmd([[ hi NeoTreeNormal guibg=NONE ]])
+vim.cmd([[ hi NeoTreeNormalNC guibg=NONE ]])
+vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#313244 ]])
 
 -- highlight related to "cmp" plugins
 -- vim.cmd [[ highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080 ]]
@@ -71,9 +70,7 @@ vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#454545 ]])
 -- search and visual highlight
 -- vim.cmd([[ hi Search guibg=#b16286 guifg=#bfbfbf ]]) -- highlight for the search term
 -- vim.cmd([[ hi Visual guibg=#bfbfbf guifg=#686878 ]]) -- highlight for the code selection in visual mode
-vim.cmd([[ hi Cursor guibg=#efefef guifg=#282C34 ]]) -- highlight for the cursor
+-- vim.cmd([[ hi Cursor guibg=#efefef guifg=#282C34 ]]) -- highlight for the cursor
 
-vim.cmd([[ hi EndOfBuffer guifg=#003440 guibg=NONE ]])
+vim.cmd([[ hi EndOfBuffer guifg=#313244 guibg=NONE ]])
 -- vim.cmd([[ set fillchars+=eob:· list listchars+=trail:· ]])
-
-local colors = require("sobo.plugins.diagnostics.message").colors

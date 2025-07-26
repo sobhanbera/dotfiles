@@ -8,13 +8,15 @@ return {
 
 		local colors = diagnosticMessage.colors
 		local diagnostic_message = diagnosticMessage.diagnostic_message
+		local custom_theme = require("sobo.plugins.themes.custom").theme
 
 		lualine.setup({
 			options = {
 				icons_enabled = true,
 				color_icons = true,
 				-- theme = "tokyonight-moon",
-				theme = "catppuccin",
+				theme = "auto",
+				-- theme = "night-owl",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				-- section_separators = { left = "", right = "" },
@@ -23,67 +25,71 @@ return {
 				always_divide_middle = false,
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					{
+						"mode",
+						fmt = function(str)
+							return str:sub(1, 1)
+						end,
+						-- color = { bg = colors.black },
+					},
+				},
 				lualine_b = {
 					{
 						"branch",
-						color = { fg = colors.black, bg = colors.gray }, -- White text on a blue background
+						color = { fg = colors.white, bg = colors.black }, -- White text on a blue background
 					},
-					{
-						"filename",
-						-- icon = function()
-						-- 	local devicons = require('nvim-web-devicons')
-						--
-						-- 	local filename = vim.fn.expand('%:t')  -- Get the current file name
-						-- 	local icon, _ = devicons.get_icon(filename)
-						--
-						-- 	print(icon)  -- Print the icon
-						-- 	return  icon
-						-- end,
-						path = 0, -- 0: Just the filename
-						-- 1: Relative path
-						-- 2: Absolute path
-
-						shorting_target = 52,
-						file_status = true,
-						symbols = {
-							modified = "●",
-							readonly = "--",
-							unnamed = ":D",
-						},
-					},
-					{
-						"filetype",
-						colored = true,
-						icon_only = true,
-					},
+					-- {
+					-- 	"filetype",
+					-- 	colored = true,
+					-- 	icon_only = true,
+					-- 	color = { fg = colors.white, bg = colors.black }, -- White text on a blue background
+					-- },
+					-- {
+					-- 	"filename",
+					-- 	-- icon = function()
+					-- 	-- 	local devicons = require('nvim-web-devicons')
+					-- 	--
+					-- 	-- 	local filename = vim.fn.expand('%:t')  -- Get the current file name
+					-- 	-- 	local icon, _ = devicons.get_icon(filename)
+					-- 	--
+					-- 	-- 	print(icon)  -- Print the icon
+					-- 	-- 	return  icon
+					-- 	-- end,
+					-- 	path = 0, -- 0: Just the filename
+					-- 	-- 1: Relative path
+					-- 	-- 2: Absolute path
+					--
+					-- 	shorting_target = 52,
+					-- 	file_status = true,
+					-- 	symbols = {
+					-- 		modified = "●",
+					-- 		readonly = "--",
+					-- 		unnamed = ":D",
+					-- 	},
+					-- 	color = { fg = colors.white, bg = colors.black }, -- White text on a blue background
+					-- },
 				},
 				lualine_c = {
-					{
-						"diff",
-						symbols = { added = " ", modified = "  ", removed = "  " }, -- Custom symbols
-						diff_color = {
-							added = { fg = colors.white, bg = colors.green },
-							modified = { fg = colors.white, bg = colors.yellow },
-							removed = { fg = colors.white, bg = colors.red },
-						},
-						color = { fg = colors.white },
-					},
 					{
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
 						sections = { "error", "warn", "info", "hint" },
 						symbols = {
-							error = " ",
-							warn = " ",
-							info = " ",
-							hint = " ",
+							error = " ",
+							warn = " ",
+							info = " ",
+							hint = " ",
+							-- error = " ",
+							-- warn = " ",
+							-- info = " ",
+							-- hint = " ",
 						},
 						diagnostics_color = {
-							error = { fg = colors.red },
-							warn = { fg = colors.yellow },
-							info = { fg = colors.blue },
-							hint = { fg = colors.green },
+							hint = { fg = colors.green, bg = colors.black },
+							error = { fg = colors.red, bg = colors.black },
+							warn = { fg = colors.yellow, bg = colors.black },
+							info = { fg = colors.blue, bg = colors.black },
 						},
 						colored = true,
 						update_in_insert = false,
@@ -101,25 +107,45 @@ return {
 							info = colors.blue,
 							hint = colors.green,
 						},
-						max_length = 100,
+						max_length = 0, -- disabled here
 					},
 				},
 
 				lualine_x = {
 					{
-						lazy_status.updates,
-						cond = lazy_status.has_updates,
-						color = { fg = colors.aqua },
+						"diff",
+						symbols = { added = " ", modified = " ", removed = " " }, -- Custom symbols
+						diff_color = {
+							added = { bg = colors.black, fg = colors.green },
+							removed = { bg = colors.black, fg = colors.red },
+							modified = { bg = colors.black, fg = colors.blue },
+						},
+						color = { bg = colors.black, fg = colors.white },
 					},
-					{ "encoding" },
+					{
+						"encoding",
+						color = { bg = colors.black, fg = colors.white },
+					},
 				},
-				lualine_y = { "progress" },
+				lualine_y = {},
 				lualine_z = {
-					"location",
+					{
+						"progress",
+						color = { bg = colors.black, fg = colors.blue },
+					},
+					{
+						"location",
+						color = { bg = colors.black, fg = colors.yellow },
+					},
 					{
 						"datetime",
-						style = "%I:%M:%S %p",
-						color = { fg = colors.black, bg = colors.green },
+						style = "%I:%M",
+						color = { bg = colors.black, fg = colors.purple },
+					},
+					{
+						lazy_status.updates,
+						cond = lazy_status.has_updates,
+						color = { bg = colors.black, fg = colors.white },
 					},
 				},
 			},

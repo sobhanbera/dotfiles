@@ -6,9 +6,9 @@ return {
 		vim.g.barbar_auto_setup = false -- disable auto-setup
 
 		require("barbar").setup({
-			preset = "default",
+			preset = "slanted",
 
-			animation = true,
+			-- animation = true,
 			auto_hide = false,
 
 			tabpages = true,
@@ -19,7 +19,7 @@ return {
 				button = "",
 				-- Enables / disables diagnostic symbols
 				diagnostics = {
-					[vim.diagnostic.severity.ERROR] = { enabled = false },
+					[vim.diagnostic.severity.ERROR] = { enabled = true },
 					[vim.diagnostic.severity.WARN] = { enabled = false },
 					[vim.diagnostic.severity.INFO] = { enabled = false },
 					[vim.diagnostic.severity.HINT] = { enabled = false, icon = " " },
@@ -30,10 +30,13 @@ return {
 					changed = { enabled = false, icon = "~" },
 				},
 				filetype = {
-					custom_colors = false,
+					custom_colors = true,
 					enabled = true,
 				},
-				separator = { left = "▎", right = "" },
+				-- separator = { left = "▎", right = "" },
+				separator = { left = "", right = "" },
+				separator_at_end = false,
+				separator_at_start = false,
 				modified = { button = "●" },
 				pinned = { button = "", filename = true },
 			},
@@ -59,8 +62,8 @@ return {
 		map("n", "<C-y>", "<Esc>:BufferPrevious<CR>")
 
 		-- Re-order to previous/next
-		map("n", "<C-S-t>", "<Esc>:BufferMoveNext<CR>")
-		map("n", "<C-S-y>", "<Esc>:BufferMovePrevious<CR>")
+		-- map("n", "<C-S-t>", "<Esc>:BufferMoveNext<CR>")
+		-- map("n", "<C-S-y>", "<Esc>:BufferMovePrevious<CR>")
 
 		-- Pin/Unpin
 		map("n", "<leader>tp", "<Cmd>BufferPin<CR>", opts)
@@ -68,7 +71,9 @@ return {
 		-- Close
 		map("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
 
-		vim.cmd([[ hi BufferTabpageFill guibg=NONE guifg=NONE gui=NONE ]])
-		-- vim.cmd("highlight BufferCurrent guibg=" .. colors.white .. " guifg=" .. colors.black)
+		-- asdf
+		vim.cmd([[ hi BufferTabpageFill guibg=#11111b guifg=NONE gui=NONE ]])
+		vim.cmd([[ hi BufferCurrent guibg=#181826 guifg=#c6d0f5 gui=NONE ]])
+		vim.cmd([[ hi BufferInactive guibg=#11111b guifg=#6B7088 gui=NONE ]])
 	end,
 }

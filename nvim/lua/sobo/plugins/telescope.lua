@@ -61,7 +61,7 @@ return {
 				grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 				qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 
-				theme = "get_ivy",
+				theme = "dropdown",
 				mappings = {
 					i = {
 						["<C-x>"] = false,
@@ -72,6 +72,9 @@ return {
 
 				-- ignore files
 				file_ignore_patterns = { "node_modules", "package-lock.json", "plugged", "langserver" },
+			},
+			pickers = {
+				theme = "dropdown", -- options: dropdown, cursor, get_ivy
 			},
 		})
 
@@ -135,24 +138,24 @@ return {
 			end,
 			desc = "Find git files",
 		},
-		{
-			"<leader>dfa",
-			function()
-				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
-					prompt_title = "• Delete recently opened files from cache •",
-					previewer = false,
-					cwd = vim.fn.expand("%:p:h"),
-					attach_mappings = function(_, map)
-						map("i", "<CR>", function(prompt_bufnr)
-							remove_file_from_oldfiles(prompt_bufnr)
-						end)
-
-						return true
-					end,
-				}))
-			end,
-			desc = "Delete recently opened files from cache",
-		},
+		-- {
+		-- 	"<leader>dfa",
+		-- 	function()
+		-- 		require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
+		-- 			prompt_title = "• Delete recently opened files from cache •",
+		-- 			previewer = false,
+		-- 			cwd = vim.fn.expand("%:p:h"),
+		-- 			attach_mappings = function(_, map)
+		-- 				map("i", "<CR>", function(prompt_bufnr)
+		-- 					remove_file_from_oldfiles(prompt_bufnr)
+		-- 				end)
+		--
+		-- 				return true
+		-- 			end,
+		-- 		}))
+		-- 	end,
+		-- 	desc = "Delete recently opened files from cache",
+		-- },
 		{
 			"<leader>fa",
 			function()
