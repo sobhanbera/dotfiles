@@ -4,7 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("copilot").setup({})
-		end
+		end,
 	},
 
 	{
@@ -73,4 +73,16 @@ return {
 			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
 		},
 	},
+
+	-- {
+	-- 	"olimorris/codecompanion.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 	},
+	-- 	config = true,
+	-- 	keys = {
+	-- 		{ "<leader>ccc", ":CodeCompanionChat<CR>", desc = "Open Code Companion Chat" },
+	-- 	},
+	-- },
 }

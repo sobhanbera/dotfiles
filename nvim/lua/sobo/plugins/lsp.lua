@@ -113,7 +113,11 @@ return {
 			"mxw/vim-jsx",
 			"udalov/kotlin-vim",
 		},
-		config = function() -- +-----------------------------------------------------+
+		config = function()
+			local diagnosticMessage = require("sobo.plugins.diagnostics.message")
+			local colors = diagnosticMessage.colors
+
+			-- +-----------------------------------------------------+
 			-- |                LSP SIGNATURE CONFIG                 |
 			-- +-----------------------------------------------------+
 			local on_attach = function(client, bufnr)
@@ -153,7 +157,7 @@ return {
 					padding = " ",
 					transparency = 100,
 					shadow_blend = 36,
-					shadow_guibg = "#313244",
+					shadow_guibg = colors.black,
 					timer_interval = 200,
 					toggle_key = "<C-Space>",
 				}
@@ -226,17 +230,39 @@ return {
 					{ name = "nvim_lua" },
 				},
 				formatting = {
-					format = lspkind.cmp_format({
-						with_text = false,
-						maxwidth = 45,
-						menu = {
-							buffer = "BUF",
-							nvim_lsp = "LSP",
-							nvim_lua = "API",
-							path = "PATH",
-							luasnip = "SNIP",
-						},
-					}),
+					fields = { "kind", "abbr", "menu" },
+
+					format = function(entry, vim_item)
+						local kind = require("lspkind").cmp_format({
+							mode = "symbol_text",
+						})(entry, vim.deepcopy(vim_item))
+						local highlights_info = require("colorful-menu").cmp_highlights(entry)
+
+						-- highlight_info is nil means we are missing the ts parser, it's
+						-- better to fallback to use default `vim_item.abbr`. What this plugin
+						-- offers is two fields: `vim_item.abbr_hl_group` and `vim_item.abbr`.
+						if highlights_info ~= nil then
+							vim_item.abbr_hl_group = highlights_info.highlights
+							vim_item.abbr = highlights_info.text
+						end
+						local strings = vim.split(kind.kind, "%s", { trimempty = true })
+						vim_item.kind = " " .. (strings[1] or "") .. " "
+						vim_item.menu = ""
+
+						return vim_item
+					end,
+
+					-- format = lspkind.cmp_format({
+					-- 	with_text = false,
+					-- 	maxwidth = 45,
+					-- 	menu = {
+					-- 		buffer = "BUF",
+					-- 		nvim_lsp = "LSP",
+					-- 		nvim_lua = "API",
+					-- 		path = "PATH",
+					-- 		luasnip = "SNIP",
+					-- 	},
+					-- }),
 				},
 				mapping = {
 					["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
@@ -330,7 +356,7 @@ return {
 				-- 	source = "if_many",
 				-- 	format = nil,
 				-- },
-				update_in_insert = false,
+				update_in_insert = true,
 				severity_sort = true,
 				signs = {
 					text = {

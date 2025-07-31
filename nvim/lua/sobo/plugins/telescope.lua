@@ -125,6 +125,7 @@ return {
 				require("telescope.builtin").find_files(require("telescope.themes").get_ivy({
 					prompt_title = "• Search files by name (append : to go to line) •",
 					previewer = false,
+					cwd_only = true,
 				}))
 			end,
 		},
@@ -134,6 +135,7 @@ return {
 				require("telescope.builtin").git_files(require("telescope.themes").get_ivy({
 					prompt_title = "• Find files in this project (append : to go to line) •",
 					previewer = false,
+					cwd_only = true,
 				}))
 			end,
 			desc = "Find git files",
@@ -162,6 +164,7 @@ return {
 				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
 					prompt_title = "• Find recently opened files in project (append : to go to line) •",
 					previewer = false,
+					cwd_only = true,
 					-- cwd = vim.fn.expand("%:p:h"),
 				}))
 			end,
@@ -175,6 +178,7 @@ return {
 				require("telescope.builtin").oldfiles(require("telescope.themes").get_ivy({
 					prompt_title = "• Find recently opened files (append : to go to line) •",
 					previewer = false,
+					cwd_only = true,
 				}))
 			end,
 		},
@@ -183,6 +187,7 @@ return {
 			function()
 				require("telescope.builtin").live_grep(require("telescope.themes").get_ivy({
 					prompt_title = "• Search code globally in the codebase •",
+					cwd_only = true,
 				}))
 				-- require("sobo.plugins.utils.telescope").setup()
 			end,
@@ -194,6 +199,7 @@ return {
 				require("telescope.builtin").buffers(require("telescope.themes").get_ivy({
 					prompt_title = "• Search files in current buffer (append : to go to file) •",
 					previewer = false,
+					cwd_only = true,
 				}))
 			end,
 			desc = "Find buffer",
