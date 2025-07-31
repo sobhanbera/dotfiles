@@ -14,8 +14,9 @@ return {
 			options = {
 				icons_enabled = true,
 				color_icons = true,
+				theme = require('lualine.themes.solarized'),
 				-- theme = "tokyonight-moon",
-				theme = "auto",
+				-- theme = "auto",
 				-- theme = "night-owl",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
@@ -113,6 +114,12 @@ return {
 
 				lualine_x = {
 					{
+						"searchcount",
+						maxcount = 999,
+						timeout = 500,
+						color = { bg = colors.black, fg = colors.red },
+					},
+					{
 						"diff",
 						symbols = { added = " ", modified = " ", removed = " " }, -- Custom symbols
 						diff_color = {
@@ -152,7 +159,7 @@ return {
 			inactive_sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "diff", "branch" }, -- "diagnostics" },
-				lualine_c = { "filename" }, -- "os.date('%a')", "data", "require'lsp-status'.status()" },
+				lualine_c = { "filename" },   -- "os.date('%a')", "data", "require'lsp-status'.status()" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },

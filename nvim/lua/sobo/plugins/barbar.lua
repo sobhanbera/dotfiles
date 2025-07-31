@@ -5,6 +5,9 @@ return {
 	config = function()
 		vim.g.barbar_auto_setup = false -- disable auto-setup
 
+		local diagnosticMessage = require("sobo.plugins.diagnostics.message")
+		local colors = diagnosticMessage.colors
+
 		require("barbar").setup({
 			preset = "slanted",
 
@@ -35,8 +38,11 @@ return {
 				},
 				-- separator = { left = "▎", right = "" },
 				separator = { left = "", right = "" },
-				separator_at_end = false,
-				separator_at_start = false,
+				separator_at_end = true,
+				separator_at_start = true,
+				inactive = {
+					separator = { left = "", right = "" },
+				},
 				modified = { button = "●" },
 				pinned = { button = "", filename = true },
 			},
@@ -54,6 +60,9 @@ return {
 				-- Or, specify all three
 				-- Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
 			},
+			maximum_padding = 0,
+			maximum_length = 50,
+			minimum_length = 0,
 		})
 
 		local map = require("sobo.core.keymaps").map
@@ -65,15 +74,17 @@ return {
 		-- map("n", "<C-S-t>", "<Esc>:BufferMoveNext<CR>")
 		-- map("n", "<C-S-y>", "<Esc>:BufferMovePrevious<CR>")
 
+		local opts = { noremap = true, silent = true }
 		-- Pin/Unpin
 		map("n", "<leader>tp", "<Cmd>BufferPin<CR>", opts)
 
 		-- Close
 		map("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
 
-		-- asdf
-		vim.cmd([[ hi BufferTabpageFill guibg=#11111b guifg=NONE gui=NONE ]])
-		vim.cmd([[ hi BufferCurrent guibg=#181826 guifg=#c6d0f5 gui=NONE ]])
-		vim.cmd([[ hi BufferInactive guibg=#11111b guifg=#6B7088 gui=NONE ]])
+		-- vim.cmd("hi BufferTabpageFill guibg=" .. colors.black .. "guifg=" .. "NONE" .. "gui=NONE")
+		-- vim.cmd("hi BufferCurrent guibg=" .. colors.darkgray .. "guifg=" .. colors.white .. "gui=NONE")
+		-- vim.cmd("hi BufferInactive guibg=" .. colors.black .. "guifg=" .. colors.white .. "gui=NONE")
+
+		vim.cmd("hi BufferCurrent guifg=" .. colors.yellow)
 	end,
 }

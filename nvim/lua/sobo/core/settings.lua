@@ -31,6 +31,10 @@ o.shiftwidth = 2
 o.softtabstop = 2
 o.fsync = true
 o.pumheight = 12
+o.foldcolumn = "1" -- '0' is not bad
+o.foldlevel = 99 -- Using ufo provider need a large value
+o.foldlevelstart = 99
+o.foldenable = true
 
 wo.relativenumber = true
 wo.nu = true
@@ -56,9 +60,9 @@ vim.opt.laststatus = 3
 -- fold related configs
 function _G.MyFoldText()
 	return vim.fn.substitute(vim.fn.getline(vim.v.foldstart), "^\\s*\\(.*\\)", "\\0", "")
-			.. " ("
-			.. (vim.v.foldend - vim.v.foldstart + 1)
-			.. " lines) ..."
+		.. " ("
+		.. (vim.v.foldend - vim.v.foldstart + 1)
+		.. " lines) ..."
 end
 
 vim.opt.foldtext = "v:lua.MyFoldText()"

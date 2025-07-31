@@ -4,9 +4,7 @@ return {
 		build = "make BUILD_FROM_SOURCE=true",
 		event = "VeryLazy",
 		version = false, -- Never set this value to "*"! Never!
-		opts = {
-			provider = "openai",
-		},
+		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
@@ -70,16 +68,4 @@ return {
 			})
 		end,
 	},
-
-	-- {
-	-- 	"olimorris/codecompanion.nvim",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 	},
-	-- 	config = true,
-	-- 	keys = {
-	-- 		{ "<leader>ccc", ":CodeCompanionChat<CR>", desc = "Open Code Companion Chat" },
-	-- 	},
-	-- },
 }

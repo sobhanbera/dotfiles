@@ -14,9 +14,9 @@ return {
 		config = function()
 			require("reactive").setup({
 				builtin = {
-					cursorline = true,
-					cursor = true,
-					modemsg = true,
+					cursorline = false,
+					cursor = false,
+					modemsg = false,
 				},
 			})
 		end,
@@ -101,20 +101,42 @@ return {
 					"zz",
 					"zb",
 				},
-				hide_cursor = false, -- Hide cursor while scrolling
-				stop_eof = true, -- Stop at <EOF> when scrolling downwards
+				hide_cursor = false,     -- Hide cursor while scrolling
+				stop_eof = true,         -- Stop at <EOF> when scrolling downwards
 				respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
 				cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
 				duration_multiplier = 0.6, -- Global duration multiplier
-				easing = "linear", -- Default easing function
-				pre_hook = nil, -- Function to run before the scrolling animation starts
-				post_hook = nil, -- Function to run after the scrolling animation ends
+				easing = "linear",       -- Default easing function
+				pre_hook = nil,          -- Function to run before the scrolling animation starts
+				post_hook = nil,         -- Function to run after the scrolling animation ends
 				performance_mode = false, -- Disable "Performance Mode" on all buffers.
-				ignored_events = { -- Events ignored while scrolling
+				ignored_events = {       -- Events ignored while scrolling
 					"WinScrolled",
 					"CursorMoved",
 				},
 			})
 		end,
 	},
+
+	-- {
+	-- 	"kevinhwang91/nvim-ufo",
+	-- 	requires = "kevinhwang91/promise-async",
+	-- 	config = function()
+	-- 		require("ufo").setup({
+	-- 			provider_selector = function(bufnr, filetype, buftype)
+	-- 				return { "treesitter", "indent" }
+	-- 			end,
+	-- 		})
+
+	-- -- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+	-- -- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+	-- 	end,
+	-- },
+
+	-- color management
+	-- { "nvzone/volt", lazy = true },
+	-- {
+	-- 	"nvzone/minty",
+	-- 	cmd = { "Shades", "Huefy" },
+	-- },
 }

@@ -1,106 +1,185 @@
 return {
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
+		'maxmx03/solarized.nvim',
+		lazy = false,
 		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				flavour = "auto", -- latte, frappe, macchiato, mocha
-				background = { -- :h background
-					light = "latte",
-					dark = "mocha",
-				},
-				transparent_background = false, -- disables setting the background color.
-				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-				term_colors = false,        -- sets terminal colors (e.g. `g:terminal_color_0`)
-				dim_inactive = {
-					enabled = false,          -- dims the background color of inactive window
-					shade = "dark",
-					percentage = 0.15,        -- percentage of the shade to apply to the inactive window
-				},
-				no_italic = false,          -- Force no italic
-				no_bold = false,            -- Force no bold
-				no_underline = false,       -- Force no underline
-				styles = {                  -- Handles the styles of general hi groups (see `:h highlight-args`):
-					comments = { "italic" },  -- Change the style of comments
-					conditionals = { "italic" },
-					loops = {},
-					functions = { "italic" },
-					keywords = {},
-					strings = { "italic" },
-					variables = {},
-					numbers = {},
-					booleans = {},
-					properties = {},
-					types = {},
-					operators = {},
-					-- miscs = {}, -- Uncomment to turn off hard-coded styles
-				},
-				color_overrides = {},
-				custom_highlights = {},
-				default_integrations = true,
-				integrations = {
-					cmp = true,
-					gitsigns = true,
-					nvimtree = true,
-					treesitter = true,
-					notify = true,
-					barbar = true,
-					dropbar = {
-						enabled = true,
-						color_mode = true, -- enable color for kind's texts, not just kind's icons
-					},
-					mini = {
-						enabled = true,
-						indentscope_color = "",
-					},
-					indent_blankline = {
-						enabled = true,
-						scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
-						colored_indent_levels = true,
-					},
-					mason = true,
-					neotree = true,
-					noice = true,
-					copilot_vim = true,
-					dap = true,
-					dap_ui = true,
-					treesitter_context = true,
-					nvim_surround = true,
-					telescope = {
-						enabled = true,
-						-- style = "nvchad"
-					},
-					lsp_trouble = true,
-					which_key = true,
-					native_lsp = {
-						enabled = true,
-						virtual_text = {
-							errors = { "italic" },
-							hints = { "italic" },
-							warnings = { "italic" },
-							information = { "italic" },
-							ok = { "italic" },
-						},
-						underlines = {
-							errors = { "underline" },
-							hints = { "underline" },
-							warnings = { "underline" },
-							information = { "underline" },
-							ok = { "underline" },
-						},
-						inlay_hints = {
-							background = true,
-						},
-					},
-				},
-			})
+		---@type solarized.config
+		opts = {},
+		config = function(_, opts)
+			vim.o.termguicolors = true
+			vim.o.background = 'dark'
+			vim.cmd.colorscheme 'solarized'
 
-			-- setup must be called before loading
-			vim.cmd.colorscheme("catppuccin")
-			vim.cmd([[ set background=dark ]])
+			require('solarized').setup({
+				transparent = {
+					enabled = true,
+					pmenu = true,
+					normal = true,
+					normalfloat = true,
+					neotree = true,
+					nvimtree = true,
+					whichkey = true,
+					telescope = true,
+					lazy = true,
+				},
+				on_highlights = nil,
+				on_colors = nil,
+				palette = 'solarized', -- solarized (default) | selenized
+				variant = 'summer', -- "spring" | "summer" | "autumn" | "winter" (default)
+				error_lens = {
+					text = true,
+					symbol = true,
+				},
+				styles = {
+					enabled = true,
+					types = {},
+					functions = { "italic" },
+					parameters = {},
+					comments = { "italic" },
+					strings = { "italic" },
+					keywords = {},
+					variables = {},
+					constants = {},
+				},
+				plugins = {
+					treesitter = true,
+					lspconfig = true,
+					navic = true,
+					cmp = true,
+					indentblankline = true,
+					neotree = true,
+					nvimtree = true,
+					whichkey = true,
+					dashboard = true,
+					gitsigns = true,
+					telescope = true,
+					noice = true,
+					hop = true,
+					ministatusline = true,
+					minitabline = true,
+					ministarter = true,
+					minicursorword = true,
+					notify = true,
+					rainbowdelimiters = true,
+					bufferline = true,
+					lazy = true,
+					rendermarkdown = true,
+					ale = true,
+					coc = true,
+					leap = true,
+					alpha = true,
+					yanky = true,
+					gitgutter = true,
+					mason = true,
+					flash = true,
+				},
+
+			})
 		end,
 	},
+
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup({
+	-- 			flavour = "mocha", -- latte, frappe, macchiato, mocha
+	-- 			background = { -- :h background
+	-- 				light = "latte",
+	-- 				dark = "mocha",
+	-- 			},
+	-- 			transparent_background = false, -- disables setting the background color.
+	-- 			show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+	-- 			term_colors = true,         -- sets terminal colors (e.g. `g:terminal_color_0`)
+	-- 			dim_inactive = {
+	-- 				enabled = true,           -- dims the background color of inactive window
+	-- 				shade = "dark",
+	-- 				percentage = 0.15,        -- percentage of the shade to apply to the inactive window
+	-- 			},
+	-- 			no_italic = false,          -- Force no italic
+	-- 			no_bold = false,            -- Force no bold
+	-- 			no_underline = false,       -- Force no underline
+	-- 			styles = {                  -- Handles the styles of general hi groups (see `:h highlight-args`):
+	-- 				comments = { "italic" },  -- Change the style of comments
+	-- 				conditionals = { "italic" },
+	-- 				loops = {},
+	-- 				functions = { "italic" },
+	-- 				keywords = {},
+	-- 				strings = { "italic" },
+	-- 				variables = {},
+	-- 				numbers = {},
+	-- 				booleans = {},
+	-- 				properties = {},
+	-- 				types = {},
+	-- 				operators = {},
+	-- 				-- miscs = {}, -- Uncomment to turn off hard-coded styles
+	-- 			},
+	-- 			color_overrides = {},
+	-- 			custom_highlights = {},
+	-- 			default_integrations = true,
+	-- 			integrations = {
+	-- 				cmp = true,
+	-- 				gitsigns = true,
+	-- 				nvimtree = true,
+	-- 				treesitter = true,
+	-- 				notify = true,
+	-- 				barbar = true,
+	-- 				dropbar = {
+	-- 					enabled = true,
+	-- 					color_mode = true, -- enable color for kind's texts, not just kind's icons
+	-- 				},
+	-- 				mini = {
+	-- 					enabled = true,
+	-- 					indentscope_color = "",
+	-- 				},
+	-- 				indent_blankline = {
+	-- 					enabled = true,
+	-- 					scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+	-- 					colored_indent_levels = true,
+	-- 				},
+	-- 				mason = true,
+	-- 				neotree = true,
+	-- 				noice = true,
+	-- 				copilot_vim = true,
+	-- 				dap = true,
+	-- 				dap_ui = true,
+	-- 				treesitter_context = true,
+	-- 				nvim_surround = true,
+	-- 				telescope = {
+	-- 					enabled = true,
+	-- 					-- style = "nvchad"
+	-- 				},
+	-- 				lsp_trouble = true,
+	-- 				which_key = true,
+	-- 				native_lsp = {
+	-- 					enabled = true,
+	-- 					virtual_text = {
+	-- 						errors = { "italic" },
+	-- 						hints = { "italic" },
+	-- 						warnings = { "italic" },
+	-- 						information = { "italic" },
+	-- 						ok = { "italic" },
+	-- 					},
+	-- 					underlines = {
+	-- 						errors = { "underline" },
+	-- 						hints = { "underline" },
+	-- 						warnings = { "underline" },
+	-- 						information = { "underline" },
+	-- 						ok = { "underline" },
+	-- 					},
+	-- 					inlay_hints = {
+	-- 						background = true,
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		})
+
+	-- 		-- setup must be called before loading
+	-- 		vim.cmd.colorscheme("catppuccin")
+	-- 		vim.cmd([[ set background=dark ]])
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	"folke/tokyonight.nvim",
@@ -229,8 +308,10 @@ return {
 	-- 	"ayu-theme/ayu-vim",
 	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		vim.cmd([[ let ayucolor="dark" ]])
 	-- 		vim.cmd([[ colorscheme ayu ]])
+	-- 		vim.cmd([[ set background=dark ]])
+	-- 		vim.cmd([[ set termguicolors ]])
+	-- 		vim.cmd([[ let ayucolor="mirage" ]])
 	-- 	end,
 	-- },
 
