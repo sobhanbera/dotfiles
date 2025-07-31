@@ -32,21 +32,38 @@ config.macos_window_background_blur = 50
 -- 	brights = { "#bcc0cc", "#d20f39", "#40a02b", "#fe640b", "#1e66f5", "#ea76cb", "#04a5e5", "#4c4f69" },
 -- }
 
-config.color_scheme = "Ayu Mirage"
+-- config.color_scheme = "Solarized"
+-- config.colors = {
+-- 	foreground = "#eee8d5",
+-- 	background = "#002b36",
+
+-- 	cursor_bg = "#fdf6e3",
+-- 	cursor_border = "#fdf6e3",
+-- 	cursor_fg = "#002b36",
+
+-- 	selection_bg = "#073642",
+-- 	selection_fg = "#fdf6e3",
+
+-- 	ansi = { "#073642", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#eee8d5" },
+-- 	brights = { "#bcc0cc", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#4c4f69" },
+-- }
+
+config.color_scheme = "Tokyodark"
 config.colors = {
-	foreground = "#eee8d5",
-	background = "#002b36",
+	foreground = "#A0A8CD",
+	background = "#11121D",
 
-	cursor_bg = "#fdf6e3",
-	cursor_border = "#fdf6e3",
-	cursor_fg = "#002b36",
+	cursor_bg = "#A0A8CD",
+	cursor_border = "#A0A8CD",
+	cursor_fg = "#11121D",
 
-	selection_bg = "#073642",
-	selection_fg = "#fdf6e3",
+	selection_bg = "#1A1B2A",
+	selection_fg = "#A0A8CD",
 
-	ansi = { "#073642", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#eee8d5" },
-	brights = { "#bcc0cc", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#4c4f69" },
+	ansi = { "#212234", "#EE6D85", "#95C561", "#D7A65F", "#7199EE", "#A485DD", "#38A89D", "#A0A8CD" },
+	brights = { "#A0A8CD", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#2A3A5A" },
 }
+
 
 -- config.color_scheme = "Ayu Mirage"
 -- config.colors = {

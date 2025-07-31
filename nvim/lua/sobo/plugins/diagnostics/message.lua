@@ -37,6 +37,21 @@ local solarized_colors = {
 	aqua = "#2aa198",
 }
 
+local tokyodark_colors = {
+	white = "#A0A8CD",
+	black = "#11121D",
+
+	darkgray = "#212234",
+	gray = "#A0A8CD",
+
+	red = "#EE6D85",
+	yellow = "#D7A65F",
+	blue = "#7199EE",
+	green = "#95C561",
+	purple = "#A485DD",
+	aqua = "#38A89D",
+}
+
 -- ayu
 local ayu_colors = {
 	white = "#cccac2",
@@ -191,7 +206,7 @@ function diagnostic_message:update_status(is_focused)
 		-- icons = { "", "", "", "" }
 		local icons = { "", " ", " ", " " }
 		local final_highlight_color =
-			{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
+		{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
 
 		-- for _, val in ipairs({ "Error", "Warn", "Info", "Hint" }) do
 		-- 	vim.fn.sign_define("DiagnosticSign" .. val, {
@@ -210,10 +225,10 @@ function diagnostic_message:update_status(is_focused)
 		-- })
 
 		local final_message = highlight.component_format_highlight(final_highlight_color[diag.severity])
-			.. " "
-			.. icons[diag.severity]
-			.. " "
-			.. diag.message
+				.. " "
+				.. icons[diag.severity]
+				.. " "
+				.. diag.message
 
 		-- if the length of final message is more than 150 characters, then truncate it
 		if string.len(final_message) > MAX_LENGTH then
@@ -226,10 +241,11 @@ function diagnostic_message:update_status(is_focused)
 	end
 end
 
-M.colors = solarized_colors
+M.colors = tokyodark_colors
 M.colorschemes = {
 	catppuccin = catppucin_colors,
 	solarized = solarized_colors,
+	tokyodark = tokyodark_colors,
 	ayu = ayu_colors,
 	tokyo_night = tokyo_night_colors,
 	onedark = onedark_colors,

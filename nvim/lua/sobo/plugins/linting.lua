@@ -9,8 +9,8 @@ return {
 			typescript = { "eslint" },
 			javascriptreact = { "eslint" },
 			typescriptreact = { "eslint" },
-			svelte = { "eslint" },
-			python = { "pylint" },
+			-- svelte = { "eslint" },
+			-- python = { "pylint" },
 			typos = { "typos" },
 		}
 

@@ -85,6 +85,25 @@ return {
 		-- vim.cmd("hi BufferCurrent guibg=" .. colors.darkgray .. "guifg=" .. colors.white .. "gui=NONE")
 		-- vim.cmd("hi BufferInactive guibg=" .. colors.black .. "guifg=" .. colors.white .. "gui=NONE")
 
-		vim.cmd("hi BufferCurrent guifg=" .. colors.yellow)
+		vim.cmd("hi BufferCurrent gui=NONE guifg=" .. colors.white .. " guibg=" .. colors.darkgray)
+		vim.cmd("hi BufferInactive gui=NONE guibg=" .. colors.black)
+
+		vim.cmd("hi BufferCurrentERROR gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.darkgray)
+		vim.cmd("hi BufferCurrentHINT gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.darkgray)
+		vim.cmd("hi BufferCurrentINFO gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.darkgray)
+		vim.cmd("hi BufferCurrentWARN gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.darkgray)
+
+		vim.cmd("hi BufferCurrentADDED gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.darkgray)
+		vim.cmd("hi BufferCurrentCHANGED gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.darkgray)
+		vim.cmd("hi BufferCurrentDELETED gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.darkgray)
+
+		vim.cmd("hi BufferInactiveERROR gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactiveHINT gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactiveINFO gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactiveWARN gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.black)
+
+		vim.cmd("hi BufferInactiveADDED gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactiveCHANGED gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactiveDELETED gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.black)
 	end,
 }

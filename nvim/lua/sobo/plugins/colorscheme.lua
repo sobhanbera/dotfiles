@@ -1,82 +1,110 @@
 return {
 	{
-		'maxmx03/solarized.nvim',
-		lazy = false,
-		priority = 1000,
-		---@type solarized.config
-		opts = {},
+		"tiagovla/tokyodark.nvim",
+		opts = {
+			-- custom options here
+		},
 		config = function(_, opts)
-			vim.o.termguicolors = true
-			vim.o.background = 'dark'
-			vim.cmd.colorscheme 'solarized'
-
-			require('solarized').setup({
-				transparent = {
-					enabled = true,
-					pmenu = true,
-					normal = true,
-					normalfloat = true,
-					neotree = true,
-					nvimtree = true,
-					whichkey = true,
-					telescope = true,
-					lazy = true,
-				},
-				on_highlights = nil,
-				on_colors = nil,
-				palette = 'solarized', -- solarized (default) | selenized
-				variant = 'summer', -- "spring" | "summer" | "autumn" | "winter" (default)
-				error_lens = {
-					text = true,
-					symbol = true,
-				},
+			require("tokyodark").setup({
+				transparent_background = false, -- set background to transparent
+				gamma = 1.00,               -- adjust the brightness of the theme
 				styles = {
-					enabled = true,
-					types = {},
-					functions = { "italic" },
-					parameters = {},
-					comments = { "italic" },
-					strings = { "italic" },
-					keywords = {},
+					comments = { italic = true },
+					keywords = { italic = true },
+					identifiers = { italic = true },
+					functions = {},
 					variables = {},
-					constants = {},
+					strings = { italic = true },
 				},
-				plugins = {
-					treesitter = true,
-					lspconfig = true,
-					navic = true,
-					cmp = true,
-					indentblankline = true,
-					neotree = true,
-					nvimtree = true,
-					whichkey = true,
-					dashboard = true,
-					gitsigns = true,
-					telescope = true,
-					noice = true,
-					hop = true,
-					ministatusline = true,
-					minitabline = true,
-					ministarter = true,
-					minicursorword = true,
-					notify = true,
-					rainbowdelimiters = true,
-					bufferline = true,
-					lazy = true,
-					rendermarkdown = true,
-					ale = true,
-					coc = true,
-					leap = true,
-					alpha = true,
-					yanky = true,
-					gitgutter = true,
-					mason = true,
-					flash = true,
-				},
-
-			})
+				custom_highlights = {} or function(highlights, palette)
+					return {}
+				end, -- extend highlights
+				custom_palette = {} or function(palette)
+					return {}
+				end,                -- extend palette
+				terminal_colors = true, -- enable terminal colors
+			})                    -- calling setup is optional
+			vim.cmd [[colorscheme tokyodark]]
 		end,
 	},
+
+	-- {
+	-- 	'maxmx03/solarized.nvim',
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	---@type solarized.config
+	-- 	opts = {},
+	-- 	config = function(_, opts)
+	-- 		vim.o.termguicolors = true
+	-- 		vim.cmd.colorscheme 'solarized'
+
+	-- 		require('solarized').setup({
+	-- 			transparent = {
+	-- 				enabled = true,
+	-- 				pmenu = true,
+	-- 				normal = true,
+	-- 				normalfloat = true,
+	-- 				neotree = true,
+	-- 				nvimtree = true,
+	-- 				whichkey = true,
+	-- 				telescope = true,
+	-- 				lazy = true,
+	-- 			},
+	-- 			on_highlights = nil,
+	-- 			on_colors = nil,
+	-- 			palette = 'solarized', -- solarized (default) | selenized
+	-- 			variant = 'summer', -- "spring" | "summer" | "autumn" | "winter" (default)
+	-- 			error_lens = {
+	-- 				text = true,
+	-- 				symbol = true,
+	-- 			},
+	-- 			styles = {
+	-- 				enabled = true,
+	-- 				types = {},
+	-- 				functions = { "italic" },
+	-- 				parameters = {},
+	-- 				comments = { "italic" },
+	-- 				strings = { "italic" },
+	-- 				keywords = {},
+	-- 				variables = {},
+	-- 				constants = {},
+	-- 			},
+	-- 			plugins = {
+	-- 				treesitter = true,
+	-- 				lspconfig = true,
+	-- 				navic = true,
+	-- 				cmp = true,
+	-- 				indentblankline = true,
+	-- 				neotree = true,
+	-- 				nvimtree = true,
+	-- 				whichkey = true,
+	-- 				dashboard = true,
+	-- 				gitsigns = true,
+	-- 				telescope = true,
+	-- 				noice = true,
+	-- 				hop = true,
+	-- 				ministatusline = true,
+	-- 				minitabline = true,
+	-- 				ministarter = true,
+	-- 				minicursorword = true,
+	-- 				notify = true,
+	-- 				rainbowdelimiters = true,
+	-- 				bufferline = true,
+	-- 				lazy = true,
+	-- 				rendermarkdown = true,
+	-- 				ale = true,
+	-- 				coc = true,
+	-- 				leap = true,
+	-- 				alpha = true,
+	-- 				yanky = true,
+	-- 				gitgutter = true,
+	-- 				mason = true,
+	-- 				flash = true,
+	-- 			},
+
+	-- 		})
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	"catppuccin/nvim",
@@ -177,7 +205,6 @@ return {
 
 	-- 		-- setup must be called before loading
 	-- 		vim.cmd.colorscheme("catppuccin")
-	-- 		vim.cmd([[ set background=dark ]])
 	-- 	end,
 	-- },
 
@@ -309,7 +336,6 @@ return {
 	-- 	priority = 1000,
 	-- 	config = function()
 	-- 		vim.cmd([[ colorscheme ayu ]])
-	-- 		vim.cmd([[ set background=dark ]])
 	-- 		vim.cmd([[ set termguicolors ]])
 	-- 		vim.cmd([[ let ayucolor="mirage" ]])
 	-- 	end,

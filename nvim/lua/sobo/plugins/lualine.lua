@@ -8,13 +8,14 @@ return {
 
 		local colors = diagnosticMessage.colors
 		local diagnostic_message = diagnosticMessage.diagnostic_message
-		local custom_theme = require("sobo.plugins.themes.custom").theme
+		-- local custom_theme = require("sobo.plugins.themes.custom").theme
 
 		lualine.setup({
 			options = {
 				icons_enabled = true,
 				color_icons = true,
-				theme = require('lualine.themes.solarized'),
+				theme = "tokyodark",
+				-- theme = require('lualine.themes.solarized'),
 				-- theme = "tokyonight-moon",
 				-- theme = "auto",
 				-- theme = "night-owl",

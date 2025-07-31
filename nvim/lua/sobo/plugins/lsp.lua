@@ -8,24 +8,24 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-				"bashls",
-				"clangd",
-				"dockerls",
-				"gopls",
+				-- "bashls",
+				-- "clangd",
+				-- "dockerls",
+				-- "gopls",
 				"html",
 				"jsonls",
 				"lua_ls",
-				"marksman",
-				"pyright",
-				"rust_analyzer",
-				"svelte",
-				"tailwindcss",
+				-- "marksman",
+				-- "pyright",
+				-- "rust_analyzer",
+				-- "svelte",
+				-- "tailwindcss",
 				"tsserver",
 				"vimls",
 				"typescript-language-server",
 				"prettier",
 				"eslint-lsp",
-				"js-debug-adapter",
+				-- "js-debug-adapter",
 			},
 		},
 		config = function()
@@ -47,32 +47,32 @@ return {
 				ensure_installed = {
 					"javascript",
 					"typescript",
-					"go",
-					"bash",
-					"c",
-					"cpp",
-					"java",
+					-- "go",
+					-- "bash",
+					-- "c",
+					-- "cpp",
+					-- "java",
 					"html",
 					"cssls",
 					"scss",
 					"json",
-					"rust",
+					-- "rust",
 					"comment",
-					"python",
-					"prismals",
+					-- "python",
+					-- "prismals",
 					-- "prisma",
-					"regex",
+					-- "regex",
 					"lua_ls",
 					-- "lua",
-					"vim",
+					-- "vim",
 					-- "markdown",
 					-- "markdown_inline"
 					"tsserver",
-					"tailwindcss",
-					"svelte",
-					"graphql",
+					-- "tailwindcss",
+					-- "svelte",
+					-- "graphql",
 					"emmet_ls",
-					"pyright",
+					-- "pyright",
 				},
 			})
 
@@ -80,9 +80,9 @@ return {
 				ensure_installed = {
 					"prettier", -- js/ts
 					"stylua", -- lua
-					"isort", -- python
+					-- "isort", -- python
 					-- "black", -- python
-					"pylint",
+					-- "pylint",
 					"eslint_d",
 				},
 			})
@@ -99,19 +99,19 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"ray-x/lsp_signature.nvim",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/neodev.nvim",                   opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"onsails/lspkind.nvim",
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
+			-- "rafamadriz/friendly-snippets",
 
 			-- language specifics
-			"rust-lang/rust.vim",
-			"simrat39/rust-tools.nvim",
-			"fatih/vim-go",
+			-- "rust-lang/rust.vim",
+			-- "simrat39/rust-tools.nvim",
+			-- "fatih/vim-go",
 			"mxw/vim-jsx",
-			"udalov/kotlin-vim",
+			-- "udalov/kotlin-vim",
 		},
 		config = function()
 			local diagnosticMessage = require("sobo.plugins.diagnostics.message")
@@ -197,7 +197,7 @@ return {
 			-- " +-----------------------------------------------------+ "
 			local lspkind = require("lspkind") -- lsp kind icons for completion menu
 			lspkind.init({
-				mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+				mode = "symbol_text",         -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
 			})
 
 			-- +-----------------------------------------------------+
@@ -311,30 +311,30 @@ return {
 			-- " | TS,JS,CPP,Java,CSS,HTML,VIM,JSON,DOCKER,PYTHON,ETC. |
 			-- " +-----------------------------------------------------+ "
 			require("mason").setup()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "tailwindcss" },
-			})
+			-- require("mason-lspconfig").setup({
+			-- 	ensure_installed = { "tailwindcss" },
+			-- })
 
 			local nvim_lsp = require("lspconfig") -- official lsp config :)
 			local servers = {
-				"dockerls",
-				"emmet_ls",
+				-- "dockerls",
+				-- "emmet_ls",
 				"eslint",
-				"clangd",
+				-- "clangd",
 				"cssls",
-				"gopls",
+				-- "gopls",
 				"html",
-				"jsonls",
-				"kotlin_language_server",
-				"pyright",
-				"tailwindcss",
+				-- "jsonls",
+				-- "kotlin_language_server",
+				-- "pyright",
+				-- "tailwindcss",
 				"ts_ls",
-				"vimls",
+				-- "vimls",
 				-- "pyls",
-				"pyright",
+				-- "pyright",
 			} --, 'cssmodules_ls'}
 			local capabilities =
-				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+					require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 			-- capabilities.textdocument.foldingrange = {
 			-- 	dynamicregistration = false,
@@ -400,30 +400,30 @@ return {
 			end
 
 			-- ATTACHING RUST LANG SERVER
-			nvim_lsp.rust_analyzer.setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-				flags = {
-					debounce_text_changes = 150,
-				},
-				settings = {
-					["rust-analyzer"] = {
-						imports = {
-							granularity = {
-								group = "module",
-							},
-							prefix = "self",
-						},
-						assist = {
-							importGranularity = "module",
-							importPrefix = "by_self",
-						},
-						checkOnSave = { command = "clippy" },
-						cargo = { loadOutDirsFromCheck = true },
-						procMacro = { enable = true },
-					},
-				},
-			})
+			-- nvim_lsp.rust_analyzer.setup({
+			-- 	on_attach = on_attach,
+			-- 	capabilities = capabilities,
+			-- 	flags = {
+			-- 		debounce_text_changes = 150,
+			-- 	},
+			-- 	settings = {
+			-- 		["rust-analyzer"] = {
+			-- 			imports = {
+			-- 				granularity = {
+			-- 					group = "module",
+			-- 				},
+			-- 				prefix = "self",
+			-- 			},
+			-- 			assist = {
+			-- 				importGranularity = "module",
+			-- 				importPrefix = "by_self",
+			-- 			},
+			-- 			checkOnSave = { command = "clippy" },
+			-- 			cargo = { loadOutDirsFromCheck = true },
+			-- 			procMacro = { enable = true },
+			-- 		},
+			-- 	},
+			-- })
 			-- require("rust-tools").setup({})
 
 			vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
