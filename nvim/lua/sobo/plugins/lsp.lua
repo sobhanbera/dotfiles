@@ -17,7 +17,7 @@ return {
 				"lua_ls",
 				-- "marksman",
 				"pyright",
-				"rust_analyzer",
+				-- "rust_analyzer",
 				-- "svelte",
 				-- "tailwindcss",
 				"tsserver",
@@ -56,7 +56,7 @@ return {
 					"cssls",
 					"scss",
 					"json",
-					"rust",
+					-- "rust",
 					"comment",
 					"python",
 					-- "prismals",
@@ -99,7 +99,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"ray-x/lsp_signature.nvim",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim",                   opts = {} },
+			{ "folke/neodev.nvim", opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"onsails/lspkind.nvim",
 			"L3MON4D3/LuaSnip",
@@ -107,8 +107,8 @@ return {
 			-- "rafamadriz/friendly-snippets",
 
 			-- language specifics
-			"rust-lang/rust.vim",
-			"simrat39/rust-tools.nvim",
+			-- "rust-lang/rust.vim",
+			-- "simrat39/rust-tools.nvim",
 			-- "fatih/vim-go",
 			"mxw/vim-jsx",
 			-- "udalov/kotlin-vim",
@@ -197,7 +197,7 @@ return {
 			-- " +-----------------------------------------------------+ "
 			local lspkind = require("lspkind") -- lsp kind icons for completion menu
 			lspkind.init({
-				mode = "symbol_text",         -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+				mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
 			})
 
 			-- +-----------------------------------------------------+
@@ -334,7 +334,7 @@ return {
 				-- "pyright",
 			} --, 'cssmodules_ls'}
 			local capabilities =
-					require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 			-- capabilities.textdocument.foldingrange = {
 			-- 	dynamicregistration = false,

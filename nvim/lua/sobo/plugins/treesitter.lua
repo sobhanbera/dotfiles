@@ -29,7 +29,7 @@ return {
 				"css",
 				"scss",
 				"json",
-				"rust",
+				-- "rust",
 				"comment",
 				"python",
 				-- "prisma",
