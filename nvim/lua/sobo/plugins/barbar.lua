@@ -25,7 +25,7 @@ return {
 					[vim.diagnostic.severity.ERROR] = { enabled = true },
 					[vim.diagnostic.severity.WARN] = { enabled = false },
 					[vim.diagnostic.severity.INFO] = { enabled = false },
-					[vim.diagnostic.severity.HINT] = { enabled = false, icon = " " },
+					[vim.diagnostic.severity.HINT] = { enabled = false, icon = " " },
 				},
 				gitsigns = {
 					added = { enabled = false, icon = "+" },
@@ -87,7 +87,7 @@ return {
 
 		vim.cmd("hi BufferCurrent gui=NONE guifg=" .. colors.white .. " guibg=" .. colors.darkgray)
 		vim.cmd("hi BufferCurrentIcon gui=NONE guifg=" .. colors.white .. " guibg=" .. colors.darkgray)
-		vim.cmd("hi BufferCurrentERROR gui=NONE guifg=" .. colors.red .. " guibg=NONE")
+		vim.cmd("hi BufferCurrentERROR gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.darkgray)
 		vim.cmd("hi BufferCurrentHINT gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.darkgray)
 		vim.cmd("hi BufferCurrentINFO gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.darkgray)
 		vim.cmd("hi BufferCurrentWARN gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.darkgray)
@@ -95,18 +95,18 @@ return {
 		vim.cmd("hi BufferCurrentCHANGED gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.darkgray)
 		vim.cmd("hi BufferCurrentDELETED gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.darkgray)
 
-		vim.cmd("hi BufferInactive gui=NONE guifg=" .. colors.gray .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveIcon gui=NONE guifg=" .. colors.white .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveERROR gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveHINT gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveINFO gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveWARN gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveADDED gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveCHANGED gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.black)
-		vim.cmd("hi BufferInactiveDELETED gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactive gui=NONE guifg=" .. colors.gray .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveIcon gui=NONE guifg=" .. colors.white .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveERROR gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveHINT gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveINFO gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveWARN gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveADDED gui=NONE guifg=" .. colors.green .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveCHANGED gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.bg)
+		vim.cmd("hi BufferInactiveDELETED gui=NONE guifg=" .. colors.red .. " guibg=" .. colors.bg)
 
 		vim.cmd("hi BufferCurrentMod gui=NONE guifg=" .. colors.blue .. " guibg=" .. colors.darkgray)
-		vim.cmd("hi BufferInactiveMod gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.black)
+		vim.cmd("hi BufferInactiveMod gui=NONE guifg=" .. colors.yellow .. " guibg=" .. colors.bg)
 
 		vim.cmd("hi BufferTabpageFill gui=NONE guibg=" .. colors.black .. " guifg=" .. "NONE")
 	end,

@@ -1,32 +1,32 @@
 return {
-	{
-		"tiagovla/tokyodark.nvim",
-		opts = {
-			-- custom options here
-		},
-		config = function(_, opts)
-			require("tokyodark").setup({
-				transparent_background = false, -- set background to transparent
-				gamma = 1.00,               -- adjust the brightness of the theme
-				styles = {
-					comments = { italic = true },
-					keywords = { italic = true },
-					identifiers = { italic = true },
-					functions = {},
-					variables = {},
-					strings = { italic = true },
-				},
-				custom_highlights = {} or function(highlights, palette)
-					return {}
-				end, -- extend highlights
-				custom_palette = {} or function(palette)
-					return {}
-				end,                -- extend palette
-				terminal_colors = true, -- enable terminal colors
-			})                    -- calling setup is optional
-			vim.cmd [[colorscheme tokyodark]]
-		end,
-	},
+	-- {
+	-- 	"tiagovla/tokyodark.nvim",
+	-- 	opts = {
+	-- 		-- custom options here
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("tokyodark").setup({
+	-- 			transparent_background = false, -- set background to transparent
+	-- 			gamma = 1.00,               -- adjust the brightness of the theme
+	-- 			styles = {
+	-- 				comments = { italic = true },
+	-- 				keywords = { italic = true },
+	-- 				identifiers = { italic = true },
+	-- 				functions = {},
+	-- 				variables = {},
+	-- 				strings = { italic = true },
+	-- 			},
+	-- 			custom_highlights = {} or function(highlights, palette)
+	-- 				return {}
+	-- 			end, -- extend highlights
+	-- 			custom_palette = {} or function(palette)
+	-- 				return {}
+	-- 			end,                -- extend palette
+	-- 			terminal_colors = true, -- enable terminal colors
+	-- 		})                    -- calling setup is optional
+	-- 		vim.cmd [[colorscheme tokyodark]]
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	'maxmx03/solarized.nvim',

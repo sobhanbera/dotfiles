@@ -8,13 +8,13 @@ return {
 
 		local colors = diagnosticMessage.colors
 		local diagnostic_message = diagnosticMessage.diagnostic_message
-		-- local custom_theme = require("sobo.plugins.themes.custom").theme
+		local custom_theme = require("sobo.plugins.themes.custom").theme
 
 		lualine.setup({
 			options = {
 				icons_enabled = true,
 				color_icons = true,
-				theme = "auto",
+				theme = custom_theme,
 				-- theme = require('lualine.themes.solarized'),
 				-- theme = "tokyonight-moon",
 				-- theme = "auto",
@@ -47,30 +47,30 @@ return {
 					-- 	icon_only = true,
 					-- 	color = { fg = colors.white, bg = colors.black }, -- White text on a blue background
 					-- },
-					-- {
-					-- 	"filename",
-					-- 	-- icon = function()
-					-- 	-- 	local devicons = require('nvim-web-devicons')
-					-- 	--
-					-- 	-- 	local filename = vim.fn.expand('%:t')  -- Get the current file name
-					-- 	-- 	local icon, _ = devicons.get_icon(filename)
-					-- 	--
-					-- 	-- 	print(icon)  -- Print the icon
-					-- 	-- 	return  icon
-					-- 	-- end,
-					-- 	path = 0, -- 0: Just the filename
-					-- 	-- 1: Relative path
-					-- 	-- 2: Absolute path
-					--
-					-- 	shorting_target = 52,
-					-- 	file_status = true,
-					-- 	symbols = {
-					-- 		modified = "●",
-					-- 		readonly = "--",
-					-- 		unnamed = ":D",
-					-- 	},
-					-- 	color = { fg = colors.white, bg = colors.black }, -- White text on a blue background
-					-- },
+					{
+						"filename",
+						-- icon = function()
+						-- 	local devicons = require('nvim-web-devicons')
+						--
+						-- 	local filename = vim.fn.expand('%:t')  -- Get the current file name
+						-- 	local icon, _ = devicons.get_icon(filename)
+						--
+						-- 	print(icon)  -- Print the icon
+						-- 	return  icon
+						-- end,
+						path = 1, -- 0: Just the filename
+						-- 1: Relative path
+						-- 2: Absolute path
+
+						shorting_target = 52,
+						file_status = true,
+						symbols = {
+							modified = "●",
+							readonly = "--",
+							unnamed = ":D",
+						},
+						color = { fg = colors.white, bg = colors.black }, -- White text on a blue background
+					},
 				},
 				lualine_c = {
 					{
@@ -160,7 +160,7 @@ return {
 			inactive_sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "diff", "branch" }, -- "diagnostics" },
-				lualine_c = { "filename" }, -- "os.date('%a')", "data", "require'lsp-status'.status()" },
+				lualine_c = { "filename" },   -- "os.date('%a')", "data", "require'lsp-status'.status()" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },

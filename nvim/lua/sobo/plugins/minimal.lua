@@ -129,7 +129,7 @@ return {
 			vim.opt.foldlevelstart = 99
 
 			require("origami").setup {
-				useLspFoldsWithTreesitterFallback = true,
+				-- useLspFoldsWithTreesitterFallback = true,
 				pauseFoldsOnSearch = true,
 				foldtext = {
 					enabled = true,

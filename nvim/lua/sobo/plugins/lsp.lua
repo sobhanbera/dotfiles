@@ -389,7 +389,14 @@ return {
 						},
 					})
 				else
-					nvim_lsp[lsp].setup({
+					-- nvim_lsp[lsp].setup({
+					-- 	on_attach = on_attach,
+					-- 	capabilities = capabilities,
+					-- 	flags = {
+					-- 		debounce_text_changes = 150,
+					-- 	},
+					-- })
+					vim.lsp.config(lsp, {
 						on_attach = on_attach,
 						capabilities = capabilities,
 						flags = {
@@ -400,7 +407,7 @@ return {
 			end
 
 			-- ATTACHING RUST LANG SERVER
-			nvim_lsp.rust_analyzer.setup({
+			vim.lsp.config("rust_analyzer", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 				flags = {
@@ -415,16 +422,16 @@ return {
 							prefix = "self",
 						},
 						assist = {
-							importGranularity = "module",
-							importPrefix = "by_self",
+							importgranularity = "module",
+							importprefix = "by_self",
 						},
-						checkOnSave = { command = "clippy" },
-						cargo = { loadOutDirsFromCheck = true },
-						procMacro = { enable = true },
+						checkonsave = { command = "clippy" },
+						cargo = { loadoutdirsfromcheck = true },
+						procmacro = { enable = true },
 					},
 				},
 			})
-			require("rust-tools").setup({})
+			-- require("rust-tools").setup({})
 
 			vim.g.completion_matching_strategy_list = "['exact', 'substring', 'fuzzy']"
 		end,

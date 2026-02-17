@@ -1,3 +1,5 @@
+local amp_palette = require("sobo.plugins.themes.amp").palette
+
 -- last time udpated these colors were based on solarized dark theme
 
 local M = {}
@@ -64,6 +66,31 @@ local tokyodark_colors = {
 	greenDimmed = "#25331a",
 	purpleDimmed = "#2a2239",
 	aquaDimmed = "#0f2a28",
+}
+
+local amp_colors = {
+	bg = amp_palette.bg,
+	fg = amp_palette.fg,
+
+	white = amp_palette.white,
+	black = amp_palette.black,
+
+	darkgray = amp_palette.darkgray,
+	gray = amp_palette.gray,
+
+	red = amp_palette.red,
+	yellow = amp_palette.yellow,
+	blue = amp_palette.blue,
+	green = amp_palette.green,
+	purple = amp_palette.purple,
+	aqua = amp_palette.aqua,
+
+	redDimmed = amp_palette.redDimmed,
+	yellowDimmed = amp_palette.yellowDimmed,
+	blueDimmed = amp_palette.blueDimmed,
+	greenDimmed = amp_palette.greenDimmed,
+	purpleDimmed = amp_palette.purpleDimmed,
+	aquaDimmed = amp_palette.aquaDimmed,
 }
 
 -- ayu
@@ -221,7 +248,7 @@ function diagnostic_message:update_status(is_focused)
 		-- icons = { "", "", "", "" }
 		local icons = { "", " ", " ", " " }
 		local final_highlight_color =
-			{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
+		{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
 
 		-- for _, val in ipairs({ "Error", "Warn", "Info", "Hint" }) do
 		-- 	vim.fn.sign_define("DiagnosticSign" .. val, {
@@ -240,10 +267,10 @@ function diagnostic_message:update_status(is_focused)
 		-- })
 
 		local final_message = highlight.component_format_highlight(final_highlight_color[diag.severity])
-			.. " "
-			.. icons[diag.severity]
-			.. " "
-			.. diag.message
+				.. " "
+				.. icons[diag.severity]
+				.. " "
+				.. diag.message
 
 		-- if the length of final message is more than 150 characters, then truncate it
 		if string.len(final_message) > MAX_LENGTH then
@@ -256,11 +283,12 @@ function diagnostic_message:update_status(is_focused)
 	end
 end
 
-M.colors = tokyodark_colors
+M.colors = amp_colors
 M.colorschemes = {
 	catppuccin = catppucin_colors,
 	solarized = solarized_colors,
 	tokyodark = tokyodark_colors,
+	amp = amp_colors,
 	ayu = ayu_colors,
 	tokyo_night = tokyo_night_colors,
 	onedark = onedark_colors,
