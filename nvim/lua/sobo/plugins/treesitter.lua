@@ -29,9 +29,9 @@ return {
 				"css",
 				"scss",
 				"json",
-				-- "rust",
+				"rust",
 				"comment",
-				-- "python",
+				"python",
 				-- "prisma",
 				-- "regex",
 
@@ -108,7 +108,7 @@ return {
 		})
 
 		-- vim.cmd("hi TreesitterContext gui=NONE guisp=" .. colors.darkgray .. "guibg=" .. colors.darkgray)
-		vim.cmd([[ hi TreesitterContext gui=NONE guisp=#073642 guibg=#073642 ]])
+		vim.cmd("hi TreesitterContext gui=NONE guisp=" .. colors.darkgray .. " guibg=" .. colors.darkgray)
 		vim.cmd("hi TreesitterContextBottom gui=NONE")
 
 		vim.cmd("TSContext enable")

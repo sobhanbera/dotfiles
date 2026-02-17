@@ -1,4 +1,205 @@
-return {}
+return {
+	"mfussenegger/nvim-dap",
+	-- lazy = true,
+	dependencies = {
+		{
+			"mason-org/mason.nvim",
+			opts = function(_, opts)
+				opts.ensure_installed = opts.ensure_installed or {}
+				table.insert(opts.ensure_installed, "js-debug-adapter")
+			end,
+		},
+		-- {
+		-- 	"mxsdev/nvim-dap-vscode-js",
+		-- 	lazy = true,
+		-- 	cmd = { "DapInstall", "DapUninstall" },
+		-- 	opts = {
+		-- 		debugger_path = LazyVim.get_pkg_path("js-debug-adapter"),
+		-- 		adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+		-- 	},
+		-- },
+		"theHamsta/nvim-dap-virtual-text",
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
+	},
+	config = function()
+		local dap = require("dap")
+		if not dap.adapters["pwa-node"] then
+			require("dap").adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					-- 💀 Make sure to update this path to point to your installation
+					args = {
+						"/Users/sobhanbera/Workspace/scripts/debuggers/jsts/src/dapDebugServer.js",
+						"${port}",
+					},
+					-- args = {
+					-- 	LazyVim.get_pkg_path(
+					-- 		"js-debug-adapter",
+					-- 		"/Users/sobhanbera/Workspace/scripts/debuggers/jsts/src/dapDebugServer.js"
+					-- 	),
+					-- 	"${port}",
+					-- },
+				},
+			}
+		end
+		if not dap.adapters["node"] then
+			dap.adapters["node"] = function(cb, config)
+				if config.type == "node" then
+					config.type = "pwa-node"
+				end
+				local nativeAdapter = dap.adapters["pwa-node"]
+				if type(nativeAdapter) == "function" then
+					nativeAdapter(cb, config)
+				else
+					cb(nativeAdapter)
+				end
+			end
+		end
+
+		local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+
+		local vscode = require("dap.ext.vscode")
+		vscode.type_to_filetypes["node"] = js_filetypes
+		vscode.type_to_filetypes["pwa-node"] = js_filetypes
+
+		for _, language in ipairs(js_filetypes) do
+			if not dap.configurations[language] then
+				dap.configurations[language] = {
+					{
+						type = "pwa-node",
+						request = "launch",
+						name = "Launch file",
+						program = "${file}",
+						cwd = "${workspaceFolder}",
+					},
+					{
+						type = "pwa-node",
+						request = "attach",
+						name = "Attach",
+						processId = require("dap.utils").pick_process,
+						cwd = "${workspaceFolder}",
+					},
+				}
+			end
+		end
+
+		local dapui = require("dapui")
+		dapui.setup({
+			icons = { expanded = "▾", collapsed = "▸" },
+			mappings = {
+				expand = { "<CR>", "<2-LeftMouse>" },
+				open = "o",
+				remove = "d",
+				edit = "e",
+				repl = "r",
+				toggle = "t",
+			},
+			expand_lines = vim.fn.has("nvim-0.7"),
+			layouts = {
+				{
+					elements = {
+						{ id = "scopes", size = 0.25 },
+						"breakpoints",
+						"stacks",
+						"watches",
+					},
+					size = 40,
+					position = "left",
+				},
+				{
+					elements = {
+						{ id = "repl", size = 0.5 },
+						{ id = "console", size = 0.5 },
+					},
+					size = 10,
+					position = "bottom",
+				},
+			},
+			floating = {
+				max_height = nil, -- These can be integers or a float between 0 and 1.
+				max_width = nil, -- Floats will be treated as percentage of your screen.
+				border = "rounded", -- Border style. Can be "single", "double" or "rounded"
+				mappings = {
+					close = { "q", "<Esc>" },
+				},
+			},
+			windows = { indent = 1 },
+			render = {
+				max_type_length = nil,
+			},
+		})
+
+		dap.listeners.after.event_initialized["dapui_config"] = function()
+			-- 	vim.cmd("tabfirst|tabnext")
+			dapui.open({ reset = true })
+		end
+		-- dap.listeners.before.event_terminated["dapui_config"] = function()
+		-- 	dapui.close({})
+		-- end
+		-- dap.listeners.before.event_exited["dapui_config"] = function()
+		-- 	dapui.close({})
+		-- end
+
+		-- Keymaps
+		local map = require("sobo.core.keymaps").map
+		map("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", {
+			desc = "Toggle Breakpoint",
+		})
+		map("n", "<leader>dc", "<cmd>lua require('dap').continue()<CR>", {
+			desc = "Continue Execution",
+		})
+		map("n", "<leader>dso", "<cmd>lua require('dap').step_over()<CR>", {
+			desc = "Step Over",
+		})
+		map("n", "<leader>dsi", "<cmd>lua require('dap').step_into()<CR>", {
+			desc = "Step Into",
+		})
+		map("n", "<leader>dsu", "<cmd>lua require('dap').step_out()<CR>", {
+			desc = "Step Out",
+		})
+		map("n", "<leader>dk", "<cmd>lua require('dap').terminate()<CR>", {
+			desc = "Terminate Debugging",
+		})
+		map("n", "<leader>dr", "<cmd>lua require('dap').repl.open()<CR>", {
+			desc = "Open REPL",
+		})
+		map("n", "<leader>dl", "<cmd>lua require('dap').run_last()<CR>", {
+			desc = "Run Last Debugging Session",
+		})
+		map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", {
+			desc = "Toggle DAP UI",
+		})
+
+		vim.cmd("hi DapBreakpointColor guifg=#e78284")
+		vim.fn.sign_define("DapBreakpoint", {
+			text = "●",
+			texthl = "DapBreakpointColor",
+			linehl = "",
+			numhl = "",
+		})
+
+		-- DAP Virtual Text
+		require("nvim-dap-virtual-text").setup({
+			enabled = true,
+			enabled_commands = true,
+			highlight_changed_variables = true,
+			highlight_new_as_changed = false,
+			show_stop_reason = true,
+			commented = false,
+			only_first_definition = true,
+			all_references = false,
+			filter_references_pattern = "<module",
+			virt_text_pos = "eol",
+			all_frames = false,
+			virt_lines = false,
+			virt_text_win_col = nil,
+		})
+	end,
+}
 
 -- return {
 -- 	"mfussenegger/nvim-dap",

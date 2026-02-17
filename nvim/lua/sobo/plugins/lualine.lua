@@ -14,7 +14,7 @@ return {
 			options = {
 				icons_enabled = true,
 				color_icons = true,
-				theme = "tokyodark",
+				theme = "auto",
 				-- theme = require('lualine.themes.solarized'),
 				-- theme = "tokyonight-moon",
 				-- theme = "auto",
@@ -160,7 +160,7 @@ return {
 			inactive_sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "diff", "branch" }, -- "diagnostics" },
-				lualine_c = { "filename" },   -- "os.date('%a')", "data", "require'lsp-status'.status()" },
+				lualine_c = { "filename" }, -- "os.date('%a')", "data", "require'lsp-status'.status()" },
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },

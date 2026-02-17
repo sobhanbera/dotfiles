@@ -35,13 +35,20 @@ local solarized_colors = {
 	green = "#859900",
 	purple = "#d33682",
 	aqua = "#2aa198",
+
+	redDimmed = "#541413",
+	yellowDimmed = "#443300",
+	blueDimmed = "#0f3651",
+	greenDimmed = "#323b00",
+	purpleDimmed = "#541532",
+	aquaDimmed = "#104039",
 }
 
 local tokyodark_colors = {
 	white = "#A0A8CD",
-	black = "#11121D",
+	black = "#090B10", -- "#11121D",
 
-	darkgray = "#212234",
+	darkgray = "#1A1B2B",
 	gray = "#A0A8CD",
 
 	red = "#EE6D85",
@@ -50,6 +57,13 @@ local tokyodark_colors = {
 	green = "#95C561",
 	purple = "#A485DD",
 	aqua = "#38A89D",
+
+	redDimmed = "#3d1c23",
+	yellowDimmed = "#372b18",
+	blueDimmed = "#1c263d",
+	greenDimmed = "#25331a",
+	purpleDimmed = "#2a2239",
+	aquaDimmed = "#0f2a28",
 }
 
 -- ayu
@@ -133,6 +147,7 @@ local gruvbox_colors = {
 	aqua = "#689d6a",
 }
 
+local lualine = require("lualine")
 local utils = require("lualine.utils.utils")
 local highlight = require("lualine.highlight")
 local diagnostic_message = require("lualine.component"):extend()
@@ -206,7 +221,7 @@ function diagnostic_message:update_status(is_focused)
 		-- icons = { "", "", "", "" }
 		local icons = { "", " ", " ", " " }
 		local final_highlight_color =
-		{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
+			{ self.highlights.error, self.highlights.warn, self.highlights.info, self.highlights.hint }
 
 		-- for _, val in ipairs({ "Error", "Warn", "Info", "Hint" }) do
 		-- 	vim.fn.sign_define("DiagnosticSign" .. val, {
@@ -225,10 +240,10 @@ function diagnostic_message:update_status(is_focused)
 		-- })
 
 		local final_message = highlight.component_format_highlight(final_highlight_color[diag.severity])
-				.. " "
-				.. icons[diag.severity]
-				.. " "
-				.. diag.message
+			.. " "
+			.. icons[diag.severity]
+			.. " "
+			.. diag.message
 
 		-- if the length of final message is more than 150 characters, then truncate it
 		if string.len(final_message) > MAX_LENGTH then

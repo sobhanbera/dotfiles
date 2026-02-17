@@ -10,7 +10,7 @@ return {
 			javascriptreact = { "eslint" },
 			typescriptreact = { "eslint" },
 			-- svelte = { "eslint" },
-			-- python = { "pylint" },
+			python = { "pylint" },
 			typos = { "typos" },
 		}
 

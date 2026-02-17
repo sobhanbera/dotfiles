@@ -16,8 +16,8 @@ return {
 				"jsonls",
 				"lua_ls",
 				-- "marksman",
-				-- "pyright",
-				-- "rust_analyzer",
+				"pyright",
+				"rust_analyzer",
 				-- "svelte",
 				-- "tailwindcss",
 				"tsserver",
@@ -25,7 +25,7 @@ return {
 				"typescript-language-server",
 				"prettier",
 				"eslint-lsp",
-				-- "js-debug-adapter",
+				"js-debug-adapter",
 			},
 		},
 		config = function()
@@ -56,9 +56,9 @@ return {
 					"cssls",
 					"scss",
 					"json",
-					-- "rust",
+					"rust",
 					"comment",
-					-- "python",
+					"python",
 					-- "prismals",
 					-- "prisma",
 					-- "regex",
@@ -72,7 +72,7 @@ return {
 					-- "svelte",
 					-- "graphql",
 					"emmet_ls",
-					-- "pyright",
+					"pyright",
 				},
 			})
 
@@ -80,8 +80,8 @@ return {
 				ensure_installed = {
 					"prettier", -- js/ts
 					"stylua", -- lua
-					-- "isort", -- python
-					-- "black", -- python
+					"isort", -- python
+					"black", -- python
 					-- "pylint",
 					"eslint_d",
 				},
@@ -107,8 +107,8 @@ return {
 			-- "rafamadriz/friendly-snippets",
 
 			-- language specifics
-			-- "rust-lang/rust.vim",
-			-- "simrat39/rust-tools.nvim",
+			"rust-lang/rust.vim",
+			"simrat39/rust-tools.nvim",
 			-- "fatih/vim-go",
 			"mxw/vim-jsx",
 			-- "udalov/kotlin-vim",

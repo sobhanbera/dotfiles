@@ -31,7 +31,7 @@ o.shiftwidth = 2
 o.softtabstop = 2
 o.fsync = true
 o.pumheight = 12
-o.foldcolumn = "1" -- '0' is not bad
+o.foldcolumn = "0" -- '0' is not bad
 o.foldlevel = 99 -- Using ufo provider need a large value
 o.foldlevelstart = 99
 o.foldenable = true
@@ -43,7 +43,7 @@ wo.colorcolumn = "120"
 wo.signcolumn = "yes"
 wo.cursorline = true
 wo.numberwidth = 4
-wo.foldcolumn = "1"
+wo.foldcolumn = "0"
 wo.foldmethod = "indent"
 wo.foldlevel = 99 -- open all folds by default
 

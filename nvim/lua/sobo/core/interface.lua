@@ -1,3 +1,6 @@
+local diagnosticMessage = require("sobo.plugins.diagnostics.message")
+local colors = diagnosticMessage.colors
+
 vim.cmd([[ set encoding=utf-8 ]])
 vim.cmd([[ set termguicolors ]])
 
@@ -62,10 +65,10 @@ vim.cmd([[ hi NeoTreeEndOfBuffer guibg=NONE guifg=#313244 ]])
 -- vim.cmd [[ hi DiagnosticHint ctermbg=NONE ctermfg=NONE guibg=NONE guifg=#14BC85") ]] -- highlight for hint in diagnostic
 
 -- menu related highlights
--- vim.cmd([[ hi Pmenu guibg=NONE") ]]) -- auto-complete or any menu highlight
--- vim.cmd([[ hi PmenuSel guibg=#003440 guifg=#2aa097") ]]) -- highlight for the currently selected menu
--- -- vim.cmd [[ hi PmenuSbar guibg=#003440") ]] -- the scrollbar highlight
--- vim.cmd([[ hi PmenuThumb guibg=#003440") ]]) -- the thumb highlight in menu scrollbar
+vim.cmd("hi Pmenu guibg=NONE") -- auto-complete or any menu highlight
+vim.cmd("hi PmenuSel guibg=" .. colors.darkgray .. " guifg=" .. colors.blue) -- highlight for the currently selected menu
+vim.cmd("hi PmenuSbar guibg=" .. colors.darkgray) -- the scrollbar highlight
+vim.cmd("hi PmenuThumb guibg=" .. colors.blue) -- the thumb highlight in menu scrollbar
 
 -- search and visual highlight
 -- vim.cmd([[ hi Search guibg=#b16286 guifg=#bfbfbf ]]) -- highlight for the search term
